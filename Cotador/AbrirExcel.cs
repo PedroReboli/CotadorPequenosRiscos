@@ -99,7 +99,8 @@ namespace Cotador
             //Main.Taxa_Roubo.Text = Roubo.ToString();
             //Main.Avaria_Taxa.Text = Avaria.ToString();
             //Main.Limpeza_Taxa.Text = Limpeza.ToString();
-            
+            Main.Avaria_LMG.Text = double.Parse(look("D13")).ToString("N", new CultureInfo("pt-br", false));
+            Main.Limpeza_LMG.Text = double.Parse(look("D14")).ToString("N", new CultureInfo("pt-br", false));
             if (Roubo > 0)
             {
                 Main.Chk_Roubo.IsChecked = true;

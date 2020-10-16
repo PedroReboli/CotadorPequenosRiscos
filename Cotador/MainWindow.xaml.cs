@@ -340,7 +340,7 @@ namespace Cotador
             RCFDC.Visibility = Visibility.Hidden;
             RCTRC.Visibility = Visibility.Hidden;
         }
-
+        string copy = string.Empty;
         private void taxa_Click(object sender, RoutedEventArgs e)
         {
             string clip = Clipboard.GetText();
@@ -364,12 +364,12 @@ namespace Cotador
                     saida += "\r\n";
                     continue;
                 }
-                saida += valores[de, para].Replace(',','.') + "00%";
+                saida += valores[de, para].Replace('.',',') + "00%";
                 saida += "\r\n";
 
             }
             //Clipboard.SetData(DataFormats.Text, saida);
-
+            copy = saida;
             while (Clipboard.GetText().Contains(saida) == false)
             {
                 Clipboard.Clear();
@@ -380,6 +380,14 @@ namespace Cotador
             
         }
 
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            while (Clipboard.GetText().Contains(copy) == false)
+            {
+                Clipboard.Clear();
+                Clipboard.SetText(copy);
+                Clipboard.Flush();
+            }
+        }
     }
 }

@@ -258,9 +258,11 @@ namespace Cotador.Nacional
             E14.Content = "N° 317 – 	Cláusula Específica de dispensa do direito de regresso.".Replace('\t',' ');
             Coberturas.Items.Add(E14);
         }
+        public string path;
         public Nacional()
         {
             InitializeComponent();
+            path = Properties.Settings.Default.path;
             string para = @"N° 301 – 	Cláusula Específica para bens usados (limitado à Básica Restrita C);
 N° 302 –	Cláusula Específica para embarques aéreos sem valor declarado;
 N° 303 –	Cláusula Específica para seguros de importação chapas galvanizadas e/ou folhas de ferro zincadas (folha de flandres), (limitado à Básica Restrita C);

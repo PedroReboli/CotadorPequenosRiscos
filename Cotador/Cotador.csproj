@@ -136,9 +136,12 @@
     <Compile Include="Inicio\Tela_Inicial.xaml.cs">
       <DependentUpon>Tela_Inicial.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Nacional\Arquivos.cs" />
+    <Compile Include="Nacional\Gerar_Nacional.cs" />
     <Compile Include="Nacional\Nacional.xaml.cs">
       <DependentUpon>Nacional.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Nacional\Nacional_gerar.cs" />
     <Compile Include="padrao.cs" />
     <Compile Include="roubo.cs" />
     <Page Include="Caixa de Mensagem\mensagem.xaml">
