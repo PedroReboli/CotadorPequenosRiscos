@@ -11,7 +11,15 @@ namespace Cotador
         static public void Roubo()
         {
             consertar_numeros c = new consertar_numeros();
-            MainWindow Main = Application.Current.Windows[0] as MainWindow;
+            MainWindow Main = new MainWindow();
+            foreach (var janela in Application.Current.Windows)
+            {
+                if (janela.GetType() == Main.GetType())
+                {
+                    Main = (MainWindow)janela;
+                    break;
+                }
+            }
 
 
             acesso.header("<Segurado>", Main.Segurado.Text);

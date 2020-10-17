@@ -8,17 +8,20 @@ using System.Windows;
 namespace Cotador
 {
     class Avaria
-    {
-        //static MainWindow Main = new MainWindow();
-        consertar_numeros c = new consertar_numeros();
-        MainWindow Main = Application.Current.Windows[0] as MainWindow;
-        //Extenso Extenso = new Extenso();
-        //Carregar_Arquivos.Roubo carregar_Arquivos = new Carregar_Arquivos.Roubo();
-        //Carregar_Arquivos cacrregar_Arquivos = new Carregar_Arquivos();
-        
+    {        
         string[] numeros = new string[] { "5.1.1","5.1.2","5.1.3","5.1.4"};
         public void avaria()
         {
+            consertar_numeros c = new consertar_numeros();
+            MainWindow Main = new MainWindow();
+            foreach (var janela in Application.Current.Windows)
+            {
+                if (janela.GetType() == Main.GetType())
+                {
+                    Main = (MainWindow)janela;
+                    break;
+                }
+            }
             int qual = 0;
             if (Main.Chk_Avaraia.IsChecked == false)
             {

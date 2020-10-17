@@ -301,25 +301,13 @@ N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
             //System.IO.File.WriteAllText(@"C:\Python\texto.txt", saida);
             Iniciar();
         }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Gerar_Arquivo.gerar();
+        }
         private void ListBoxItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Coberturas.SelectedItem = null;
-            var h = Coberturas.SelectedItem;
-            /*try
-            {
-                if (((CheckBox)((ListBoxItem)sender).Content).IsChecked == true)
-                {
-                    ((CheckBox)((ListBoxItem)sender).Content).IsChecked = false;
-                }
-                else
-                {
-                    ((CheckBox)((ListBoxItem)sender).Content).IsChecked = true;
-                }
-            }
-            catch { }*/
-            
-            int i = 0;
-            i++;
         }
         private void RadioButton_Click(object sender, RoutedEventArgs e)
         {
@@ -465,6 +453,6 @@ N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
         public CheckBox E13 = new CheckBox();
         public CheckBox E14 = new CheckBox();
 
-        
-    }
+		
+	}
 }

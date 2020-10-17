@@ -9,6 +9,9 @@ namespace Cotador
 {
     public class acesso
     {
+        ///<summary>
+        ///Modifica um texto menor do que 255 caracteres por um texto maior do que 255 caracteres
+        ///</summary>
         static public void Modi(string antigo, string novo)
         {
             if (novo.Length > 255)
@@ -49,31 +52,47 @@ namespace Cotador
                 Gerar_Arquivo.objdoc.Content.Find.Execute(FindText: antigo, ReplaceWith: novo, Replace: Word.WdReplace.wdReplaceAll);
             }
         }
-        static public void Remover(string Subistituir)
+        ///<summary>
+        ///Remove uma string
+        ///</summary>
+        static public void Remover(string Substituir)
         {
             int x = 0;
-            if (Subistituir.Length > 255)
+            if (Substituir.Length > 255)
             {
-                while (x <= Subistituir.Length)
+                while (x <= Substituir.Length)
                 {
-                    if (x + 255 > Subistituir.Length)
+                    if (x + 255 > Substituir.Length)
                     {
-                        int faltando = Math.Abs( x - Subistituir.Length);
-                        Gerar_Arquivo.objdoc.Content.Find.Execute(FindText: Subistituir.Substring(x, faltando),ReplaceWith:"",Replace: WdReplace.wdReplaceOne);
+                        int faltando = Math.Abs( x - Substituir.Length);
+                        Gerar_Arquivo.objdoc.Content.Find.Execute(FindText: Substituir.Substring(x, faltando),ReplaceWith:"",Replace: WdReplace.wdReplaceOne);
                     }
                     else
                     {
-                        Gerar_Arquivo.objdoc.Content.Find.Execute(FindText: Subistituir.Substring(x, 255), ReplaceWith: "", Replace: WdReplace.wdReplaceOne);
+                        Gerar_Arquivo.objdoc.Content.Find.Execute(FindText: Substituir.Substring(x, 255), ReplaceWith: "", Replace: WdReplace.wdReplaceOne);
                     }
                     x += 255;
                 }
             }
             else
             {
-                Gerar_Arquivo.objdoc.Content.Find.Execute(FindText: Subistituir, ReplaceWith: "", Replace: WdReplace.wdReplaceOne);
+                Gerar_Arquivo.objdoc.Content.Find.Execute(FindText: Substituir, ReplaceWith: "", Replace: WdReplace.wdReplaceOne);
             }
 
         }
+        ///<summary>
+        ///Remove uma array de string
+        ///</summary>
+        static public void ARemover(string[] Substituir)
+		{
+            foreach (string texto in Substituir)
+			{
+                Remover(texto);
+			}
+		}
+        ///<summary>
+        ///Modifica apenas o header
+        ///</summary>
         static public void header (string antigo, string novo)
         {
             foreach (Microsoft.Office.Interop.Word.Range rng in Gerar_Arquivo.objdoc.StoryRanges)

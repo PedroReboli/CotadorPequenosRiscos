@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Cotador.Nacional"
         xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" x:Class="Cotador.Nacional.Nacional"
         mc:Ignorable="d"
-        Title="Nacional" Height="771.645" Width="1077.062" ResizeMode="CanMinimize">
+        Title="Nacional" Height="848.645" Width="1077.062" ResizeMode="CanMinimize">
 	<Window.Background>
 		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
 			<LinearGradientBrush.RelativeTransform>
@@ -24,70 +24,73 @@
 		</LinearGradientBrush>
 	</Window.Background>
 
-		<Grid>
-			<Border CornerRadius="50" BorderThickness="20" BorderBrush="Transparent"/>
-			<Rectangle HorizontalAlignment="Left" Height="46" Margin="46,10,0,0" VerticalAlignment="Top" Width="175">
-				<Rectangle.Fill>
-					<ImageBrush ImageSource="/Cotador;component/Imagens/logoHeader_3.png"/>
-				</Rectangle.Fill>
-			</Rectangle>
-			<ListBox x:Name="Coberturas" SelectionChanged="ListBox_SelectionChanged" HorizontalAlignment="Left" Height="405" Margin="19,326,0,0" VerticalAlignment="Top" Width="1025" Background="White" BorderBrush="Black">
-				<ListBox.ItemContainerStyle>
-					<Style TargetType="{x:Type ListBoxItem}">
-						<EventSetter
+	<Grid>
+		<Rectangle HorizontalAlignment="Left" Height="46" Margin="46,10,0,0" VerticalAlignment="Top" Width="175">
+			<Rectangle.Fill>
+				<ImageBrush ImageSource="/Cotador;component/Imagens/logoHeader_3.png"/>
+			</Rectangle.Fill>
+		</Rectangle>
+		<ListBox x:Name="Coberturas" SelectionChanged="ListBox_SelectionChanged" HorizontalAlignment="Left" Height="405" Margin="19,405,0,0" VerticalAlignment="Top" Width="1025" Background="White" BorderBrush="Black">
+			<ListBox.ItemContainerStyle>
+				<Style TargetType="{x:Type ListBoxItem}">
+					<EventSetter
                 Event="UIElement.PreviewMouseLeftButtonDown" 
                 Handler="ListBoxItem_PreviewMouseLeftButtonDown" />
-					</Style>
-				</ListBox.ItemContainerStyle>
+				</Style>
+			</ListBox.ItemContainerStyle>
 
-				<System:String>N° 1 – Cobertura Básica Restrita C (bens e/ou mercadorias usadas, em devolução ou redespachadas;</System:String>
-				<CheckBox  Content="fulano" Background="#FFFFEB3B" Width="798"/>
+			<System:String>N° 1 – Cobertura Básica Restrita C (bens e/ou mercadorias usadas, em devolução ou redespachadas;</System:String>
+			<CheckBox  Content="fulano" Background="#FFFFEB3B" Width="798"/>
 
 
-				<System:String>N° 13 – Cobertura Básica Restrita para transporte de óleo (petróleo) a granel (embarques aquaviários e terrestres);</System:String>
-				<System:String>caralho</System:String>
-				<System:String>caralho</System:String>
-				<System:String>caralho</System:String>
-				<System:String>caralho</System:String>
-			</ListBox>
-			<RadioButton x:Name="Coberturas_basicas" Click="RadioButton_Click" Content="Basicas" HorizontalAlignment="Left" Margin="19,307,0,0" VerticalAlignment="Top" Height="15" IsChecked="True"/>
-			<RadioButton x:Name="Coberturas_adicionais" Click="RadioButton_Click" Content="Adicionais" HorizontalAlignment="Left" Margin="19,288,0,0" VerticalAlignment="Top" Height="15"/>
-			<RadioButton x:Name="Coberturas_especificas" Click="RadioButton_Click" Content="Especificas" HorizontalAlignment="Left" Margin="19,269,0,0" VerticalAlignment="Top" Height="15"/>
-			<Button Content="Gerar" HorizontalAlignment="Left" Margin="804,205,0,0" VerticalAlignment="Top" Width="240" Height="116"/>
-			<Label Content="Segurado" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,61,0,0" FontWeight="Bold"/>
-			<TextBox x:Name="Segurado" HorizontalAlignment="Left" Height="23" Margin="152,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-			<Label Content="CNPJ" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,90,0,0" FontWeight="Bold"/>
-			<TextBox x:Name="CNPJ" HorizontalAlignment="Left" Height="23" Margin="152,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-			<Label Content="Corretor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,119,0,0" FontWeight="Bold"/>
+			<System:String>N° 13 – Cobertura Básica Restrita para transporte de óleo (petróleo) a granel (embarques aquaviários e terrestres);</System:String>
+			<System:String>caralho</System:String>
+			<System:String>caralho</System:String>
+			<System:String>caralho</System:String>
+			<System:String>caralho</System:String>
+		</ListBox>
+		<RadioButton x:Name="Coberturas_basicas" Click="RadioButton_Click" Content="Basicas" HorizontalAlignment="Left" Margin="19,386,0,0" VerticalAlignment="Top" Height="15" IsChecked="True"/>
+		<RadioButton x:Name="Coberturas_adicionais" Click="RadioButton_Click" Content="Adicionais" HorizontalAlignment="Left" Margin="19,367,0,0" VerticalAlignment="Top" Height="15"/>
+		<RadioButton x:Name="Coberturas_especificas" Click="RadioButton_Click" Content="Especificas" HorizontalAlignment="Left" Margin="19,348,0,0" VerticalAlignment="Top" Height="15"/>
+		<Button Click="Button_Click" Content="Gerar" HorizontalAlignment="Left" Margin="804,205,0,0" VerticalAlignment="Top" Width="240" Height="116"/>
+		<Label Content="Segurado" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,61,0,0" FontWeight="Bold"/>
+		<TextBox x:Name="Segurado" HorizontalAlignment="Left" Height="23" Margin="152,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		<Label Content="CNPJ" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,90,0,0" FontWeight="Bold"/>
+		<TextBox x:Name="CNPJ" HorizontalAlignment="Left" Height="23" Margin="152,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		<Label Content="Corretor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,119,0,0" FontWeight="Bold"/>
 
-			<Label Content="LMG(R$)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,148,0,0" FontWeight="Bold"/>
-			<Label Content="Taxa" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,177,0,0" FontWeight="Bold"/>
-			<CheckBox Content="Ajustavel" HorizontalAlignment="Left" Margin="383,67,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-			<CheckBox Content="Averbavel" HorizontalAlignment="Left" Margin="383,37,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-			<Label Content="Importancia Segurado" HorizontalAlignment="Left" Margin="19,206,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-			<Label Content="Premio liquido" HorizontalAlignment="Left" Margin="384,90,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-			<Label Content="Quantidade de Parcelas " HorizontalAlignment="Left" Margin="333,119,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-			<CheckBox Content="Fixa" HorizontalAlignment="Left" Margin="384,157,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-			<Label Content="Percentual" HorizontalAlignment="Left" Margin="402,189,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-			<Label Content="Valor" HorizontalAlignment="Left" Margin="422,218,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-			<CheckBox Content="Escalonada" HorizontalAlignment="Left" Margin="384,254,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-			<Label Content="POS" HorizontalAlignment="Left" Margin="488,254,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-			<CheckBox Content="Com Sublimite" HorizontalAlignment="Left" Margin="656,74,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-			<CheckBox Content="Sem Sublimite" HorizontalAlignment="Left" Margin="656,45,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-			<Label Content="SubLimite" HorizontalAlignment="Left" Margin="696,97,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-			<TextBox x:Name="Corretor" HorizontalAlignment="Left" Height="23" Margin="152,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-			<TextBox x:Name="LMG" HorizontalAlignment="Left" Height="23" Margin="152,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-			<TextBox x:Name="Taxa" HorizontalAlignment="Left" Height="23" Margin="152,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-			<TextBox x:Name="Importancia_Segurado" HorizontalAlignment="Left" Height="23" Margin="158,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-			<TextBox x:Name="Ajustavel_Premio_Liquido" HorizontalAlignment="Left" Height="23" Margin="480,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-			<TextBox x:Name="Ajustavel_Quantidade_Parcela" HorizontalAlignment="Left" Height="23" Margin="480,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-			<TextBox x:Name="Fixa_Percentual" HorizontalAlignment="Left" Height="23" Margin="488,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-			<TextBox x:Name="Fixa_Valor" HorizontalAlignment="Left" Height="23" Margin="488,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-			<TextBox x:Name="POS1" HorizontalAlignment="Left" Height="23" Margin="524,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="34"/>
-			<TextBox x:Name="Com_Sublimite_Sub_Limite" HorizontalAlignment="Left" Height="23" Margin="779,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-			<TextBox x:Name="POS2" HorizontalAlignment="Left" Height="23" Margin="563,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="34"/>
-			<TextBox x:Name="POS3" HorizontalAlignment="Left" Height="23" Margin="602,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="34"/>
+		<Label Content="LMG(R$)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,148,0,0" FontWeight="Bold"/>
+		<Label Content="Taxa" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,177,0,0" FontWeight="Bold"/>
+		<CheckBox x:Name="Ajustavel" Content="Ajustavel" HorizontalAlignment="Left" Margin="383,67,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<CheckBox x:Name="Averbavel" Content="Averbavel" HorizontalAlignment="Left" Margin="383,37,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<Label Content="Importancia Segurado" HorizontalAlignment="Left" Margin="19,206,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<Label Content="Premio liquido" HorizontalAlignment="Left" Margin="384,90,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<Label Content="Quantidade de Parcelas " HorizontalAlignment="Left" Margin="333,119,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<CheckBox Content="Fixa" HorizontalAlignment="Left" Margin="384,157,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<Label Content="Percentual" HorizontalAlignment="Left" Margin="402,189,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<Label Content="Valor" HorizontalAlignment="Left" Margin="422,218,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<CheckBox Content="Escalonada" HorizontalAlignment="Left" Margin="384,254,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<Label Content="POS" HorizontalAlignment="Left" Margin="488,254,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<CheckBox Content="Com Sublimite" HorizontalAlignment="Left" Margin="656,74,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<CheckBox Content="Sem Sublimite" HorizontalAlignment="Left" Margin="656,45,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<Label Content="SubLimite" HorizontalAlignment="Left" Margin="696,97,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<TextBox x:Name="Corretor" HorizontalAlignment="Left" Height="23" Margin="152,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="LMG" HorizontalAlignment="Left" Height="23" Margin="152,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="Taxa" HorizontalAlignment="Left" Height="23" Margin="152,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="Importancia_Segurada" HorizontalAlignment="Left" Height="23" Margin="158,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="Ajustavel_Premio_Liquido" HorizontalAlignment="Left" Height="23" Margin="480,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="Ajustavel_Quantidade_Parcela" HorizontalAlignment="Left" Height="23" Margin="480,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="Fixa_Percentual" HorizontalAlignment="Left" Height="23" Margin="488,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="Fixa_Valor" HorizontalAlignment="Left" Height="23" Margin="488,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="POS1" HorizontalAlignment="Left" Height="23" Margin="524,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="34"/>
+		<TextBox x:Name="Com_Sublimite_Sub_Limite" HorizontalAlignment="Left" Height="23" Margin="779,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="POS2" HorizontalAlignment="Left" Height="23" Margin="563,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="34"/>
+		<TextBox x:Name="POS3" HorizontalAlignment="Left" Height="23" Margin="602,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="34"/>
+		<Label Content="Sinistros" HorizontalAlignment="Left" Margin="77,235,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<TextBox x:Name="Sinistros" HorizontalAlignment="Left" Height="23" Margin="158,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		<Label Content="Mercadoria" HorizontalAlignment="Left" Margin="77,263,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<TextBox x:Name="Mercadoria" HorizontalAlignment="Left" Height="23" Margin="158,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
-		</Grid>
-	
+	</Grid>
+
 </Window>

@@ -141,7 +141,6 @@
     <Compile Include="Nacional\Nacional.xaml.cs">
       <DependentUpon>Nacional.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Nacional\Nacional_gerar.cs" />
     <Compile Include="padrao.cs" />
     <Compile Include="roubo.cs" />
     <Page Include="Caixa de Mensagem\mensagem.xaml">
@@ -160,15 +159,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="acesso.cs" />
+    <Compile Include="Core\acesso.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Avaria.cs" />
-    <Compile Include="consertar_numeros.cs" />
-    <Compile Include="Extenso.cs" />
-    <Compile Include="Gerar_Arquivo.cs" />
+    <Compile Include="Core\consertar_numeros.cs" />
+    <Compile Include="Core\Extenso.cs" />
+    <Compile Include="Core\Gerar_Arquivo.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
