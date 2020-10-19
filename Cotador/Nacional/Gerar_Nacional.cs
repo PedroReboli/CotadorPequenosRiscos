@@ -5,15 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using Word = Microsoft.Office.Interop.Word;
 namespace Cotador.Nacional
 {
 	class Gerar_Nacional
 	{
+		static Nacional Main = new Nacional();
 		public static void Gerar()
 		{
 			consertar_numeros c = new consertar_numeros();
-			Nacional Main = new Nacional();
 			foreach (var janela in Application.Current.Windows)
 			{
 				if (janela.GetType() == Main.GetType())
@@ -24,50 +25,148 @@ namespace Cotador.Nacional
 			}
 			if (c.F(Main.Sinistros.Text))
 			{
-				acesso.Remover("(<Sinistros Extenso>)");
-				acesso.Modi("R$ <Sinistros>", c.C(Main.Sinistros.Text));
+				Acesso.Remover("(<Sinistros Extenso>)");
+				Acesso.Modi("R$ <Sinistros>", c.C(Main.Sinistros.Text));
 			}
 			else
 			{
-				acesso.Modi("<Sinistros Extenso>", Extenso.EscreverExtenso(c.E(Main.Sinistros.Text)));
-				acesso.Modi("<Sinistros>", c.C(Main.Sinistros.Text));
+				Acesso.Modi("<Sinistros Extenso>", Extenso.EscreverExtenso(c.E(Main.Sinistros.Text)));
+				Acesso.Modi("<Sinistros>", c.C(Main.Sinistros.Text));
 			}
-			acesso.Modi("<Mercadoria>",Main.Mercadoria.Text);
-			acesso.Modi("<Importancia segurada>", c.C(Main.Importancia_Segurada.Text));
-			acesso.Modi("<Importancia seguradaExtenso>", Extenso.EscreverExtenso(c.E(Main.Importancia_Segurada.Text)));
-			acesso.Modi("<LMG>", c.C(Main.LMG.Text));
-			acesso.Modi("<LMG Extenso>", Extenso.EscreverExtenso(c.E(Main.LMG.Text)));
+			Acesso.Modi("<Mercadoria>",Main.Mercadoria.Text);
+			Acesso.Modi("<Importancia segurada>", c.C(Main.Importancia_Segurada.Text));
+			Acesso.Modi("<Importancia seguradaExtenso>", Extenso.EscreverExtenso(c.E(Main.Importancia_Segurada.Text)));
+			string cober = Coberturas();
+			Acesso.Modi("<Coberturas>", cober);
+
+			Acesso.Modi("<LMG>", c.C(Main.LMG.Text));
+			Acesso.Modi("<LMG Extenso>", Extenso.EscreverExtenso(c.E(Main.LMG.Text)));
 			if(Main.Averbavel.IsChecked == true)
 			{
-				acesso.ARemover(Arquivos.Ajustavel);
-				
+				Acesso.ARemover(Arquivos.Ajustavel);
+				Acesso.Modi("<Taxa>", Main.Taxa.Text);
 			}
 			else
 			{
-				acesso.ARemover(Arquivos.Averbavel);
-				acesso.Modi("<Taxa>", Main.Taxa.Text);
+				Acesso.ARemover(Arquivos.Averbavel);
+				Acesso.Modi("<Taxa>", Main.Taxa.Text);
 				double importancia_segurada = double.Parse(c.E(Main.Importancia_Segurada.Text));
 				double taxa = double.Parse(c.E(Main.Taxa.Text));
 				double premio_liquido;
 				double IOF;
 				double premio_total;
-				double parcelas = double.Parse(Main.Ajustavel_Quantidade_Parcela.Text);
+				double parcelas = double.Parse(c.E(Main.Ajustavel_Quantidade_Parcela.Text));
 				premio_liquido = importancia_segurada * (taxa / 100);
 				IOF = premio_liquido * (7.38 / 100);
 				premio_total = premio_liquido + IOF;
 				//.ToString("N", new CultureInfo("pt-br", false)
-				acesso.Modi("<importancia segurada>", importancia_segurada.ToString("N", new CultureInfo("pt-br", false)));
-				acesso.Modi("<Taxa>", taxa.ToString().Replace(".", ","));
-				acesso.Modi("<Premio liquido>", premio_liquido.ToString("N", new CultureInfo("pt-br", false)));
-				acesso.Modi("<Premio Liquido * 7,38%>", IOF.ToString("N", new CultureInfo("pt-br", false)));
-				acesso.Modi("<Premio liquido + IOF>", premio_total.ToString("N", new CultureInfo("pt-br", false)));
-				acesso.Modi("<Quantidades de parcelas>",Main.Ajustavel_Quantidade_Parcela.Text);
-				acesso.Modi("<Premio liquido Extenso>", Extenso.EscreverExtenso(c.M(premio_liquido.ToString())));
-				acesso.Modi("<Premio liquido / quantidades de parcelas>",(premio_liquido / parcelas).ToString("N", new CultureInfo("pt-br", false)))
+				Acesso.Modi("<importancia segurada>", importancia_segurada.ToString("N", new CultureInfo("pt-br", false)));
+				Acesso.Modi("<Taxa>", taxa.ToString().Replace(".", ","));
+				Acesso.Modi("<Premio liquido>", premio_liquido.ToString("N", new CultureInfo("pt-br", false)));
+				Acesso.Modi("<Premio Liquido * 7,38%>", IOF.ToString("N", new CultureInfo("pt-br", false)));
+				Acesso.Modi("<Premio liquido + IOF>", premio_total.ToString("N", new CultureInfo("pt-br", false)));
+				Acesso.Modi("<Quantidades de parcelas>",Main.Ajustavel_Quantidade_Parcela.Text);
+				Acesso.Modi("<Premio liquido Extenso>", Extenso.EscreverExtenso(c.V(premio_liquido.ToString())));
+				Acesso.Modi("<Premio liquido / quantidades de parcelas>", (premio_liquido / parcelas).ToString("N", new CultureInfo("pt-br", false)));
 			}
+			Acesso.Modi("<Premio Minimo>", Main.Premio_Minimo.Text);
+			Acesso.Modi("<Premio Minimo Extenso>", Extenso.EscreverExtenso(c.E(Main.Premio_Minimo.Text)));
+			if (Main.CHK_Fixa.IsChecked == true)
+			{
+				Acesso.Remover(Arquivos.Escalonada);
+				Acesso.Modi("<Percentual>", Main.Fixa_Percentual.Text);
+				Acesso.Modi("<percentual Extenso>", Extenso.EscreverExtenso(Main.Fixa_Percentual.Text).Replace("REAIS", ""));
+				Acesso.Modi("<Valor>", Main.Fixa_Valor.Text);
+				Acesso.Modi("<Valor Extenso>reais", Extenso.EscreverExtenso(c.E(Main.Fixa_Valor.Text)));
+			}
+			else
+			{
+				Acesso.Remover(Arquivos.Escalonada);
+				if(Main.POS1.Text == "0") {
+					Acesso.Modi("<POS1>", "Isento");
+				}
+				else
+				{
+					Acesso.Modi("<POS1>", Main.POS1.Text);
+				}
+				if (Main.POS2.Text == "0")
+				{
+					Acesso.Modi("<POS2>", "Isento");
+				}
+				else
+				{
+					Acesso.Modi("<POS2>", Main.POS2.Text);
+				}
+				if (Main.POS3.Text == "0")
+				{
+					Acesso.Modi("<POS3>", "Isento");
+				}
+				else
+				{
+					Acesso.Modi("<POS3>", Main.POS3.Text);
+				}
+			}
+			if (Main.Com_Sublimite.IsChecked == true)
+			{
+				Acesso.Modi("<SubLimite>", Main.Sub_Limite.Text);
+				Acesso.Modi("<SubLimite Extenso>", Extenso.EscreverExtenso(c.E(Main.Sub_Limite.Text)));
+			}
+			else
+			{
+				Acesso.Remover(Arquivos.ComSublimite);
+			}
+			Acesso.Modi("<Data>", DateTime.Today.Day.ToString() + "/" + DateTime.Today.Month.ToString() + "/" + DateTime.Today.Year.ToString());
+		}
+		public static string Coberturas()
+		{
 
+			bool foi = false;
+			foreach (var janela in Application.Current.Windows)
+			{
+				if (janela.GetType() == Main.GetType())
+				{
+					Main = (Nacional)janela;
+					break;
+				}
+			}
+			CheckBox[] Basica = new CheckBox[] { Main.B1, Main.B2, Main.B3, Main.B4, Main.B5, Main.B6, Main.B7, Main.B8, Main.B9, Main.B10, Main.B11, Main.B12, Main.B13, Main.B14, Main.B15, Main.B16, Main.B17, Main.B18, Main.B19, Main.B20, Main.B21, Main.B22, Main.B23 };
+			CheckBox[] Adicionais = new CheckBox[] { Main.A1, Main.A2, Main.A3, Main.A4, Main.A5, Main.A6, Main.A7, Main.A8, Main.A9, Main.A10, Main.A11, Main.A12, Main.A13, Main.A14 };
+			CheckBox[] Especificas = new CheckBox[] { Main.E1, Main.E2, Main.E3, Main.E4, Main.E5, Main.E6, Main.E7, Main.E8, Main.E9, Main.E10, Main.E11, Main.E12, Main.E13, Main.E14 };
 
-
+			string saida = string.Empty;
+			foreach (CheckBox check in Basica)
+			{
+				if (check.IsChecked == true)
+				{
+					if (foi == false)
+						saida += "\rCoberturas Básica:\r\r";
+					foi = true;
+					saida += check.Content.ToString().Replace("  "," ") + "\r";
+				}
+			}
+			foi = false;
+			foreach (CheckBox check in Adicionais)
+			{
+				if (check.IsChecked == true)
+				{
+					if (foi == false)
+						saida += "\rCoberturas Adicionais:\r\r";
+					foi = true;
+					saida += check.Content.ToString().Replace("  ", " ") + "\r";
+				}
+			}
+			foi = false;
+			foreach (CheckBox check in Especificas)
+			{
+				if (check.IsChecked == true)
+				{
+					if (foi == false)
+						saida += "\rCoberturas Específicas:\r\r";
+					foi = true;
+					saida += check.Content.ToString().Replace("  ", " ") + "\r";
+				}
+			}
+			return saida;
 		}
 	}
 }

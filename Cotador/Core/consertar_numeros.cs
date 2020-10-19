@@ -38,16 +38,7 @@ namespace Cotador
 			{
 				valor = valor.Substring(0, valor.Length - 3);
 			}
-			if (Main.ponto_virgula == true)
-			{
-				valor += ".00";
-			}
-			else
-			{
-				valor += ",00";
-			}
-
-			return valor;
+			return valor+ ",00";
 		}
 		///<summary>
 		///Remove o ,00 e todas os pontos e virgulas
@@ -55,7 +46,7 @@ namespace Cotador
 		public string E (string valor)
 		{
 
-			if (valor.Length == 0) return "";
+			if (valor.Length == 0) return "0";
 			if (valor.Substring(valor.Length - 3, 3).Contains(",00") | valor.Substring(valor.Length - 3, 3).Contains(".00"))
 			{
 				valor = valor.Substring(0, valor.Length - 3);
@@ -67,6 +58,7 @@ namespace Cotador
 		///</summary>
 		public bool F (string valor)
 		{
+			if (valor.Length == 0) return true;
 			char[] az = Enumerable.Range('a', 'z' - 'a' + 1).Select(i => (Char)i).ToArray();
 
 			foreach (char letra in az)

@@ -159,7 +159,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Core\acesso.cs" />
+    <Compile Include="Core\Acesso.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -252,6 +252,11 @@
   <ItemGroup>
     <Content Include="ClosedXML.dll" />
     <Content Include="DocumentFormat.OpenXml.dll" />
+    <Resource Include="Imagens\blank-page %281%29.png" />
+    <Resource Include="Imagens\globo-da-terra.png" />
+    <Resource Include="Imagens\pngegg.png" />
+    <Resource Include="pngegg.png" />
+    <Resource Include="Imagens\4_%2817%29.png" />
     <Resource Include="Imagens\brasil.png" />
     <Resource Include="Imagens\shipping-truck-icon.ico" />
   </ItemGroup>

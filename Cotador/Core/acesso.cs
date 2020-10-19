@@ -7,7 +7,7 @@ using Word = Microsoft.Office.Interop.Word;
 using Microsoft.Office.Interop.Word;
 namespace Cotador
 {
-    public class acesso
+    public class Acesso
     {
         ///<summary>
         ///Modifica um texto menor do que 255 caracteres por um texto maior do que 255 caracteres
@@ -31,19 +31,18 @@ namespace Cotador
                     catch
                     {
                         outrotemp = 0;
-                        while (true)
+
+                        try
                         {
-                            try
-                            {
-                                praq = novo.Substring(x, outrotemp);
-                                outrotemp += 1;
-                            }
-                            catch
-                            {
-                                outrotemp = outrotemp - 1;
-                            }
+                            outrotemp = Math.Abs(x - novo.Length);
+                            Gerar_Arquivo.objdoc.Content.Find.Execute(FindText: "<replace>", ReplaceWith: novo.Substring(x, outrotemp), Replace: Word.WdReplace.wdReplaceAll);
+                        }
+                        catch
+                        {
+                            outrotemp = outrotemp - 1;
                         }
                     }
+                    x += 246;
                 }
 
             }
