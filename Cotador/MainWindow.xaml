@@ -113,9 +113,9 @@
         <TextBox TextChanged="Procurar_Taxa" x:Name="Para" HorizontalAlignment="Left" Height="26" Margin="170,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="22" Background="White" MaxLength="2" CaretBrush="Black"/>
         <TextBox x:Name="Saida" HorizontalAlignment="Left" Height="26" Margin="212,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" Background="White" CaretBrush="Black"/>
         <Label Content="Tabela RCTR-C" HorizontalAlignment="Left" Margin="26,386,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <!--<Button Click="taxa_Click" Content="Button" HorizontalAlignment="Left" Height="38" Margin="268,150,0,0" VerticalAlignment="Top" Width="52"/>
+        <Button Click="taxa_Click" Content="Button" HorizontalAlignment="Left" Height="38" Margin="268,150,0,0" VerticalAlignment="Top" Width="52"/>
         <Button Click="Button_Click" Content="Copiar" HorizontalAlignment="Left" Margin="268,224,0,0" VerticalAlignment="Top" Width="52" Background="#FF0097FF" BorderBrush="#FF0097FF"/>
-        -->
+        
 
 
     </Grid>

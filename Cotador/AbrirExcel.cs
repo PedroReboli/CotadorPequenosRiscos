@@ -26,9 +26,9 @@ namespace Cotador
         {
             //path = "C:\\Users\\pedro\\Desktop\\pricing.xlsm";
             //path = "C:\\Users\\pedro\\Desktop\\Trabalho\\Cotador\\hehehe.xlsx";
-            string temp = Path.GetTempPath();
+            //string temp = Path.GetTempPath();
             //ZipFile.ExtractToDirectory(path, temp + "ExcelTemp\\");
-            System.IO.Directory.CreateDirectory(temp + "ExcelTemp\\");
+            //System.IO.Directory.CreateDirectory(temp + "ExcelTemp\\");
             /*using (ZipArchive archive = ZipFile.OpenRead(path))
             {
                 var result = from currEntry in archive.Entries
@@ -67,7 +67,15 @@ namespace Cotador
 
             /*workbook = new XLWorkbook(path);
             worksheet = workbook.Worksheet(1);*/
-            MainWindow Main = System.Windows.Application.Current.Windows[0] as MainWindow;
+            MainWindow Main = new MainWindow();
+            foreach (var janela in System.Windows.Application.Current.Windows)
+            {
+                if (janela.GetType() == Main.GetType())
+                {
+                    Main = (MainWindow)janela;
+                    break;
+                }
+            }
             int i = 0;
             ExcelPackage excel = new ExcelPackage(new FileInfo(path));
             ExcelWorkbook workbook = excel.Workbook;
@@ -116,12 +124,11 @@ namespace Cotador
                 Main.Chk_limpeza.IsChecked = true;
                 Main.Limpeza_Taxa.Text = Limpeza.ToString();
             }
-            int sinistro;
-            if (int.TryParse(look("D24"), out sinistro) == false)
-            {
-                sinistro = 0;
-            }
-            if(sinistro > 0)
+			if (int.TryParse(look("D24"), out int sinistro) == false)
+			{
+				sinistro = 0;
+			}
+			if (sinistro > 0)
             {
                 Main.Sinistros.Text = look("D24");
             }
@@ -133,10 +140,6 @@ namespace Cotador
 
             string look(string posicao)
             {
-                /*char[] az = Enumerable.Range('a', 'z' - 'a' + 1).Select(i => (Char)i).ToArray();
-
-                var row = worksheet.Column(Array.IndexOf(az,letra.ToLower().ToCharArray()[0])+1);
-                return row.Cell(int.Parse(valor)).Value.ToString();*/
                 var x = worksheet.Cells[posicao].Value;
                 if (x == null)
                 {
@@ -146,17 +149,12 @@ namespace Cotador
             }
             double lookk(string posicao)
             {
-                /*char[] az = Enumerable.Range('a', 'z' - 'a' + 1).Select(i => (Char)i).ToArray();
-
-                var row = worksheet.Column(Array.IndexOf(az, letra.ToLower().ToCharArray()[0]) + 1);
-                double h = (double)row.Cell(int.Parse(valor)).Value;*/
-                double h;
-                var x = worksheet.Cells[posicao].Value;
-                if (x == null)
+				var x = worksheet.Cells[posicao].Value;
+				if (x == null)
                 {
                     return 0;
                 }
-                if(double.TryParse(worksheet.Cells[posicao].Value.ToString(), out h))
+                if(double.TryParse(worksheet.Cells[posicao].Value.ToString(), out double h))
                 {
                     return h * 100;
                 }
@@ -164,19 +162,6 @@ namespace Cotador
                 {
                     return 0;
                 }
-                
-                double d;
-                //double.TryParse(h, out d);
-                try
-                {
-                    //return h * 100d;
-                }
-                catch
-                {
-                    //System.Windows.Forms.MessageBox.Show("Deveria Ter um numero em " + letra + valor, "Houve um Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return 0;
-                }
-                //return float.Parse(row.Cell(int.Parse(valor)).Value.ToString()).ToString();
             }
 
         }

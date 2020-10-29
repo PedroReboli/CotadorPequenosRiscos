@@ -47,9 +47,15 @@ namespace Cotador
 		{
 
 			if (valor.Length == 0) return "0";
-			if (valor.Substring(valor.Length - 3, 3).Contains(",00") | valor.Substring(valor.Length - 3, 3).Contains(".00"))
+			try { 
+				if (valor.Substring(valor.Length - 3, 3).Contains(",00") | valor.Substring(valor.Length - 3, 3).Contains(".00"))
+				{
+					valor = valor.Substring(0, valor.Length - 3);
+				}
+			}
+			catch
 			{
-				valor = valor.Substring(0, valor.Length - 3);
+
 			}
 			return valor.Replace(".","").Replace(",","");
 		}
@@ -73,7 +79,15 @@ namespace Cotador
 		///</summary>
 		public string V (string valor)
 		{
+			
 			return valor.Replace(".", ",");
+		}
+		///<summary>
+		///Remove , e coloca . no lugar
+		///</summary>
+		public string P(string valor)
+		{
+			return valor.Replace(",", ".");
 
 		}
 	}

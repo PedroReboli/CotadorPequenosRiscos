@@ -23,75 +23,30 @@ namespace Cotador.Nacional
 		public void Iniciar()
 		{
 			Coberturas.Items.Clear();
-			B1.Width = Coberturas.Width;
-			B1.Content = "N° 1 – Cobertura Básica Restrita C (bens e/ou mercadorias usadas, em devolução ou redespachadas;".Replace('\t',' ');
-			Coberturas.Items.Add(B1);
-			B2.Width = Coberturas.Width;
-			B2.Content = "N° 2 – 	Cobertura Básica Restrita B;".Replace('\t',' ');
-			Coberturas.Items.Add(B2);
-			B3.Width = Coberturas.Width;
-			B3.Content = "N° 3 – Cobertura Básica Ampla A (bens e/ou mercadorias novas);".Replace('\t',' ');
-			Coberturas.Items.Add(B3);
-			B4.Width = Coberturas.Width;
-			B4.Content = "N° 4 – Cobertura Básica Restrita para embarques de mercadorias/bens acondicionados em ambientes refrigerados;".Replace('\t',' ');
-			Coberturas.Items.Add(B4);
-			B5.Width = Coberturas.Width;
-			B5.Content = "N° 5 – Cobertura Básica Ampla para embarques de mercadorias/bens acondicionados em ambientes refrigerados;".Replace('\t',' ');
-			Coberturas.Items.Add(B5);
-			B6.Width = Coberturas.Width;
-			B6.Content = "N° 6 – Cobertura Básica Restrita para mercadorias/bens congeladas;".Replace('\t',' ');
-			Coberturas.Items.Add(B6);
-			B7.Width = Coberturas.Width;
-			B7.Content = "N° 7 – Cobertura Básica Ampla para mercadorias/bens congelados;".Replace('\t',' ');
-			Coberturas.Items.Add(B7);
-			B8.Width = Coberturas.Width;
-			B8.Content = "N° 8 – Cobertura Básica Ampla para bovinos incluindo reprodução;".Replace('\t',' ');
-			Coberturas.Items.Add(B8);
-			B9.Width = Coberturas.Width;
-			B9.Content = "N° 9 – Cobertura Básica Ampla para animais vivos (exceto embarques aéreos de aves vivas);".Replace('\t',' ');
-			Coberturas.Items.Add(B9);
-			B10.Width = Coberturas.Width;
-			B10.Content = "N° 10 – Cobertura Básica Ampla para seguros de transportes aéreos de aves vivas;".Replace('\t',' ');
-			Coberturas.Items.Add(B10);
-			B11.Width = Coberturas.Width;
-			B11.Content = "N° 11 – Cobertura Básica Ampla para batata e outros bulbos-raízes;".Replace('\t',' ');
-			Coberturas.Items.Add(B11);
-			B12.Width = Coberturas.Width;
-			B12.Content = "N° 12 – Cobertura Básica Ampla para embarques a granel (aquaviários e terrestres);".Replace('\t',' ');
-			Coberturas.Items.Add(B12);
-			B13.Width = Coberturas.Width;
-			B13.Content = "N° 13 – Cobertura Básica Restrita para transporte de óleo (petróleo) a granel (embarques aquaviários e terrestres);".Replace('\t',' ');
-			Coberturas.Items.Add(B13);
-			B14.Width = Coberturas.Width;
-			B14.Content = "N° 14 – Cobertura Básica Restrita para Carvão (embarques aquaviários e terrestres);".Replace('\t',' ');
-			Coberturas.Items.Add(B14);
-			B15.Width = Coberturas.Width;
-			B15.Content = "N° 15 – Cobertura Básica Restrita para madeiras (carga no convés)".Replace('\t',' ');
-			Coberturas.Items.Add(B15);
-			B16.Width = Coberturas.Width;
-			B16.Content = "N° 16 – Cobertura Básica Ampla para madeiras (carga não acondicionada no convés);".Replace('\t',' ');
-			Coberturas.Items.Add(B16);
-			B17.Width = Coberturas.Width;
-			B17.Content = "N° 17 – Cobertura Básica Restrita para borracha natural (excluindo látex líquido);".Replace('\t',' ');
-			Coberturas.Items.Add(B17);
-			B18.Width = Coberturas.Width;
-			B18.Content = "N° 18 – Cobertura Básica Restrita para juta;".Replace('\t',' ');
-			Coberturas.Items.Add(B18);
-			B19.Width = Coberturas.Width;
-			B19.Content = "N° 19 – Cobertura Básica para seguros de operações isoladas;".Replace('\t',' ');
-			Coberturas.Items.Add(B19);
-			B20.Width = Coberturas.Width;
-			B20.Content = "N° 20 – Cobertura Básica para seguros de bagagem;".Replace('\t',' ');
-			Coberturas.Items.Add(B20);
-			B21.Width = Coberturas.Width;
-			B21.Content = "N° 21 – Cobertura Básica para seguros de mercadorias conduzidas por portadores;".Replace('\t',' ');
-			Coberturas.Items.Add(B21);
-			B22.Width = Coberturas.Width;
-			B22.Content = "N° 22 – Cobertura Básica para seguros de mostruários sob a responsabilidade de viajantes comerciais;".Replace('\t',' ');
-			Coberturas.Items.Add(B22);
-			B23.Width = Coberturas.Width;
-			B23.Content = "N° 23 – Cobertura Básica para seguros de transportes de títulos em malotes;".Replace('\t',' ');
-			Coberturas.Items.Add(B23);
+			Basicas();
+			
+			POS1.Visibility = Visibility.Hidden;
+			POS2.Visibility = Visibility.Hidden;
+			POS3.Visibility = Visibility.Hidden;
+
+
+			LAB_Percentual.Visibility = Visibility.Hidden;
+			LAB_Valor.Visibility = Visibility.Hidden;
+			Fixa_Percentual.Visibility = Visibility.Hidden;
+			Fixa_Valor.Visibility = Visibility.Hidden;
+
+			LAB_Premio_Minimo.Visibility = Visibility.Hidden;
+			Premio_Minimo.Visibility = Visibility.Hidden;
+
+			LAB_Quantidade_De_Parcelas.Visibility = Visibility.Hidden;
+			Ajustavel_Quantidade_Parcela.Visibility = Visibility.Hidden;
+			LAB_Ajustavel_Premio_MInimo.Visibility = Visibility.Hidden;
+			_80.Visibility = Visibility.Hidden;
+			_90.Visibility = Visibility.Hidden;
+			_100.Visibility = Visibility.Hidden;
+
+			LAB_SubLimite.Visibility = Visibility.Hidden;
+			Sub_Limite.Visibility = Visibility.Hidden;
 		}
 		long tempo = 0;
 		public void Basicas()
@@ -257,6 +212,8 @@ namespace Cotador.Nacional
 			Coberturas.Items.Add(E13);
 			E14.Width = Coberturas.Width;
 			E14.Content = "N° 317 – 	Cláusula Específica de dispensa do direito de regresso.".Replace('\t',' ');
+			E14.Checked += DDR;
+			E14.Unchecked += DDR;
 			Coberturas.Items.Add(E14);
 		}
 		public string path;
@@ -301,7 +258,10 @@ N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
 			}
 			//System.IO.File.WriteAllText(@"C:\Python\texto.txt", saida);
 			*/
+			Especificas();
+			Basicas();
 			Iniciar();
+			
 		}
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
@@ -309,7 +269,9 @@ N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
 		}
 		private void ListBoxItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 		{
+			
 			Coberturas.SelectedItem = null;
+
 		}
 		private void RadioButton_Click(object sender, RoutedEventArgs e)
 		{
@@ -427,6 +389,169 @@ N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
 				Properties.Settings.Default.Save();
 				this.check.Background = Brushes.Green;
 				this.check.BorderBrush = Brushes.Green;
+			}
+		}
+		long total = DateTime.Now.Ticks;
+		private void DDR(object sender, RoutedEventArgs e)
+		{
+			if (DateTime.Now.Ticks - total < 10) return;
+			if (((CheckBox)sender).Content.ToString() == "DDR")
+			{
+				if (Chk_DDR.IsChecked == true)
+				{
+					E14.IsChecked = true;
+				}
+				else
+				{
+					E14.IsChecked = false;
+				}
+			}
+			else
+			{
+				if (E14.IsChecked == true)
+				{
+					Chk_DDR.IsChecked = true;
+				}
+				else
+				{
+					Chk_DDR.IsChecked = false;
+				}
+			}
+			
+		}
+
+		private void Averbavel_Checked(object sender, RoutedEventArgs e)
+		{
+			if (Averbavel.IsChecked == true)
+			{
+				Ajustavel.IsChecked = false;
+				LAB_Premio_Minimo.Visibility = Visibility.Visible;
+				Premio_Minimo.Visibility = Visibility.Visible;
+
+				LAB_Ajustavel_Premio_MInimo.Visibility = Visibility.Hidden;
+				LAB_Quantidade_De_Parcelas.Visibility = Visibility.Hidden;
+				Ajustavel_Quantidade_Parcela.Visibility = Visibility.Hidden;
+				_80.Visibility = Visibility.Hidden;
+				_90.Visibility = Visibility.Hidden;
+				_100.Visibility = Visibility.Hidden;
+
+			}
+			else
+			{
+				Ajustavel.IsChecked = true;
+				LAB_Premio_Minimo.Visibility = Visibility.Hidden;
+				Premio_Minimo.Visibility = Visibility.Hidden;
+
+				LAB_Ajustavel_Premio_MInimo.Visibility = Visibility.Visible;
+				LAB_Quantidade_De_Parcelas.Visibility = Visibility.Visible;
+				Ajustavel_Quantidade_Parcela.Visibility = Visibility.Visible;
+				_80.Visibility = Visibility.Visible;
+				_90.Visibility = Visibility.Visible;
+				_100.Visibility = Visibility.Visible;
+			}
+		}
+
+		private void Ajustavel_Checked(object sender, RoutedEventArgs e)
+		{
+			if (Ajustavel.IsChecked == false)
+			{
+				Averbavel.IsChecked = true;
+				LAB_Premio_Minimo.Visibility = Visibility.Visible;
+				Premio_Minimo.Visibility = Visibility.Visible;
+
+				LAB_Quantidade_De_Parcelas.Visibility = Visibility.Hidden;
+				Ajustavel_Quantidade_Parcela.Visibility = Visibility.Hidden;
+				LAB_Ajustavel_Premio_MInimo.Visibility = Visibility.Hidden;
+				_80.Visibility = Visibility.Hidden;
+				_90.Visibility = Visibility.Hidden;
+				_100.Visibility = Visibility.Hidden;
+
+			}
+			else
+			{
+				Averbavel.IsChecked = false;
+				LAB_Premio_Minimo.Visibility = Visibility.Hidden;
+				Premio_Minimo.Visibility = Visibility.Hidden;
+
+				LAB_Ajustavel_Premio_MInimo.Visibility = Visibility.Visible;
+				LAB_Quantidade_De_Parcelas.Visibility = Visibility.Visible;
+				Ajustavel_Quantidade_Parcela.Visibility = Visibility.Visible;
+				_80.Visibility = Visibility.Visible;
+				_90.Visibility = Visibility.Visible;
+				_100.Visibility = Visibility.Visible;
+			}
+		}
+
+		private void CHK_Fixa_Checked(object sender, RoutedEventArgs e)
+		{
+			if (CHK_Fixa.IsChecked == true)
+			{
+				Escalonda.IsChecked = false;
+				LAB_Percentual.Visibility = Visibility.Visible;
+				LAB_Valor.Visibility = Visibility.Visible;
+				Fixa_Percentual.Visibility = Visibility.Visible;
+				Fixa_Valor.Visibility = Visibility.Visible;
+
+				POS1.Visibility = Visibility.Hidden;
+				POS2.Visibility = Visibility.Hidden;
+				POS3.Visibility = Visibility.Hidden;
+			}
+			else
+			{
+				Escalonda.IsChecked = true;
+				LAB_Percentual.Visibility = Visibility.Hidden;
+				LAB_Valor.Visibility = Visibility.Hidden;
+				Fixa_Percentual.Visibility = Visibility.Hidden;
+				Fixa_Valor.Visibility = Visibility.Hidden;
+
+				POS1.Visibility = Visibility.Visible;
+				POS2.Visibility = Visibility.Visible;
+				POS3.Visibility = Visibility.Visible;
+			}
+			
+			
+		}
+
+		private void Escalonda_Checked(object sender, RoutedEventArgs e)
+		{
+			if (Escalonda.IsChecked == false)
+			{
+				CHK_Fixa.IsChecked = true;
+				LAB_Percentual.Visibility = Visibility.Visible;
+				LAB_Valor.Visibility = Visibility.Visible;
+				Fixa_Percentual.Visibility = Visibility.Visible;
+				Fixa_Valor.Visibility = Visibility.Visible;
+				
+				POS1.Visibility = Visibility.Hidden;
+				POS2.Visibility = Visibility.Hidden;
+				POS3.Visibility = Visibility.Hidden;
+			}
+			else
+			{
+				CHK_Fixa.IsChecked = false;
+				LAB_Percentual.Visibility = Visibility.Hidden;
+				LAB_Valor.Visibility = Visibility.Hidden;
+				Fixa_Percentual.Visibility = Visibility.Hidden;
+				Fixa_Valor.Visibility = Visibility.Hidden;
+
+				POS1.Visibility = Visibility.Visible;
+				POS2.Visibility = Visibility.Visible;
+				POS3.Visibility = Visibility.Visible;
+			}
+		}
+
+		private void Com_Sublimite_Checked(object sender, RoutedEventArgs e)
+		{
+
+			if (Com_Sublimite.IsChecked == true)
+			{
+				LAB_SubLimite.Visibility = Visibility.Visible;
+				Sub_Limite.Visibility = Visibility.Visible;
+			}
+			else
+			{
+				LAB_SubLimite.Visibility = Visibility.Hidden;
+				Sub_Limite.Visibility = Visibility.Hidden;
 			}
 		}
 	}

@@ -46,7 +46,7 @@ namespace Cotador.Caixa_de_Mensagem
 			//await worker_DoWork();
 		}
 
-		async void worker_DoWork(object sender, DoWorkEventArgs e)
+		void worker_DoWork(object sender, DoWorkEventArgs e)
 		{
 			for (int i = 0; i < 1000; i++)
 			{

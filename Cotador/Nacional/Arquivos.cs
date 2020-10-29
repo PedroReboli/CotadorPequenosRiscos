@@ -72,9 +72,10 @@ namespace Cotador.Nacional
 		{
 			get
 			{
+				//return new string[] { "Nos sinistros relacionados a roubo/assalto, desaparecimento do carregamento, o segurado terá uma participação obrigatória (progressiva), conforme segue:", "1º sinistro: <POS1>;", "2º sinistro: <POS2>;", "3º sinistro em diante: <POS3>." };
 				Nacional main = new Nacional();
 				string saida = string.Empty;
-				saida = Ler(main.path + @"Modelos\Nacional\Textos\FixaEscalonada\Fixa.txt");
+				saida = Ler(main.path + @"Modelos\Nacional\Textos\FixaEscalonada\Escalonada.txt");
 				return saida;
 			}
 		}
@@ -96,6 +97,15 @@ namespace Cotador.Nacional
 				string saida = string.Empty;
 				saida = Ler(main.path + @"Modelos\Nacional\Textos\Sublimite\Sem Sublimite.txt");
 				return saida;
+			}
+		}
+		static public string DDR
+		{
+			get
+			{
+				Nacional Main = new Nacional();
+				
+				return Ler(Main.path + @"Modelos\Nacional\Textos\DDR\DDR.txt");
 			}
 		}
 	}

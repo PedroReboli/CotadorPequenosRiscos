@@ -193,13 +193,17 @@ namespace Cotador
             //MessageBox.Show(c.C(Sinistros.Text));
             try
             {
+                Core.Debug.Write("entrando em Gerar_Arquivo.gerar()");
                 Gerar_Arquivo.gerar();
-                Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Arquivo gerado","Arquivo foi gerado com sucesso");
-                messa.Show();
-
+                //Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Arquivo gerado","Arquivo foi gerado com sucesso");
+                //messa.Show();
+                
             }
-            catch
+            catch (Exception ex)
             {
+
+                System.IO.File.WriteAllText(Directory.GetCurrentDirectory()+@"\Debug.txt", ex.Message);
+
                 Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("ERRO", "Houve um erro em gerar o arquivo");
                 messa.Show();
 
