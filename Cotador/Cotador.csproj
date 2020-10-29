@@ -17,6 +17,8 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -42,6 +44,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -72,11 +75,12 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClosedXML, Version=0.95.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ClosedXML.0.95.3\lib\net46\ClosedXML.dll</HintPath>
+    <Reference Include="ClosedXML, Version=0.80.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.80.1\lib\net35-client\ClosedXML.dll</HintPath>
     </Reference>
-    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
-      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.1.0\lib\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="EPPlus, Version=4.5.3.3, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.4.5.3.3\lib\net40\EPPlus.dll</HintPath>
@@ -133,15 +137,17 @@
     <Compile Include="Controle_de_Cotacao.xaml.cs">
       <DependentUpon>Controle_de_Cotacao.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Core\Debug.cs" />
+    <Compile Include="Core\Verificar_Arquivos.cs" />
     <Compile Include="Inicio\Tela_Inicial.xaml.cs">
       <DependentUpon>Tela_Inicial.xaml</DependentUpon>
     </Compile>
     <Compile Include="Nacional\Arquivos.cs" />
+    <Compile Include="Nacional\Excel.cs" />
     <Compile Include="Nacional\Gerar_Nacional.cs" />
     <Compile Include="Nacional\Nacional.xaml.cs">
       <DependentUpon>Nacional.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Nacional\Nacional_gerar.cs" />
     <Compile Include="padrao.cs" />
     <Compile Include="roubo.cs" />
     <Page Include="Caixa de Mensagem\mensagem.xaml">
@@ -160,15 +166,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="acesso.cs" />
+    <Compile Include="Core\Acesso.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Avaria.cs" />
-    <Compile Include="consertar_numeros.cs" />
-    <Compile Include="Extenso.cs" />
-    <Compile Include="Gerar_Arquivo.cs" />
+    <Compile Include="Core\consertar_numeros.cs" />
+    <Compile Include="Core\Extenso.cs" />
+    <Compile Include="Core\Gerar_Arquivo.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -253,6 +259,10 @@
   <ItemGroup>
     <Content Include="ClosedXML.dll" />
     <Content Include="DocumentFormat.OpenXml.dll" />
+    <Resource Include="Imagens\blank-page %281%29.png" />
+    <Resource Include="Imagens\globo-da-terra.png" />
+    <Resource Include="Imagens\pngegg.png" />
+    <Resource Include="Imagens\4_%2817%29.png" />
     <Resource Include="Imagens\brasil.png" />
     <Resource Include="Imagens\shipping-truck-icon.ico" />
   </ItemGroup>
