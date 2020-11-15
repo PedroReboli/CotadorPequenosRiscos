@@ -51,7 +51,7 @@ namespace Cotador
 		{
 			
 			oWord = new Word.Application();
-			oWord.Visible = visivel;
+			oWord.Visible = true;
 			Word.Document nacional;
 			Nacional.Nacional Main = new Nacional.Nacional();
 			foreach (var janela in Application.Current.Windows)
@@ -69,7 +69,7 @@ namespace Cotador
 		static void Gerar_Transporte()
 		{
 			oWord = new Word.Application();
-			oWord.Visible = visivel;
+			oWord.Visible = true;
 			Word.Document Acidente;
 			MainWindow Main = new MainWindow();
 			foreach (var janela in Application.Current.Windows)

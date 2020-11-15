@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -221,6 +222,18 @@ namespace Cotador.Nacional
 		{
 			InitializeComponent();
 			path = Properties.Settings.Default.path;
+			if (path != string.Empty)
+			{
+				this.Gerar.IsEnabled = true;
+				this.check.Background = Brushes.Green;
+				this.check.BorderBrush = Brushes.Green;
+			}
+			else
+			{
+				this.Gerar.IsEnabled = false;
+				this.check.Background = Brushes.Red;
+				this.check.BorderBrush = Brushes.Red;
+			}
 			/*string para = @"N° 301 – 	Cláusula Específica para bens usados (limitado à Básica Restrita C);
 N° 302 –	Cláusula Específica para embarques aéreos sem valor declarado;
 N° 303 –	Cláusula Específica para seguros de importação chapas galvanizadas e/ou folhas de ferro zincadas (folha de flandres), (limitado à Básica Restrita C);
@@ -265,7 +278,20 @@ N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
 		}
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			Gerar_Arquivo.gerar();
+			try
+			{
+				Gerar_Arquivo.gerar();
+				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Arquivo gerado", "Arquivo foi gerado com sucesso");
+				messa.Show();
+			}
+			catch(Exception f)
+			{
+				System.IO.File.WriteAllText(Directory.GetCurrentDirectory() + @"\Debug.txt", f.Message);
+
+				MessageBox.Show($"Houve um erro em gerar o arquivo\nUm relatorio de erros foi salvo em\n{Directory.GetCurrentDirectory() + @"\Debug.txt"}");
+				//messa.Show();
+			}
+			
 		}
 		private void ListBoxItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 		{
@@ -552,6 +578,34 @@ N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
 			{
 				LAB_SubLimite.Visibility = Visibility.Hidden;
 				Sub_Limite.Visibility = Visibility.Hidden;
+			}
+		}
+		void LoopVisualTree(DependencyObject obj)
+		{
+			for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
+			{
+				if (obj is TextBox)
+					((TextBox)obj).Text = string.Empty;
+				if (obj is CheckBox)
+					((CheckBox)obj).IsChecked = false;
+				LoopVisualTree(VisualTreeHelper.GetChild(obj, i));
+			}
+
+		}
+		private void Window_Drop(object sender, DragEventArgs e)
+		{
+			if (e.Data.GetDataPresent("FileName"))
+			{
+				string[] fileName = (string[])e.Data.GetData(DataFormats.FileDrop);
+				try
+				{
+					LoopVisualTree(this);
+					Excel.Abrir(fileName[0]);
+				}
+				catch(Exception f)
+				{
+					MessageBox.Show($"Houve um erro na hora de importar o arquivo Excel\n{f}");
+				}
 			}
 		}
 	}

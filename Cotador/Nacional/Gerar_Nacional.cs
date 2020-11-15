@@ -30,10 +30,18 @@ namespace Cotador.Nacional
 			}
 			else
 			{
-				Acesso.Modi("<Sinistros Extenso>", Extenso.EscreverExtenso(c.E(Main.Sinistros.Text)));
-				Acesso.Modi("<Sinistros>", c.C(Main.Sinistros.Text));
+				if (int.Parse(Main.Sinistros.Text.Replace(",","").Replace(".","")) == 0)
+				{
+					Acesso.Remover("(<Sinistros Extenso>)");
+					Acesso.Modi("R$ <Sinistros>", "Sem Sinistro");
+				}
+				else
+				{
+					Acesso.Modi("<Sinistros Extenso>", Extenso.EscreverExtenso(c.E(Main.Sinistros.Text)));
+					Acesso.Modi("<Sinistros>", c.C(Main.Sinistros.Text));
+				}
+				
 			}
-
 			if (Main.Averbavel.IsChecked == true)
 			{
 				Acesso.ARemover(Arquivos.Ajustavel);
@@ -88,6 +96,12 @@ namespace Cotador.Nacional
 				Acesso.Remover(Arquivos.DDR);
 				Acesso.Modi("<DRR NAO Aplicavel>", "Não Aplicável");
 			}
+			Acesso.Modi("<Data>", DateTime.Today.Day.ToString() + "/" + DateTime.Today.Month.ToString() + "/" + DateTime.Today.Year.ToString());
+			Acesso.Modi("<Segurado>", Main.Segurado.Text.ToUpper());
+			Acesso.Modi("<Corretor>", Main.Corretor.Text.ToUpper());
+			Acesso.Modi("<CNPJ>", Main.Mercadoria.Text);
+			Acesso.Modi("<Ncotacao>",Main.Ncotacao.Text);
+
 			Acesso.Modi("<Mercadoria>",Main.Mercadoria.Text);
 			Acesso.Modi("<Importancia segurada>", c.C(Main.Importancia_Segurada.Text));
 			Acesso.Modi("<Importancia seguradaExtenso>", Extenso.EscreverExtenso(c.E(Main.Importancia_Segurada.Text)));
@@ -147,9 +161,7 @@ namespace Cotador.Nacional
 			{
 				Acesso.Remover(Arquivos.ComSublimite);
 			}
-			Acesso.Modi("<Data>", DateTime.Today.Day.ToString() + "/" + DateTime.Today.Month.ToString() + "/" + DateTime.Today.Year.ToString());
-			Acesso.Modi("<Segurado>", Main.Segurado.Text.ToUpper());
-			Acesso.Modi("<Corretor>", Main.Corretor.Text.ToUpper());
+			
 		}
 		public static string Coberturas()
 		{

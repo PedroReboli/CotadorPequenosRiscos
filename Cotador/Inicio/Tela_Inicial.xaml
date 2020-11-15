@@ -33,7 +33,7 @@
 			</Button.Content>
 
 		</Button>
-		<Button Click="Button_Click"  HorizontalAlignment="Left" Margin="336,24,0,0" VerticalAlignment="Top" Width="248" Height="164">
+		<Button Click="Trasporte_Click"  HorizontalAlignment="Left" Margin="336,24,0,0" VerticalAlignment="Top" Width="248" Height="164">
 			<Button.Background>
 				<VisualBrush>
 
@@ -55,7 +55,7 @@
 			<Label Content="RCF-DC/RCTR-C" FontFamily="Arial Black" FontSize="24" FontWeight="Normal"/>
 
 		</Button>
-		<Button Click="Nacional_Click"  HorizontalAlignment="Left" Margin="26,204,0,0" VerticalAlignment="Top" Width="248" Height="164">
+		<Button Click="Internacional_Click"  HorizontalAlignment="Left" Margin="26,204,0,0" VerticalAlignment="Top" Width="248" Height="164">
 			<Button.Background>
 				<VisualBrush>
 
@@ -77,7 +77,7 @@
 			<Label Content="Internacional" FontFamily="Arial Black" FontSize="24" Background="#06FFFFFF" Foreground="Black"/>
 
 		</Button>
-		<Button Click="Button_Click"  HorizontalAlignment="Left" Margin="336,204,0,0" VerticalAlignment="Top" Width="248" Height="164">
+		<Button Click="Avulsas_Click"  HorizontalAlignment="Left" Margin="336,204,0,0" VerticalAlignment="Top" Width="248" Height="164">
 			<Button.Background>
 				<VisualBrush>
 

@@ -21,19 +21,43 @@ namespace Cotador.Inicio
     {
         public Tela_Inicial()
         {
+            //Core.NetworkTest.test();
             InitializeComponent();
-        }
 
+        }
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            Application.Current.Shutdown();
+        }
         private void Nacional_Click(object sender, RoutedEventArgs e)
         {
             Nacional.Nacional nacional = new Nacional.Nacional();
             nacional.Show();
         }
 
-		private void Button_Click(object sender, RoutedEventArgs e)
+		private void Trasporte_Click(object sender, RoutedEventArgs e)
 		{
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
+		}
+
+		private void Internacional_Click(object sender, RoutedEventArgs e)
+		{
+            Caixa_de_Mensagem.mensagem men = new Caixa_de_Mensagem.mensagem("Erro","Intenacional ainda não implementado");
+            men.Show();
+		}
+
+		private void Avulsas_Click(object sender, RoutedEventArgs e)
+		{
+            Caixa_de_Mensagem.mensagem men = new Caixa_de_Mensagem.mensagem("Erro", "Avulsas ainda não implementado");
+            men.Show();
+        }
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+
 		}
 	}
 }

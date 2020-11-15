@@ -138,6 +138,7 @@
       <DependentUpon>Controle_de_Cotacao.xaml</DependentUpon>
     </Compile>
     <Compile Include="Core\Debug.cs" />
+    <Compile Include="Core\NetworkTest.cs" />
     <Compile Include="Core\Verificar_Arquivos.cs" />
     <Compile Include="Inicio\Tela_Inicial.xaml.cs">
       <DependentUpon>Tela_Inicial.xaml</DependentUpon>

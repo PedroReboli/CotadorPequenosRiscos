@@ -79,7 +79,7 @@ namespace Cotador
             int i = 0;
             ExcelPackage excel = new ExcelPackage(new FileInfo(path));
             ExcelWorkbook workbook = excel.Workbook;
-            ExcelWorksheet worksheet = workbook.Worksheets["Planilha1"];
+            ExcelWorksheet worksheet = workbook.Worksheets[1];
 
             //i++;
             Main.Segurado.Text = look("C2");
@@ -156,7 +156,7 @@ namespace Cotador
                 }
                 if(double.TryParse(worksheet.Cells[posicao].Value.ToString(), out double h))
                 {
-                    return h * 100;
+                    return Math.Round( h * 100,4);
                 }
                 else
                 {

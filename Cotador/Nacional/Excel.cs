@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows;
+using System.Globalization;
 
 namespace Cotador.Nacional
 {
@@ -25,6 +26,11 @@ namespace Cotador.Nacional
 					break;
 				}
 			}
+			excel = new ExcelPackage(new FileInfo(path));
+			workbook = excel.Workbook;
+
+			worksheet = workbook.Worksheets[1];
+
 			Main.Sinistros.Text = strlook("L19").ToString();
 			Main.Ajustavel_Quantidade_Parcela.Text = strlook("E17");
 			Main.Taxa.Text = perlook("E10").ToString();
@@ -47,7 +53,13 @@ namespace Cotador.Nacional
 			{
 				return "";
 			}
-			return worksheet.Cells[posicao].Value.ToString();
+			try
+			{
+				if ((double)x > 99)
+					return Math.Round((double)x, 2).ToString("N", new CultureInfo("pt-br", false));
+			}
+			catch { }
+			return worksheet.Cells[posicao].Value.ToString().Replace("\t"," ");
 		}
 		static double perlook(string posicao)
 		{
@@ -58,12 +70,13 @@ namespace Cotador.Nacional
 			}
 			if (double.TryParse(worksheet.Cells[posicao].Value.ToString(), out double h))
 			{
-				return h * 100;
+				return Math.Round(h * 100, 4);
 			}
 			else
 			{
 				return 0;
 			}
 		}
+		
 	}
 }

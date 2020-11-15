@@ -11,8 +11,8 @@ namespace Cotador.Core
 	{
 		public static void Write(string texto)
 		{
-			StreamWriter sw = File.AppendText(Directory.GetCurrentDirectory() + @"\trace.txt");
-			sw.WriteLine(texto);
+			//StreamWriter sw = File.AppendText(Directory.GetCurrentDirectory() + @"\trace.txt");
+			//sw.WriteLine(texto);
 		}
 	}
 }

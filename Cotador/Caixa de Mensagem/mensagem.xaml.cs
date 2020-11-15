@@ -28,6 +28,7 @@ namespace Cotador.Caixa_de_Mensagem
             InitializeComponent();
             titulo.Content = value;
             mem.Content = men;
+			Progress.Value = 0;
 			/*var x = mem.Height;
 			mem.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
 			this.Width = mem.DesiredSize.Width;
