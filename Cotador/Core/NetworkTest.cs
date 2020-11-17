@@ -25,7 +25,7 @@ namespace Cotador.Core
 
 			Sock.Send("eae");
 			MessageBox.Show((string)Sock.Recv());
-			Sock.Send("Vai tomar no Cu Servidor");
+			Sock.Send("Vai"+((char)00)+"eae maluco");
 		}
 	}
 
@@ -57,6 +57,7 @@ namespace Cotador.Core
 
 			foreach (IPAddress address in hostEntry.AddressList)
 			{
+				//address.ip
 				IPEndPoint ipe = new IPEndPoint(address, Port);
 				Socket tempSocket =
 					new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
@@ -77,6 +78,21 @@ namespace Cotador.Core
 				}
 			}
 			return false;
+		}
+		public bool Close() {
+			try
+			{
+				sock.Shutdown(SocketShutdown.Both);
+				sock.Close();
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
+
+			
+			
 		}
 		private void TSend(byte[] valor)
 		{
@@ -131,17 +147,23 @@ namespace Cotador.Core
 			byte[] enviar;
 			if (valor is string)
 			{
-				enviar = Encoding.ASCII.GetBytes((string)valor);
+				enviar = Encoding.UTF8.GetBytes((string)valor);
 				TSend(STR);
 			}
-			else if (valor is Byte)
+			else if (valor is Byte[])
 			{
 				enviar = (byte[])valor;
 				TSend(BYT);
 			}
+			else if (valor is Byte)
+			{
+				enviar = new byte[1];
+				enviar[0] = (byte)valor;
+				TSend(BYT);
+			}
 			else
 			{
-				throw new System.FormatException("formato é invalido");
+				throw new System.FormatException("formato é invalido valor recebido:"+valor.GetType().ToString());
 			}
 			TSend(enviar);
 
@@ -177,7 +199,7 @@ namespace Cotador.Core
 			//KEY.Clear();
 			if (Tstr == true)
 			{
-				return Encoding.ASCII.GetString(data);
+				return Encoding.UTF8.GetString(data);
 			}
 			if (Tbyt == true)
 			{

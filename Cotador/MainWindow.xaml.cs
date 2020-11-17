@@ -37,13 +37,14 @@ namespace Cotador
 		{
 			
 			InitializeComponent();
-			path = Properties.Settings.Default.path;
+			/*path = Properties.Settings.Default.path;
 			if (path != "" && path != null) {
 				this.check.Background = Brushes.Green;
 				this.check.BorderBrush = Brushes.Green;
-				this.Gerar.IsEnabled = true;
 				
-			}
+				
+			}*/
+			this.Gerar.IsEnabled = true;
 			Desaparecer();
 		}
 		private void RelacaoArquivos_Drop(Object sender , DragEventArgs e)
@@ -152,19 +153,6 @@ namespace Cotador
 		}
 		private void check_Click(object sender, RoutedEventArgs e)
 		{
-			OpenFileDialog openFileDialog1 = new OpenFileDialog();
-			openFileDialog1.Filter = "check.txt|check.txt";
-			openFileDialog1.Title = "Procurar pelo arquivo check.txt";
-			var x = openFileDialog1.ShowDialog();
-			if (x == true)
-			{
-				this.Gerar.IsEnabled = true;
-				path = openFileDialog1.FileName.Replace("Check.txt","");
-				Properties.Settings.Default.path = path;
-				Properties.Settings.Default.Save();
-				this.check.Background = Brushes.Green;
-				this.check.BorderBrush = Brushes.Green;
-			}
 		}
 
 		private void Limpar_Click(object sender, RoutedEventArgs e)
@@ -200,7 +188,7 @@ namespace Cotador
 			{
 
 				System.IO.File.WriteAllText(Directory.GetCurrentDirectory()+@"\Debug.txt", ex.Message);
-
+				MessageBox.Show($"erro {ex.Message}");
 				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("ERRO", "Houve um erro em gerar o arquivo");
 				messa.Show();
 
@@ -251,17 +239,8 @@ namespace Cotador
 			this.Avaria_Fraquia.Visibility = Visibility.Hidden;
 			this.Avaria_franquia_RS.Visibility = Visibility.Hidden;
 			this.Avaria_Taxa.Visibility = Visibility.Hidden;
-			this.Avaria_franquia_RS.Visibility = Visibility.Visible;
-			// Roubo
-			this.LAB_Avaraia_LMG.Visibility = Visibility.Hidden;
-			this.LAB_Franquia.Visibility = Visibility.Hidden;
-			this.LAB_FranquiaRS.Visibility = Visibility.Hidden;
-			this.LAB_Taxa.Visibility = Visibility.Hidden;
-			this.Avaria_LMG.Visibility = Visibility.Hidden;
-			this.Avaria_Fraquia.Visibility = Visibility.Hidden;
 			this.Avaria_franquia_RS.Visibility = Visibility.Hidden;
-			this.Avaria_Taxa.Visibility = Visibility.Hidden;
-			// ue
+			// Roubo
 			this.LAB_Taxa_Roubo.Visibility = Visibility.Hidden;
 			this.Taxa_Roubo.Visibility = Visibility.Hidden;
 			this.Taxa_Roubo.Visibility = Visibility.Hidden;
@@ -281,11 +260,6 @@ namespace Cotador
 			// Container
 			LAB_Container_LMG.Visibility = Visibility.Hidden;
 			Lmg_Container.Visibility = Visibility.Hidden;
-			// Converter Para Web
-			LAB_N_RCTR_C.Visibility = Visibility.Hidden;
-			LAB_N_RCTR_C_Copy.Visibility = Visibility.Hidden;
-			RCFDC.Visibility = Visibility.Hidden;
-			RCTRC.Visibility = Visibility.Hidden;
 		}
 		
 		private void Ativar_Adicionais_Checked(object sender, RoutedEventArgs e)
@@ -322,8 +296,8 @@ namespace Cotador
 
 		private void AbrirAdicionar(object sender, RoutedEventArgs e)
 		{
-			Controle_de_Cotacao con = new Controle_de_Cotacao();
-			con.Show();
+			/*Controle_de_Cotacao con = new Controle_de_Cotacao();
+			con.Show();*/
 		}
 
 		private void Web_Checked(object sender, RoutedEventArgs e)

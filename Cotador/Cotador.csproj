@@ -129,14 +129,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AbrirExcel.cs" />
-    <Compile Include="Adicionar Cotacao\Abrir_e_Adicionar.cs" />
     <Compile Include="Caixa de Mensagem\mensagem.xaml.cs">
       <DependentUpon>mensagem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Carregar_Arquivos.cs" />
-    <Compile Include="Controle_de_Cotacao.xaml.cs">
-      <DependentUpon>Controle_de_Cotacao.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Core\Debug.cs" />
     <Compile Include="Core\NetworkTest.cs" />
     <Compile Include="Core\Verificar_Arquivos.cs" />
@@ -152,10 +148,6 @@
     <Compile Include="padrao.cs" />
     <Compile Include="roubo.cs" />
     <Page Include="Caixa de Mensagem\mensagem.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controle_de_Cotacao.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -99,7 +99,7 @@ namespace Cotador.Nacional
 			Acesso.Modi("<Data>", DateTime.Today.Day.ToString() + "/" + DateTime.Today.Month.ToString() + "/" + DateTime.Today.Year.ToString());
 			Acesso.Modi("<Segurado>", Main.Segurado.Text.ToUpper());
 			Acesso.Modi("<Corretor>", Main.Corretor.Text.ToUpper());
-			Acesso.Modi("<CNPJ>", Main.Mercadoria.Text);
+			Acesso.Modi("<CNPJ>", Main.CNPJ.Text);
 			Acesso.Modi("<Ncotacao>",Main.Ncotacao.Text);
 
 			Acesso.Modi("<Mercadoria>",Main.Mercadoria.Text);
