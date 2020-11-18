@@ -57,6 +57,7 @@ namespace Cotador.Nacional
 				double IOF;
 				double premio_total;
 				double parcelas = double.Parse(Main.Ajustavel_Quantidade_Parcela.Text);
+				//MessageBox.Show(taxa.ToString());
 				premio_liquido = importancia_segurada * (taxa / 100);
 				IOF = premio_liquido * (7.38 / 100);
 				premio_total = premio_liquido + IOF;
@@ -99,7 +100,7 @@ namespace Cotador.Nacional
 			Acesso.Modi("<Data>", DateTime.Today.Day.ToString() + "/" + DateTime.Today.Month.ToString() + "/" + DateTime.Today.Year.ToString());
 			Acesso.Modi("<Segurado>", Main.Segurado.Text.ToUpper());
 			Acesso.Modi("<Corretor>", Main.Corretor.Text.ToUpper());
-			Acesso.Modi("<CNPJ>", Main.Mercadoria.Text);
+			Acesso.Modi("<CNPJ>", Main.CNPJ.Text);
 			Acesso.Modi("<Ncotacao>",Main.Ncotacao.Text);
 
 			Acesso.Modi("<Mercadoria>",Main.Mercadoria.Text);
