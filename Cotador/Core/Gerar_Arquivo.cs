@@ -136,7 +136,7 @@ namespace Cotador
 				Roubo = (byte[])Socket.Recv();
 
 				Salvar("Salvar RCTR-C", Avaria, Main.Segurado.Text,"RCTR-C");
-				Salvar("Salvar RCTF-DC", Roubo , Main.Segurado.Text, "RCTR-C");
+				Salvar("Salvar RCTF-DC", Roubo , Main.Segurado.Text, "RCTF-DC");
 			}
 			else
 			{
