@@ -134,9 +134,15 @@ namespace Cotador.Core
 				enviar = Encoding.ASCII.GetBytes((string)valor);
 				TSend(STR);
 			}
-			else if (valor is Byte)
+			else if (valor is Byte[])
 			{
 				enviar = (byte[])valor;
+				TSend(BYT);
+			}
+			else if (valor is Byte)
+			{
+				enviar = new byte[1];
+				enviar[0] = (byte)valor;
 				TSend(BYT);
 			}
 			else

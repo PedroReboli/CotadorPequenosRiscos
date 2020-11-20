@@ -32,7 +32,7 @@
 
 			<ListView.View>
 				<GridView>
-					<GridViewColumn Header="N° Cotaçao" DisplayMemberBinding="{Binding Cotacao}" Width="100"/>
+					<GridViewColumn Header="N° Cotaçao" DisplayMemberBinding="{Binding Cota}" Width="100"/>
 					<GridViewColumn Header="Segurado" DisplayMemberBinding="{Binding Segurado}" Width="100"/>
 					<GridViewColumn Header="CNPJ" DisplayMemberBinding="{Binding CNPJ}" Width="100"/>
 					<GridViewColumn Header="Corretora" DisplayMemberBinding="{Binding Corretora}" Width="100"/>

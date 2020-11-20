@@ -34,7 +34,9 @@ namespace Cotador.Trasnportador.Servidor
 				//Servidor.Foreground = new SolidColorBrush(Color.FromRgb(255, 43, 43));
 				return;
 			}
+			//MessageBox.Show("Connectado");
 			Socket.Send("!Modo Subscritor!");
+			//MessageBox.Show("Esperando OK");
 			if (((string)Socket.Recv()).Contains("OK"))
 			{
 				Servidor.Foreground = new SolidColorBrush(Color.FromRgb(80, 170, 28));
@@ -72,15 +74,15 @@ namespace Cotador.Trasnportador.Servidor
 			Socket.Send(Corretora.Text);
 			Socket.Send(N_Cotacao.Text);
 			List<Cotacao> items = new List<Cotacao>();
-			byte cot = (byte)Socket.Recv();
-			if (cot == 0)
+			byte[] cot = (byte[])Socket.Recv();
+			if (cot[0] == 0)
 			{
-				Cotacoes.Items.Clear();
+				Cotacoes.ItemsSource = items;
 				Caixa_de_Mensagem.mensagem mess = new Caixa_de_Mensagem.mensagem("Erro", "Não foram encontrada nenhuma cotaçao com os dados informados");
 				mess.Show();
 				return;
 			}
-			for (byte x = 1;x < cot; x++)
+			for (byte x = 0;x < cot[0]; x++)
 			{
 				string Cota = (string)Socket.Recv();
 				string Segurado = (string)Socket.Recv();
@@ -106,20 +108,20 @@ namespace Cotador.Trasnportador.Servidor
 			Socket.Send((byte)2);
 			Socket.Send(N);
 			byte[] modo = (byte[])Socket.Recv();
-			string Corretor = (string)Socket.Recv();
+			string Segurado = (string)Socket.Recv();
 			if ( modo[0] == (byte)01) //RCTR-C
 			{
 				
 				byte[] RCTR_C = (byte[])Socket.Recv();
-				Salvar("Salvar RCTR-C", RCTR_C, Corretor, "RCTR-C");
+				Salvar("Salvar RCTR-C", RCTR_C, Segurado, "RCTR-C");
 				
 			}
 			if (modo[0] == (byte)02) //RCTR-C + RCTF-DC
 			{
 				byte[] RCTR_C = (byte[])Socket.Recv();
 				byte[] RCF_DC = (byte[])Socket.Recv();
-				Salvar("Salvar RCTR-C", RCTR_C, Corretor, "RCTR-C");
-				Salvar("Salvar RCF-DC", RCF_DC, Corretor, "RCF-DC");
+				Salvar("Salvar RCTR-C", RCTR_C, Segurado, "RCTR-C");
+				Salvar("Salvar RCF-DC", RCF_DC, Segurado, "RCF-DC");
 			}
 
 

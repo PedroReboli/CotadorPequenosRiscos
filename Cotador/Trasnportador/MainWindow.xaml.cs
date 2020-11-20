@@ -390,5 +390,11 @@ namespace Cotador
 				Clipboard.Flush();
 			}
 		}
+
+		private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+			Trasnportador.Servidor.Procurar pro = new Trasnportador.Servidor.Procurar();
+			pro.Show();
+		}
 	}
 }
