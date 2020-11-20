@@ -128,12 +128,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AbrirExcel.cs" />
+    <Compile Include="Trasnportador\AbrirExcel.cs" />
     <Compile Include="Adicionar Cotacao\Abrir_e_Adicionar.cs" />
     <Compile Include="Caixa de Mensagem\mensagem.xaml.cs">
       <DependentUpon>mensagem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Carregar_Arquivos.cs" />
+    <Compile Include="Trasnportador\Carregar_Arquivos.cs" />
     <Compile Include="Controle_de_Cotacao.xaml.cs">
       <DependentUpon>Controle_de_Cotacao.xaml</DependentUpon>
     </Compile>
@@ -149,8 +149,11 @@
     <Compile Include="Nacional\Nacional.xaml.cs">
       <DependentUpon>Nacional.xaml</DependentUpon>
     </Compile>
-    <Compile Include="padrao.cs" />
-    <Compile Include="roubo.cs" />
+    <Compile Include="Trasnportador\padrao.cs" />
+    <Compile Include="Trasnportador\roubo.cs" />
+    <Compile Include="Trasnportador\Servidor\Procurar.xaml.cs">
+      <DependentUpon>Procurar.xaml</DependentUpon>
+    </Compile>
     <Page Include="Caixa de Mensagem\mensagem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -163,7 +166,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Trasnportador\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -172,15 +175,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Avaria.cs" />
+    <Compile Include="Trasnportador\Avaria.cs" />
     <Compile Include="Core\consertar_numeros.cs" />
     <Compile Include="Core\Extenso.cs" />
     <Compile Include="Core\Gerar_Arquivo.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Trasnportador\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Nacional\Nacional.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Trasnportador\Servidor\Procurar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -260,6 +267,7 @@
   <ItemGroup>
     <Content Include="ClosedXML.dll" />
     <Content Include="DocumentFormat.OpenXml.dll" />
+    <Resource Include="Trasnportador\logoHeader_3.png" />
     <Resource Include="Imagens\blank-page %281%29.png" />
     <Resource Include="Imagens\globo-da-terra.png" />
     <Resource Include="Imagens\pngegg.png" />

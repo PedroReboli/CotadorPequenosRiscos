@@ -58,7 +58,7 @@ namespace Cotador.Nacional
 				double premio_total;
 				double parcelas = double.Parse(Main.Ajustavel_Quantidade_Parcela.Text);
 				//MessageBox.Show(taxa.ToString());
-				premio_liquido = importancia_segurada * (taxa / 100);
+				premio_liquido = importancia_segurada * (taxa / 1000);
 				IOF = premio_liquido * (7.38 / 100);
 				premio_total = premio_liquido + IOF;
 				//.ToString("N", new CultureInfo("pt-br", false)
@@ -67,10 +67,10 @@ namespace Cotador.Nacional
 				Acesso.Modi("<Premio liquido>", premio_liquido.ToString("N", new CultureInfo("pt-br", false)));
 				Acesso.Modi("<Premio Liquido * 7,38%>", IOF.ToString("N", new CultureInfo("pt-br", false)));
 				Acesso.Modi("<Premio liquido + IOF>", premio_total.ToString("N", new CultureInfo("pt-br", false)));
-				Acesso.Modi("<Premio liquido + IOF Extenso>", Extenso.EscreverExtenso(importancia_segurada.ToString("N", new CultureInfo("en-us", false)).Replace(",",""))); // Provavelment erro
+				Acesso.Modi("<Premio liquido + IOF Extenso>", Extenso.EscreverExtenso(premio_total.ToString("N", new CultureInfo("en-us", false)).Replace(",",""))); // Provavelment erro
 				Acesso.Modi("<Quantidades de parcelas>", Main.Ajustavel_Quantidade_Parcela.Text);
-				Acesso.Modi("<Premio liquido Extenso>", Extenso.EscreverExtenso((premio_liquido / parcelas).ToString("N", new CultureInfo("en-us", false)).Replace(",", "")));
-				Acesso.Modi("<Premio liquido / quantidades de parcelas>", (premio_liquido / parcelas).ToString("N", new CultureInfo("pt-br", false)));
+				Acesso.Modi("<Premio liquido Extenso>", Extenso.EscreverExtenso((premio_total / parcelas).ToString("N", new CultureInfo("en-us", false)).Replace(",", "")));
+				Acesso.Modi("<Premio liquido / quantidades de parcelas>", (premio_total / parcelas).ToString("N", new CultureInfo("pt-br", false)));
 				if (Main._80.IsChecked == true)
 				{
 					Acesso.Modi("<PMM Ajustavel>", "80");

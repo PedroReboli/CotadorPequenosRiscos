@@ -26,7 +26,7 @@ namespace Cotador
 			if (alor.Length > 3 && (alor.Substring(alor.Length - 3, 3) == ",00" || alor.Substring(alor.Length - 3, 3) == ".00"))
 				letra = alor.Substring(0,alor.Length - 3);
 
-			letra = letra.Replace(".", "").Replace(",", "");
+			letra = letra.Replace(".", "").Replace(",", ".");
 			Int64 valor;
 			valor = Int64.Parse(letra);
 			if (valor <= 0 | valor >= 1000000000000000)
