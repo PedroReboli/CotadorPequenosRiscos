@@ -62,9 +62,12 @@ namespace Cotador.Trasnportador.Servidor
 			{
 				bits += 8;
 			}
+			List<Cotacao> items = new List<Cotacao>();
 			if (bits == 0)
 			{
-				Cotacoes.Items.Clear();
+				Cotacoes.ItemsSource = items;
+				Caixa_de_Mensagem.mensagem mess = new Caixa_de_Mensagem.mensagem("Erro", "Não foram encontrada nenhuma cotaçao com os dados informados");
+				mess.Show();
 				return;
 			}
 			Socket.Send((byte)1);
@@ -73,7 +76,7 @@ namespace Cotador.Trasnportador.Servidor
 			Socket.Send(CNPJ.Text);
 			Socket.Send(Corretora.Text);
 			Socket.Send(N_Cotacao.Text);
-			List<Cotacao> items = new List<Cotacao>();
+			
 			byte[] cot = (byte[])Socket.Recv();
 			if (cot[0] == 0)
 			{
