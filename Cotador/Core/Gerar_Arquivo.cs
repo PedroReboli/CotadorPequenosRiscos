@@ -90,6 +90,7 @@ namespace Cotador
 				MessageBox.Show("Erro ao se conectar ao servidor");
 				return;
 			}
+			Socket.Send("C");
 			byte[] Avaria;
 			byte[] Roubo;
 			int R = 2;
