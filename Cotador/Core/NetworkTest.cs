@@ -57,6 +57,31 @@ namespace Cotador.Core
 
 			foreach (IPAddress address in hostEntry.AddressList)
 			{
+				if (address.AddressFamily.ToString() == ProtocolFamily.InterNetworkV6.ToString())
+					continue;
+				IPEndPoint ipe = new IPEndPoint(address, Port);
+				Socket tempSocket =
+					new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+				try
+				{
+					tempSocket.Connect(ipe);
+				}
+				catch { }
+				if (tempSocket.Connected)
+				{
+					sock = tempSocket;
+					SetupConnect();
+					return true;
+				}
+				else
+				{
+					continue;
+				}
+			}
+			foreach (IPAddress address in hostEntry.AddressList)
+			{
+				//if (address.AddressFamily.ToString() == ProtocolFamily.InterNetworkV6.ToString())
+					//continue;
 				IPEndPoint ipe = new IPEndPoint(address, Port);
 				Socket tempSocket =
 					new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
