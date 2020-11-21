@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Cotador.Trasnportador.Servidor"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Cotador.Trasnportador.Servidor.Procurar"
         mc:Ignorable="d"
-        Title="Procurar" Height="450" Width="540">
+        Title="Procurar" Height="450" Width="571"
+		Closing="Window_Closing">
 	<Window.Background>
 		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
 			<LinearGradientBrush.RelativeTransform>
@@ -28,18 +29,20 @@
 				<ImageBrush ImageSource="/Cotador;component/Imagens/logoHeader_3.png"/>
 			</Rectangle.Fill>
 		</Rectangle>
-		<ListView x:Name="Cotacoes" HorizontalAlignment="Left" Height="194" Margin="34,193,0,0" BorderThickness="10" VerticalAlignment="Top" Width="457" Background="Red" Foreground="Black" OpacityMask="#FFF06868" BorderBrush="Black">
+		<Grid Background="#5FFFFFFF" Margin="34,193,25,26">
+			<ListView x:Name="Cotacoes" Margin="0,0,0,0" BorderThickness="10" Background="Red" Foreground="Black" OpacityMask="#FFF06868" BorderBrush="Black" >
+				<ListView.View>
+					<GridView>
 
-			<ListView.View>
-				<GridView>
-					<GridViewColumn Header="N° Cotaçao" DisplayMemberBinding="{Binding Cota}" Width="100"/>
-					<GridViewColumn Header="Segurado" DisplayMemberBinding="{Binding Segurado}" Width="100"/>
-					<GridViewColumn Header="CNPJ" DisplayMemberBinding="{Binding CNPJ}" Width="100"/>
-					<GridViewColumn Header="Corretora" DisplayMemberBinding="{Binding Corretora}" Width="100"/>
+						<GridViewColumn Header="N° Cotaçao" DisplayMemberBinding="{Binding Cota}" Width="auto"/>
+						<GridViewColumn Header="Segurado" DisplayMemberBinding="{Binding Segurado}" Width="auto"/>
+						<GridViewColumn Header="CNPJ" DisplayMemberBinding="{Binding CNPJ}" Width="auto"/>
+						<GridViewColumn Header="Corretora" DisplayMemberBinding="{Binding Corretora}" Width="auto"/>
 
-				</GridView>
-			</ListView.View>
-		</ListView>
+					</GridView>
+				</ListView.View>
+			</ListView>
+		</Grid>
 		<Label Content="Segurado" HorizontalAlignment="Left" Margin="47,101,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 		<Label Content="CNPJ" HorizontalAlignment="Left" Margin="72,131,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 		<Label Content="Corretora" HorizontalAlignment="Left" Margin="47,164,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -47,14 +50,14 @@
 		<TextBox x:Name="CNPJ" HorizontalAlignment="Left" Height="28" Margin="125,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 		<TextBox x:Name="Corretora" HorizontalAlignment="Left" Height="28" Margin="125,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
-		<Grid Margin="263,119,209,248" MouseDown="Procurar_Server" Cursor="Hand" Background="Transparent">
-			<materialDesign:PackIcon Kind="Search" HorizontalAlignment="Left" Margin="-8,-9,0,0" VerticalAlignment="Top" Height="65" Width="66"/>
+		<Grid Margin="263,119,0,0" MouseDown="Procurar_Server" Cursor="Hand" Background="Transparent" HorizontalAlignment="Left" Width="60" Height="52" VerticalAlignment="Top">
+			<materialDesign:PackIcon Kind="Search" HorizontalAlignment="Left" Margin="-8,-9,0,-4" VerticalAlignment="Top" Height="65" Width="66" Grid.ColumnSpan="2"/>
 		</Grid>
-		<Grid Margin="371,119,94,248" MouseDown="Baixar" Cursor="Hand" Background="Transparent">
-			<materialDesign:PackIcon Kind="Download" HorizontalAlignment="Left" Margin="-8,-9,0,0" VerticalAlignment="Top" Height="65" Width="66"/>
+		<Grid Margin="371,119,0,0" MouseDown="Baixar" Cursor="Hand" Background="Transparent" HorizontalAlignment="Left" Width="67" Height="52" VerticalAlignment="Top">
+			<materialDesign:PackIcon Kind="Download" HorizontalAlignment="Left" Margin="-8,-9,0,-4" VerticalAlignment="Top" Height="65" Width="66"/>
 		</Grid>
-		<Grid Margin="457,0,10,345">
-			<materialDesign:PackIcon x:Name="Servidor" Kind="Server" HorizontalAlignment="Left" Margin="0,14,0,0" VerticalAlignment="Top" Height="46" Width="66" Foreground="#FFFF2B2B"/>
+		<Grid Margin="0,0,10,0" Height="74" VerticalAlignment="Top" HorizontalAlignment="Right" Width="65">
+			<materialDesign:PackIcon x:Name="Servidor" Kind="Server" HorizontalAlignment="Right" Margin="0,14,-1,0" VerticalAlignment="Top" Height="46" Width="66" Foreground="#FFFF2B2B"/>
 		</Grid>
 		<Label Content="N° Cotaçao" HorizontalAlignment="Left" Margin="38,68,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 		<TextBox x:Name="N_Cotacao"  HorizontalAlignment="Left" Height="28" Margin="125,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

@@ -28,7 +28,7 @@ namespace Cotador.Trasnportador.Servidor
 		public Procurar()
 		{
 			InitializeComponent();
-			if (!Socket.Connect("192.168.0.88", 9090))
+			if (!Socket.Connect("servidordetestes.bounceme.net", 9090))
 			{
 				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Erro", "Erro ao se conectar no servidor");
 				//Servidor.Foreground = new SolidColorBrush(Color.FromRgb(255, 43, 43));
@@ -40,6 +40,20 @@ namespace Cotador.Trasnportador.Servidor
 			if (((string)Socket.Recv()).Contains("OK"))
 			{
 				Servidor.Foreground = new SolidColorBrush(Color.FromRgb(80, 170, 28));
+			}
+		}
+		public static void UpdateColumnWidths(GridView gridView)
+		{
+			// For each column...
+			foreach (var column in gridView.Columns)
+			{
+				// If this is an "auto width" column...
+				if (double.IsNaN(column.Width))
+				{
+					// Set its Width back to NaN to auto-size again
+					column.Width = 0;
+					column.Width = double.NaN;
+				}
 			}
 		}
 
@@ -63,13 +77,15 @@ namespace Cotador.Trasnportador.Servidor
 				bits += 8;
 			}
 			List<Cotacao> items = new List<Cotacao>();
+			
 			if (bits == 0)
 			{
 				Cotacoes.ItemsSource = items;
-				Caixa_de_Mensagem.mensagem mess = new Caixa_de_Mensagem.mensagem("Erro", "Não foram encontrada nenhuma cotaçao com os dados informados");
+				Caixa_de_Mensagem.mensagem mess = new Caixa_de_Mensagem.mensagem("Erro", "Nenhum filtro foi preenchido");
 				mess.Show();
 				return;
 			}
+			
 			Socket.Send((byte)1);
 			Socket.Send((byte)bits);
 			Socket.Send(Segurado.Text);
@@ -94,6 +110,8 @@ namespace Cotador.Trasnportador.Servidor
 				items.Add(new Cotacao { Cota = Cota, Segurado = Segurado, CNPJ = CNPJ, Corretora = Corretora });
 			}
 			Cotacoes.ItemsSource = items;
+			var cota = Cotacoes.View as GridView;
+			UpdateColumnWidths(cota);
 		}
 		public class Cotacao
 		{
@@ -106,6 +124,14 @@ namespace Cotador.Trasnportador.Servidor
 
 		private void Baixar(object sender, MouseButtonEventArgs e)
 		{
+			if(Cotacoes.SelectedIndex == -1)
+			{
+				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Erro","Nenhum item foi selecionado");
+				messa.Show();
+				return;
+			}
+				
+
 			string N = ((Cotacao)Cotacoes.SelectedItem).Cota;
 
 			Socket.Send((byte)2);
@@ -147,6 +173,11 @@ namespace Cotador.Trasnportador.Servidor
 				}
 			}
 
+		}
+
+		private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			Socket.Send((byte)00);
 		}
 	}
 }
