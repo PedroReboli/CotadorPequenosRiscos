@@ -25,7 +25,7 @@ namespace Cotador.Core
 
 			Sock.Send("eae");
 			MessageBox.Show((string)Sock.Recv());
-			Sock.Send("Vai"+((char)00)+"eae maluco");
+			Sock.Send("Vai tomar no Cu Servidor");
 		}
 	}
 
@@ -57,7 +57,29 @@ namespace Cotador.Core
 
 			foreach (IPAddress address in hostEntry.AddressList)
 			{
-				//address.ip
+				if (address.AddressFamily.ToString() == ProtocolFamily.InterNetworkV6.ToString())
+					continue;
+				IPEndPoint ipe = new IPEndPoint(address, Port);
+				Socket tempSocket =
+					new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+				try
+				{
+					tempSocket.Connect(ipe);
+				}
+				catch { }
+				if (tempSocket.Connected)
+				{
+					sock = tempSocket;
+					SetupConnect();
+					return true;
+				}
+				else
+				{
+					continue;
+				}
+			}
+			foreach (IPAddress address in hostEntry.AddressList)
+			{
 				IPEndPoint ipe = new IPEndPoint(address, Port);
 				Socket tempSocket =
 					new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
@@ -79,24 +101,9 @@ namespace Cotador.Core
 			}
 			return false;
 		}
-		public bool Close() {
-			try
-			{
-				sock.Shutdown(SocketShutdown.Both);
-				sock.Close();
-				return true;
-			}
-			catch
-			{
-				return false;
-			}
-
-			
-			
-		}
 		private void TSend(byte[] valor)
 		{
-			long tamanho = 0;
+			long tamanho;
 			tamanho = (long)valor.Length;
 			byte[] Btamanho = BitConverter.GetBytes(tamanho);
 			sock.Send(Btamanho, Btamanho.Length, 0); // envia tamanho estring
@@ -147,7 +154,7 @@ namespace Cotador.Core
 			byte[] enviar;
 			if (valor is string)
 			{
-				enviar = Encoding.UTF8.GetBytes((string)valor);
+				enviar = Encoding.ASCII.GetBytes((string)valor);
 				TSend(STR);
 			}
 			else if (valor is Byte[])
@@ -163,16 +170,16 @@ namespace Cotador.Core
 			}
 			else
 			{
-				throw new System.FormatException("formato é invalido valor recebido:"+valor.GetType().ToString());
+				throw new System.FormatException("formato é invalido");
 			}
 			TSend(enviar);
 
 			//byte[] b = new byte[1];
 			//Buffer.BlockCopy(enviar, 0, mekey, 0, 1);
-			
+
 			//KEY.ComputeHash(mekey);
 			//mekey = KEY.Hash;
-			
+
 
 		}
 		public object Recv()
@@ -199,7 +206,7 @@ namespace Cotador.Core
 			//KEY.Clear();
 			if (Tstr == true)
 			{
-				return Encoding.UTF8.GetString(data);
+				return Encoding.ASCII.GetString(data);
 			}
 			if (Tbyt == true)
 			{

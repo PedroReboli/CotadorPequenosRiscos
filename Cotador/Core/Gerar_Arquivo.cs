@@ -85,7 +85,7 @@ namespace Cotador
 				}
 			}
 			Core.Net Socket = new Core.Net();
-			if (!Socket.Connect("192.168.0.88", 9090))
+			if (!Socket.Connect("servidordetestes.bounceme.net", 9090))
 			{
 				MessageBox.Show("Erro ao se conectar ao servidor");
 				return;
