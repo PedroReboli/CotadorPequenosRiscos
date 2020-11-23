@@ -316,7 +316,7 @@ N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
 		}
 		private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			CheckBox a234  = new CheckBox();
+			//CheckBox a234  = new CheckBox();
 			/*cobertura.FlowDirection = FlowDirection.RightToLeft;
 			cobertura.Content = "";
 			Coberturas.Items.Add()
@@ -398,7 +398,7 @@ N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
 
 		private void Test(object sender, RoutedEventArgs e)
 		{
-			MessageBox.Show(Gerar_Nacional.Coberturas());
+			//MessageBox.Show(Gerar_Nacional.Coberturas());
 		}
 
 		private void check_Click(object sender, RoutedEventArgs e)

@@ -75,15 +75,12 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClosedXML, Version=0.80.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
-      <HintPath>..\packages\ClosedXML.0.80.1\lib\net35-client\ClosedXML.dll</HintPath>
-    </Reference>
     <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\DocumentFormat.OpenXml.1.0\lib\DocumentFormat.OpenXml.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPPlus, Version=4.5.3.3, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPPlus.4.5.3.3\lib\net40\EPPlus.dll</HintPath>
+    <Reference Include="EPPlus, Version=4.5.3.2, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.3.2\lib\net40\EPPlus.dll</HintPath>
     </Reference>
     <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
@@ -132,21 +129,16 @@
     <Compile Include="Caixa de Mensagem\mensagem.xaml.cs">
       <DependentUpon>mensagem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Carregar_Arquivos.cs" />
-    <Compile Include="Core\Debug.cs" />
     <Compile Include="Core\NetworkTest.cs" />
-    <Compile Include="Core\Verificar_Arquivos.cs" />
     <Compile Include="Inicio\Tela_Inicial.xaml.cs">
       <DependentUpon>Tela_Inicial.xaml</DependentUpon>
     </Compile>
     <Compile Include="Nacional\Arquivos.cs" />
     <Compile Include="Nacional\Excel.cs" />
-    <Compile Include="Nacional\Gerar_Nacional.cs" />
     <Compile Include="Nacional\Nacional.xaml.cs">
       <DependentUpon>Nacional.xaml</DependentUpon>
     </Compile>
     <Compile Include="padrao.cs" />
-    <Compile Include="roubo.cs" />
     <Page Include="Caixa de Mensagem\mensagem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -159,14 +151,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Core\Acesso.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Avaria.cs" />
-    <Compile Include="Core\consertar_numeros.cs" />
-    <Compile Include="Core\Extenso.cs" />
     <Compile Include="Core\Gerar_Arquivo.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

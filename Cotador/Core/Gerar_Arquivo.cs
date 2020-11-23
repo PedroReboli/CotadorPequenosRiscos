@@ -21,7 +21,7 @@ namespace Cotador
 		static public Word.Document oDoc;
 		static public Word.Document objdoc;
 		//static MainWindow Main = new MainWindow();
-		static Avaria avaria = new Avaria();
+		//static Avaria avaria = new Avaria();
 		//static roubo roubo = new roubo();
 		//static padrao padrao = new padrao();
 
@@ -66,8 +66,8 @@ namespace Cotador
 					break;
 				}
 			}
-			objdoc = oWord.Documents.Open(Main.path + "Modelos\\Nacional\\" + "Nacional.doc");
-			Nacional.Gerar_Nacional.Gerar();
+			//objdoc = oWord.Documents.Open(Main.path + "Modelos\\Nacional\\" + "Nacional.doc");
+			//Nacional.Gerar_Nacional.Gerar();
 
 		}
 		static void Gerar_Transporte()

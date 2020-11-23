@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Cotador"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Cotador.MainWindow"
         mc:Ignorable="d"
-        Title="EZ Cotador" AllowDrop="True" Drop="RelacaoArquivos_Drop" Height="554.75" Width="658" WindowStartupLocation="CenterScreen">
+        Title="EZ Cotador" AllowDrop="True" Drop="RelacaoArquivos_Drop" Height="592.75" Width="658" WindowStartupLocation="CenterScreen">
 	<Window.Background>
 		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
 			<LinearGradientBrush.RelativeTransform>
@@ -50,7 +50,7 @@
 
 		<!--<Button x:Name="check" Click="check_Click" Content="Check" HorizontalAlignment="Left" Margin="26,465,0,0" VerticalAlignment="Top" Width="75" Background="Red" BorderBrush="Red"/>
 		-->
-		<GroupBox x:Name="Adicionais_Group" Margin="0,10,27,0" Background="#00000000" Height="496" VerticalAlignment="Top" FontSize="14" Grid.Column="1" HorizontalAlignment="Right" Width="294">
+		<GroupBox x:Name="Adicionais_Group" Margin="0,10,27,18" Background="#00000000" FontSize="14" HorizontalAlignment="Right" Width="294">
 			<GroupBox.Header>
 				<Label Content="ADICIONAIS" Height="25" Margin="93,0,95,0" Foreground="#DD076414" FontWeight="Bold" Background="{x:Null}"/>
 			</GroupBox.Header>
@@ -79,15 +79,17 @@
 
 
 				<CheckBox x:Name="Chk_Roubo" Content="Roubo" HorizontalAlignment="Left" Margin="30,315,0,0" VerticalAlignment="Top" Checked="Roubo_Checked" Unchecked="Roubo_Unchecked" FontWeight="Bold"/>
-				<Label x:Name="LAB_Taxa_Roubo" Content="Taxa roubo" HorizontalAlignment="Left" Margin="57,340,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-				<TextBox x:Name="Taxa_Roubo" HorizontalAlignment="Left" Height="25" Margin="146,340,0,0" Text="" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"/>
-				<Label x:Name="LAB_LMG_POS" Content="POS(R$)" HorizontalAlignment="Left" Margin="75,370,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-				<TextBox x:Name="POS_1" HorizontalAlignment="Left" Height="25" Margin="146,370,0,0" Text="" VerticalAlignment="Top" Width="23" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display" />
-				<TextBox x:Name="POS_2" HorizontalAlignment="Left" Height="25" Margin="194,370,0,0" Text="" VerticalAlignment="Top" Width="23" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"/>
-				<TextBox x:Name="POS_3" HorizontalAlignment="Left" Height="25" Margin="242,370,0,0" Text="" VerticalAlignment="Top" Width="23" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"/>
-				<CheckBox x:Name="Chk_Container" Content="Container" HorizontalAlignment="Left" Margin="30,401,0,0" VerticalAlignment="Top"  FontWeight="Bold" Checked="Chk_Container_Checked" Unchecked="Chk_Container_Unchecked"/>
-				<Label x:Name="LAB_Container_LMG"  Height="23" Margin="96,421,172,0" VerticalAlignment="Top" FontWeight="Bold" >LMG</Label>
-				<TextBox x:Name="Lmg_Container" HorizontalAlignment="Left" Height="25" Margin="140,421,0,0" Text="" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Fixed" TextWrapping="Wrap"/>
+				<Label x:Name="LAB_Taxa_Roubo" Content="Taxa roubo" HorizontalAlignment="Left" Margin="57,365,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+				<TextBox x:Name="Taxa_Roubo" HorizontalAlignment="Left" Height="25" Margin="146,365,0,0" Text="" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"/>
+				<Label x:Name="LAB_LMG_POS" Content="POS(R$)" HorizontalAlignment="Left" Margin="75,395,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+				<TextBox x:Name="POS_1" HorizontalAlignment="Left" Height="25" Margin="146,395,0,0" Text="" VerticalAlignment="Top" Width="23" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display" />
+				<TextBox x:Name="POS_2" HorizontalAlignment="Left" Height="25" Margin="194,395,0,0" Text="" VerticalAlignment="Top" Width="23" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"/>
+				<TextBox x:Name="POS_3" HorizontalAlignment="Left" Height="25" Margin="242,395,0,0" Text="" VerticalAlignment="Top" Width="23" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"/>
+				<CheckBox x:Name="Chk_Container" Content="Container" HorizontalAlignment="Left" Margin="30,426,0,0" VerticalAlignment="Top"  FontWeight="Bold" Checked="Chk_Container_Checked" Unchecked="Chk_Container_Unchecked"/>
+				<Label x:Name="LAB_Container_LMG"  Height="23" Margin="96,446,172,0" VerticalAlignment="Top" FontWeight="Bold" >LMG</Label>
+				<TextBox x:Name="Lmg_Container" HorizontalAlignment="Left" Height="25" Margin="140,446,0,0" Text="" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Fixed" TextWrapping="Wrap"/>
+				<Label x:Name="LAB_N_RCF_DC" Content="N° RCF-DC" HorizontalAlignment="Left" Margin="57,336,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+				<TextBox x:Name="RCFDC" HorizontalAlignment="Left" Height="24" Margin="146,336,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
 			</Grid>
 		</GroupBox>
 		<Button x:Name="Gerar" IsEnabled="False" Content="Gerar" HorizontalAlignment="Left" Margin="127,417,0,0" VerticalAlignment="Top" Width="141" Height="80" Background="#FF44BB38" Click="Gerar_Click" BorderBrush="{x:Null}" Grid.ColumnSpan="2" FontSize="20"></Button>
@@ -108,8 +110,6 @@
 		<CheckBox x:Name="Web" Content="Converter Para Web" HorizontalAlignment="Left" Margin="127,305,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="Web_Checked" Unchecked="Web_Unchecked" Visibility="Hidden" />
 		<Label x:Name="LAB_N_RCTR_C" Content="N° RCTR-C" HorizontalAlignment="Left" Margin="45,294,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 		<TextBox x:Name="RCTRC" HorizontalAlignment="Left" Height="24" Margin="127,294,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
-		<Label x:Name="LAB_N_RCTR_C_Copy" Content="N° RCF-DC" HorizontalAlignment="Left" Margin="45,323,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-		<TextBox x:Name="RCFDC" HorizontalAlignment="Left" Height="24" Margin="127,323,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
 		<TextBox TextChanged="Procurar_Taxa" x:Name="De" HorizontalAlignment="Left" Height="26" Margin="127,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="22" Background="White" MaxLength="2" CaretBrush="Black"/>
 		<TextBox TextChanged="Procurar_Taxa" x:Name="Para" HorizontalAlignment="Left" Height="26" Margin="170,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="22" Background="White" MaxLength="2" CaretBrush="Black"/>
 		<TextBox x:Name="Saida" HorizontalAlignment="Left" Height="26" Margin="212,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" Background="White" CaretBrush="Black"/>

@@ -37,15 +37,14 @@ namespace Cotador
 		{
 			
 			InitializeComponent();
-			/*path = Properties.Settings.Default.path;
-			if (path != "" && path != null) {
-				this.check.Background = Brushes.Green;
-				this.check.BorderBrush = Brushes.Green;
-				
-				
-			}*/
 			this.Gerar.IsEnabled = true;
 			Desaparecer();
+		}
+		protected override void OnClosed(EventArgs e)
+		{
+			base.OnClosed(e);
+
+			Application.Current.Shutdown();
 		}
 		private void RelacaoArquivos_Drop(Object sender , DragEventArgs e)
 		{
@@ -136,6 +135,7 @@ namespace Cotador
 			this.POS_1.Visibility = Visibility.Hidden;
 			this.POS_2.Visibility = Visibility.Hidden;
 			this.POS_3.Visibility = Visibility.Hidden;
+			LAB_N_RCF_DC.Visibility = Visibility.Hidden;
 		}
 		
 		private void Roubo_Checked(object sender, RoutedEventArgs e)
@@ -178,7 +178,7 @@ namespace Cotador
 			//MessageBox.Show(c.C(Sinistros.Text));
 			try
 			{
-				Core.Debug.Write("entrando em Gerar_Arquivo.gerar()");
+				//Core.Debug.Write("entrando em Gerar_Arquivo.gerar()");
 				Gerar_Arquivo.gerar();
 				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Arquivo gerado","Arquivo foi gerado com sucesso");
 				messa.Show();
@@ -187,7 +187,7 @@ namespace Cotador
 			catch (Exception ex)
 			{
 
-				System.IO.File.WriteAllText(Directory.GetCurrentDirectory()+@"\Debug.txt", ex.Message);
+				//System.IO.File.WriteAllText(Directory.GetCurrentDirectory()+@"\Debug.txt", ex.Message);
 				MessageBox.Show($"erro {ex.Message}");
 				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("ERRO", "Houve um erro em gerar o arquivo");
 				messa.Show();
@@ -248,6 +248,8 @@ namespace Cotador
 			this.POS_1.Visibility = Visibility.Hidden;
 			this.POS_2.Visibility = Visibility.Hidden;
 			this.POS_3.Visibility = Visibility.Hidden;
+			RCFDC.Visibility = Visibility.Hidden;
+			LAB_N_RCF_DC.Visibility = Visibility.Hidden;
 			// Limpeza de Pista
 			LAB_LDP_LMG.Visibility = Visibility.Hidden;
 			Limpeza_LMG.Visibility = Visibility.Hidden;
@@ -303,7 +305,6 @@ namespace Cotador
 		private void Web_Checked(object sender, RoutedEventArgs e)
 		{
 			LAB_N_RCTR_C.Visibility = Visibility.Visible;
-			LAB_N_RCTR_C_Copy.Visibility = Visibility.Visible;
 			RCFDC.Visibility = Visibility.Visible;
 			RCTRC.Visibility = Visibility.Visible;
 		}
@@ -311,7 +312,6 @@ namespace Cotador
 		private void Web_Unchecked(object sender, RoutedEventArgs e)
 		{
 			LAB_N_RCTR_C.Visibility = Visibility.Hidden;
-			LAB_N_RCTR_C_Copy.Visibility = Visibility.Hidden;
 			RCFDC.Visibility = Visibility.Hidden;
 			RCTRC.Visibility = Visibility.Hidden;
 		}
