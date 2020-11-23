@@ -136,6 +136,7 @@ namespace Cotador
 			this.POS_2.Visibility = Visibility.Hidden;
 			this.POS_3.Visibility = Visibility.Hidden;
 			LAB_N_RCF_DC.Visibility = Visibility.Hidden;
+			RCFDC.Visibility = Visibility.Hidden;
 		}
 		
 		private void Roubo_Checked(object sender, RoutedEventArgs e)
@@ -149,7 +150,8 @@ namespace Cotador
 			this.POS_1.Visibility = Visibility.Visible;
 			this.POS_2.Visibility = Visibility.Visible;
 			this.POS_3.Visibility = Visibility.Visible;
-
+			RCFDC.Visibility = Visibility.Visible;
+			LAB_N_RCF_DC.Visibility = Visibility.Visible;
 		}
 		private void check_Click(object sender, RoutedEventArgs e)
 		{

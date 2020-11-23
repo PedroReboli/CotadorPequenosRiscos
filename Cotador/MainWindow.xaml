@@ -44,7 +44,7 @@
 		<TextBox x:Name="Taxa_Unica" HorizontalAlignment="Left" Height="24" Margin="127,236,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
 		<Label Content="Premio Minimo" HorizontalAlignment="Left" Margin="18,265,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="24" Width="100" FontWeight="Bold" Foreground="Black"/>
 		<TextBox x:Name="Premio_Minimo" HorizontalAlignment="Left" Height="24" Margin="127,265,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
-		<Button Content="Limpar" HorizontalAlignment="Left" Margin="26,431,0,0" VerticalAlignment="Top" Width="87" Background="#FF4A8EA8" Click="Limpar_Click" BorderBrush="{x:Null}" Height="52" FontSize="16"/>
+		<Button Content="Limpar" HorizontalAlignment="Left" Margin="28,478,0,0" VerticalAlignment="Top" Width="87" Background="#FF4A8EA8" Click="Limpar_Click" BorderBrush="{x:Null}" Height="52" FontSize="16"/>
 
 
 
@@ -92,7 +92,7 @@
 				<TextBox x:Name="RCFDC" HorizontalAlignment="Left" Height="24" Margin="146,336,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
 			</Grid>
 		</GroupBox>
-		<Button x:Name="Gerar" IsEnabled="False" Content="Gerar" HorizontalAlignment="Left" Margin="127,417,0,0" VerticalAlignment="Top" Width="141" Height="80" Background="#FF44BB38" Click="Gerar_Click" BorderBrush="{x:Null}" Grid.ColumnSpan="2" FontSize="20"></Button>
+		<Button x:Name="Gerar" IsEnabled="True" Content="Gerar" HorizontalAlignment="Left" Margin="127,450,0,0" VerticalAlignment="Top" Width="141" Height="80" Background="#FF44BB38" Click="Gerar_Click" BorderBrush="{x:Null}" FontSize="20"/>
 
 		<Rectangle HorizontalAlignment="Left" Height="44" Margin="46,5,0,0" VerticalAlignment="Top" Width="175"/>
 		<Rectangle HorizontalAlignment="Left" Height="46" Margin="46,5,0,0" VerticalAlignment="Top" Width="175">
@@ -110,10 +110,10 @@
 		<CheckBox x:Name="Web" Content="Converter Para Web" HorizontalAlignment="Left" Margin="127,305,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="Web_Checked" Unchecked="Web_Unchecked" Visibility="Hidden" />
 		<Label x:Name="LAB_N_RCTR_C" Content="N° RCTR-C" HorizontalAlignment="Left" Margin="45,294,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 		<TextBox x:Name="RCTRC" HorizontalAlignment="Left" Height="24" Margin="127,294,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
-		<TextBox TextChanged="Procurar_Taxa" x:Name="De" HorizontalAlignment="Left" Height="26" Margin="127,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="22" Background="White" MaxLength="2" CaretBrush="Black"/>
-		<TextBox TextChanged="Procurar_Taxa" x:Name="Para" HorizontalAlignment="Left" Height="26" Margin="170,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="22" Background="White" MaxLength="2" CaretBrush="Black"/>
-		<TextBox x:Name="Saida" HorizontalAlignment="Left" Height="26" Margin="212,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" Background="White" CaretBrush="Black"/>
-		<Label Content="Tabela RCTR-C" HorizontalAlignment="Left" Margin="26,386,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<TextBox TextChanged="Procurar_Taxa" x:Name="De" HorizontalAlignment="Left" Height="26" Margin="127,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="22" Background="White" MaxLength="2" CaretBrush="Black"/>
+		<TextBox TextChanged="Procurar_Taxa" x:Name="Para" HorizontalAlignment="Left" Height="26" Margin="172,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="22" Background="White" MaxLength="2" CaretBrush="Black"/>
+		<TextBox x:Name="Saida" HorizontalAlignment="Left" Height="26" Margin="214,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" Background="White" CaretBrush="Black"/>
+		<Label Content="Tabela RCTR-C" HorizontalAlignment="Left" Margin="28,342,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 		<!--<Button Click="taxa_Click" Content="Button" HorizontalAlignment="Left" Height="38" Margin="268,150,0,0" VerticalAlignment="Top" Width="52"/>
 		<Button Click="Button_Click" Content="Copiar" HorizontalAlignment="Left" Margin="268,224,0,0" VerticalAlignment="Top" Width="52" Background="#FF0097FF" BorderBrush="#FF0097FF"/>
 		-->
