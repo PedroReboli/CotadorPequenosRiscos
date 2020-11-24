@@ -55,29 +55,9 @@ namespace Cotador.Inicio
             men.Show();
         }
 
-
-        private void RelacaoArquivos_Drop(Object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent("FileName"))
-            {
-                string[] fileName = (string[])e.Data.GetData(DataFormats.FileDrop);
-                try
-                {
-                    //Desaparecer();
-                    //LoopVisualTree(this);
-                    Adicionar_Cotacao.Abrir_e_Adicionar cot = new Adicionar_Cotacao.Abrir_e_Adicionar(fileName[0]);
-                    cot.show()
-                }
-                catch (Exception f)
-                {
-                    MessageBox.Show($"Houve um erro na hora de importar o arquivo Excel\n{f}");
-                }
-            }
-        }
-
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-            
+
 		}
 	}
 }

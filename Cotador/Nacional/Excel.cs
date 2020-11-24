@@ -15,14 +15,13 @@ namespace Cotador.Nacional
 		static ExcelPackage excel ;
 		static ExcelWorkbook workbook ;
 		static ExcelWorksheet worksheet ;
-		static public void Abrir(string path,Nacional Min)
+		static public void Abrir(string path)
 		{
 			Nacional Main = new Nacional();
 			foreach (var janela in Application.Current.Windows)
 			{
-				if (janela.ToString() == Main.ToString())
+				if (janela.GetType() == Main.GetType())
 				{
-					Main.Close();
 					Main = (Nacional)janela;
 					break;
 				}
