@@ -65,8 +65,8 @@ namespace Cotador.Inicio
                 {
                     //Desaparecer();
                     //LoopVisualTree(this);
-                    Adicionar_Cotacao.Abrir_e_Adicionar cot = new Adicionar_Cotacao.Abrir_e_Adicionar(fileName[0]);
-                    cot.show()
+                    //Adicionar_Cotacao.Abrir_e_Adicionar cot = new Adicionar_Cotacao.Abrir_e_Adicionar(fileName[0]);
+                    
                 }
                 catch (Exception f)
                 {
