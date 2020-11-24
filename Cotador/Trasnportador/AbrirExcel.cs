@@ -71,6 +71,7 @@ namespace Cotador
             {
                 if (janela.GetType() == Main.GetType())
                 {
+                    Main.Close();
                     Main = (MainWindow)janela;
                     break;
                 }

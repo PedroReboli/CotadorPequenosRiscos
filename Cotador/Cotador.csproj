@@ -134,7 +134,7 @@
       <DependentUpon>mensagem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Trasnportador\Carregar_Arquivos.cs" />
-    <Compile Include="Controle_de_Cotacao.xaml.cs">
+    <Compile Include="Adicionar Cotacao\Controle_de_Cotacao.xaml.cs">
       <DependentUpon>Controle_de_Cotacao.xaml</DependentUpon>
     </Compile>
     <Compile Include="Core\Debug.cs" />
@@ -158,7 +158,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controle_de_Cotacao.xaml">
+    <Page Include="Adicionar Cotacao\Controle_de_Cotacao.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

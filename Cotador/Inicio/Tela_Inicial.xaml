@@ -3,9 +3,9 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-		xmlns:local="clr-namespace:Cotador.Inicio"
+		xmlns:local="clr-namespace:Cotador.Inicio" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
 		mc:Ignorable="d"
-		Title="Tela_Inicial" Height="439.688" Width="668.75">
+		Title="Tela_Inicial" AllowDrop="True" Drop="RelacaoArquivos_Drop" Height="439.688" Width="668.75">
 	<Grid Margin="0,0,-8,0">
 
 		<Button Click="Nacional_Click"  HorizontalAlignment="Left" Margin="26,24,0,0" VerticalAlignment="Top" Width="248" Height="164">
@@ -109,6 +109,10 @@
 				</Label>
 			</Grid>
 		</Button>
+		<!--<Grid MouseDown="Grid_MouseDown" HorizontalAlignment="Left" Height="43" Margin="601,24,0,0" VerticalAlignment="Top" Width="39">
+			<materialDesign:PackIcon Kind="AddBox" HorizontalAlignment="Left" VerticalAlignment="Top" Height="41" Width="39"/>
+
+		</Grid>-->
 
 	</Grid>
 </Window>

@@ -276,6 +276,12 @@ N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
 			Iniciar();
 			
 		}
+		protected override void OnClosed(EventArgs e)
+		{
+			base.OnClosed(e);
+
+			this.Close();
+		}
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
 			try
@@ -600,7 +606,7 @@ N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
 				try
 				{
 					LoopVisualTree(this);
-					Excel.Abrir(fileName[0]);
+					Excel.Abrir(fileName[0],this);
 				}
 				catch(Exception f)
 				{
