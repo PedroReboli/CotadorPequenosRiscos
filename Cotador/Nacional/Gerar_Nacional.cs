@@ -19,6 +19,7 @@ namespace Cotador.Nacional
 			{
 				if (janela.GetType() == Main.GetType())
 				{
+					Main.Close();
 					Main = (Nacional)janela;
 					break;
 				}

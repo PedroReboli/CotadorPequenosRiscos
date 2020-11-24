@@ -25,8 +25,8 @@ namespace Cotador
 		{
 
 
-			MainWindow Main = new MainWindow();
-			Nacional.Nacional nacional = new Nacional.Nacional();
+			//MainWindow Main = new MainWindow();
+			//Nacional.Nacional nacional = new Nacional.Nacional();
 
 
 			StackTrace trace = new StackTrace();
@@ -58,6 +58,7 @@ namespace Cotador
 			{
 				if (janela.GetType() == Main.GetType())
 				{
+					Main.Close();
 					Main = (Nacional.Nacional)janela;
 					break;
 				}
@@ -76,6 +77,7 @@ namespace Cotador
 			{
 				if (janela.GetType() == Main.GetType())
 				{
+					Main.Close();
 					Main = (MainWindow)janela;
 					break;
 				}
