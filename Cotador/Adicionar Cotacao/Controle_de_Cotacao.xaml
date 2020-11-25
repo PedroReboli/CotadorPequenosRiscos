@@ -30,18 +30,18 @@
             <System:String>Andamento</System:String>
             <System:String>Andamento</System:String>
         </ComboBox>-->
-        <TextBox x:Name="Situacao"  HorizontalAlignment="Left" Height="23" Margin="514,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" CaretBrush="Black"/>
+        <TextBox x:Name="Situacao"  HorizontalAlignment="Left" Height="23" Margin="514,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" CaretBrush="Black" Text="Aguardando"/>
 
-        <TextBox x:Name="Congenere"  HorizontalAlignment="Left" Height="23" Margin="514,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" CaretBrush="Black"/>
+        <TextBox x:Name="Congenere"  HorizontalAlignment="Left" Height="23" Margin="514,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" CaretBrush="Black" Text="Nao tem"/>
         <TextBox x:Name="Tipo_Apolice"  HorizontalAlignment="Left" Height="23" Margin="514,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" CaretBrush="Black"/>
-        <TextBox x:Name="Expctativa"  HorizontalAlignment="Left" Height="23" Margin="514,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" CaretBrush="Black"/>
+        <TextBox x:Name="Expctativa"  HorizontalAlignment="Left" Height="23" Margin="514,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" CaretBrush="Black" Text="por ramo"/>
         <Label Content="Inicio Vigencia" HorizontalAlignment="Left" Margin="415,124,0,0" VerticalAlignment="Top"/>
         <Label Content="Final Vigencia" HorizontalAlignment="Left" Margin="415,167,0,0" VerticalAlignment="Top"/>
         <Label Content="Situaçao" HorizontalAlignment="Left" Margin="422,212,0,0" VerticalAlignment="Top"/>
         <Label Content="Congenere" HorizontalAlignment="Left" Margin="422,249,0,0" VerticalAlignment="Top"/>
         <Label Content="Tipo Apolice" HorizontalAlignment="Left" Margin="422,291,0,0" VerticalAlignment="Top"/>
         <Label Content="Expctativa" HorizontalAlignment="Left" Margin="422,334,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Lider_Coss" HorizontalAlignment="Left" Height="23" Margin="514,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" CaretBrush="Black"/>
+        <TextBox x:Name="Lider_Coss" HorizontalAlignment="Left" Height="23" Margin="514,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" CaretBrush="Black" Text="Liderança"/>
         <Label Content="Lider. / Coss." HorizontalAlignment="Left" Margin="415,87,0,0" VerticalAlignment="Top"/>
         <Label Content="Nº RCTR-C" HorizontalAlignment="Left" Margin="422,58,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="RCTR_numero" HorizontalAlignment="Left" Height="23" Margin="514,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="74" CaretBrush="Black"/>

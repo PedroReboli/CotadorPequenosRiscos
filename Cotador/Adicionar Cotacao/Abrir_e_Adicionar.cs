@@ -28,7 +28,7 @@ namespace Cotador.Adicionar_Cotacao
         static string Expctativa;
         static Controle_de_Cotacao Main = new Controle_de_Cotacao();
         //static string Envio;
-        public static void Adicionar (string calculo , string Controle)
+        public static void Adicionar (string calculo , string Controle, object Main)
         {
             //MessageBox.Show("to aqui");
             ExcelPackage excelcalc = new ExcelPackage(new FileInfo(calculo));
@@ -37,10 +37,9 @@ namespace Cotador.Adicionar_Cotacao
             
             foreach ( var lugar in Application.Current.Windows)
             {
-                var l = lugar.GetType();
-                var m = Main.GetType();
                 if (lugar.GetType() == Main.GetType())
                 {
+                    Main.Close();
                     Main = (Controle_de_Cotacao)lugar;
                     break;
                 }
@@ -102,23 +101,34 @@ namespace Cotador.Adicionar_Cotacao
         private static void Add(bool Modo,int l)
         {
             string linha = l.ToString();
+            string saida = string.Empty;
             if (Modo == true)
             {
-                worksheet.Cells["C" + linha].Value = DateTime.Today.Day.ToString() + "/" + DateTime.Today.Month.ToString() + "/" + DateTime.Today.Year.ToString(); // Envio
-                worksheet.Cells["D" + linha].Value = Lider; // Liderenca / Cosseguro
-                worksheet.Cells["F" + linha].Value = Proponente; // Proponente
-                worksheet.Cells["G" + linha].Value = inicio_vigencia; // inicio vigencia
-                worksheet.Cells["H" + linha].Value = fim_vigencia; // fim vigencia
-                worksheet.Cells["I" + linha].Value = "RCTR-C"; // Produto
-                worksheet.Cells["J" + linha].Value = Situacao; // Situacao
-                worksheet.Cells["K" + linha].Value = congenere; // congenere
-                worksheet.Cells["L" + linha].Value = Corretor; // Corretor
-                worksheet.Cells["M" + linha].Value = Tipo_Apolice; // Tipo de Apolice Transporte
-                worksheet.Cells["N" + linha].Value = Expctativa;
-                worksheet.Cells["O" + linha].Value = Math.Round(double.Parse(C("I12"))); ; // Estimativa Premio
-                var h = worksheet.Cells["O" + linha].Value; // Estimativa Premio
-                var p = C("I12");
-                linha = "";
+                saida += 
+                saida += DateTime.Today.Day.ToString() + "/" + DateTime.Today.Month.ToString() + "/" + DateTime.Today.Year.ToString(); // Envio
+                saida += "\t";
+                saida += Lider; // Liderenca / Cosseguro
+                saida += "\t";
+                saida += Proponente; // Proponente
+                saida += "\t";
+                saida += inicio_vigencia; // inicio vigencia
+                saida += "\t";
+                saida += fim_vigencia; // fim vigencia
+                saida += "\t";
+                saida += "RCTR-C"; // Produto
+                saida += "\t";
+                saida += Situacao; // Situacao
+                saida += "\t";
+                saida += congenere; // congenere
+                saida += "\t";
+                saida += Corretor; // Corretor
+                saida += "\t";
+                saida += Tipo_Apolice; // Tipo de Apolice Transporte
+                saida += "\t";
+                saida += Expctativa;
+                saida += "\t";
+                saida += Math.Round(double.Parse(C("I12"))).ToString(); ; // Estimativa Premio
+
             }
             else
             {
