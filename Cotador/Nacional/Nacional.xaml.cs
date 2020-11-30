@@ -276,17 +276,11 @@ N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
 			Iniciar();
 			
 		}
-		protected override void OnClosed(EventArgs e)
-		{
-			base.OnClosed(e);
-
-			this.Close();
-		}
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
 			try
 			{
-				Gerar_Arquivo.gerar();
+				Gerar_Arquivo.gerar(this);
 				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Arquivo gerado", "Arquivo foi gerado com sucesso");
 				messa.Show();
 			}

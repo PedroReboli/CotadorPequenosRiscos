@@ -28,7 +28,7 @@ namespace Cotador.Adicionar_Cotacao
         static string Expctativa;
         static Controle_de_Cotacao Main = new Controle_de_Cotacao();
         //static string Envio;
-        public static void Adicionar (string calculo , string Controle, object Main)
+        public static void Adicionar (string calculo , string Controle)
         {
             //MessageBox.Show("to aqui");
             ExcelPackage excelcalc = new ExcelPackage(new FileInfo(calculo));

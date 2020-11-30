@@ -21,7 +21,7 @@ namespace Cotador
 		//static roubo roubo = new roubo();
 		//static padrao padrao = new padrao();
 
-		static public void gerar()
+		static public void gerar(object isso)
 		{
 
 
@@ -37,7 +37,7 @@ namespace Cotador
 			switch (NomeFuncao)
 			{
 				case "Cotador.Nacional.Nacional":
-					Gerar_Nacional();
+					Gerar_Nacional(isso);
 					break;
 				case "Cotador.MainWindow":
 					Gerar_Transporte();
@@ -47,24 +47,16 @@ namespace Cotador
 
 
 		}
-		static void Gerar_Nacional()
+		static void Gerar_Nacional(object isso)
 		{
 			
 			oWord = new Word.Application();
 			oWord.Visible = true;
 			Word.Document nacional;
-			Nacional.Nacional Main = new Nacional.Nacional();
-			foreach (var janela in Application.Current.Windows)
-			{
-				if (janela.GetType() == Main.GetType())
-				{
-					Main.Close();
-					Main = (Nacional.Nacional)janela;
-					break;
-				}
-			}
+			Nacional.Nacional Main = (Nacional.Nacional)isso;
+
 			objdoc = oWord.Documents.Open(Main.path + "Modelos\\Nacional\\" + "Nacional.doc");
-			Nacional.Gerar_Nacional.Gerar();
+			Nacional.Gerar_Nacional.Gerar(isso);
 
 		}
 		static void Gerar_Transporte()
