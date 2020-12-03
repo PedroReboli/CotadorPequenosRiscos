@@ -280,7 +280,7 @@ N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
 		{
 			try
 			{
-				Gerar_Arquivo.gerar();
+				Gerar_Arquivo.gerar(this);
 				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Arquivo gerado", "Arquivo foi gerado com sucesso");
 				messa.Show();
 			}

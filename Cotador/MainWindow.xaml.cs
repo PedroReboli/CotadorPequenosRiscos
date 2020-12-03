@@ -181,7 +181,7 @@ namespace Cotador
 			try
 			{
 				//Core.Debug.Write("entrando em Gerar_Arquivo.gerar()");
-				Gerar_Arquivo.gerar();
+				Gerar_Arquivo.gerar(this);
 				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Arquivo gerado","Arquivo foi gerado com sucesso");
 				messa.Show();
 				

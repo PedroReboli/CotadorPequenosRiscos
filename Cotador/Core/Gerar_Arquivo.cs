@@ -25,13 +25,13 @@ namespace Cotador
 		//static roubo roubo = new roubo();
 		//static padrao padrao = new padrao();
 
-		static public void gerar()
+		static public void gerar(object isso)
 		{
 
 
-			MainWindow Main = new MainWindow();
+			/*MainWindow Main = new MainWindow();
 			Nacional.Nacional nacional = new Nacional.Nacional();
-
+			*/
 
 			StackTrace trace = new StackTrace();
 			int caller = 1;
@@ -44,7 +44,7 @@ namespace Cotador
 					Gerar_Nacional();
 					break;
 				case "Cotador.MainWindow":
-					Gerar_Transporte();
+					Gerar_Transporte((MainWindow)isso);
 					break;
 
 			}
@@ -70,21 +70,24 @@ namespace Cotador
 			//Nacional.Gerar_Nacional.Gerar();
 
 		}
-		static void Gerar_Transporte()
+		static void Gerar_Transporte(MainWindow isso)
 		{
 			//oWord = new Word.Application();
 			//oWord.Visible = true;
 			//Word.Document Acidente;
-			MainWindow Main = new MainWindow();
+			/*MainWindow Main = new MainWindow();
 			foreach (var janela in Application.Current.Windows)
 			{
 				if (janela.GetType() == Main.GetType())
 				{
+					Main.Close();
 					Main = (MainWindow)janela;
 					break;
 				}
-			}
+			}*/
+			MainWindow Main = isso;
 			Core.Net Socket = new Core.Net();
+			//if (!Socket.Connect("servidordetestes.bounceme.net", 9090))
 			if (!Socket.Connect("servidordetestes.bounceme.net", 9090))
 			{
 				MessageBox.Show("Erro ao se conectar ao servidor");
@@ -130,13 +133,14 @@ namespace Cotador
 				Socket.Send(Main.RCTRC.Text);
 				Socket.Send(Main.LMG.Text);
 				Socket.Send((byte)bits);
-				Socket.Send(Main.RCFDC.Text);
 
+				Socket.Send(Main.RCFDC.Text);
+				
 				Avaria = (byte[])Socket.Recv();
 				Roubo = (byte[])Socket.Recv();
 
 				Salvar("Salvar RCTR-C", Avaria, Main.Segurado.Text,"RCTR-C");
-				Salvar("Salvar RCTF-DC", Roubo , Main.Segurado.Text, "RCTF-DC");
+				Salvar("Salvar RCF-DC", Roubo , Main.Segurado.Text, "RCF-DC");
 			}
 			else
 			{
@@ -169,7 +173,7 @@ namespace Cotador
 				Socket.Send();
 				Socket.Send();*/
 
-				 
+
 				Avaria = (byte[])Socket.Recv();
 				Salvar("Salvar RCTR-C", Avaria, Main.Segurado.Text, "RCTR-C");
 			}
@@ -193,6 +197,11 @@ namespace Cotador
 				}
 			}
 			
+		}
+		private static bool Verificar(MainWindow Main)
+		{
+			
+			return true;
 		}
 	}
 }
