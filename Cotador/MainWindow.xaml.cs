@@ -21,6 +21,8 @@ using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using DocumentFormat.OpenXml.InkML;
+using System.Reflection;
+
 
 namespace Cotador
 {
@@ -38,13 +40,14 @@ namespace Cotador
 			
 			InitializeComponent();
 			path = Properties.Settings.Default.path;
-			if (path != "" && path != null) {
-				this.check.Background = Brushes.Green;
-				this.check.BorderBrush = Brushes.Green;
-				this.Gerar.IsEnabled = true;
-				
-			}
+
 			Desaparecer();
+		}
+		protected override void OnClosed(EventArgs e)
+		{
+			base.OnClosed(e);
+
+			Application.Current.Shutdown();
 		}
 		private void RelacaoArquivos_Drop(Object sender , DragEventArgs e)
 		{
@@ -135,6 +138,8 @@ namespace Cotador
 			this.POS_1.Visibility = Visibility.Hidden;
 			this.POS_2.Visibility = Visibility.Hidden;
 			this.POS_3.Visibility = Visibility.Hidden;
+			LAB_N_RCTR_C_Copy.Visibility = Visibility.Hidden;
+			RCFDC.Visibility = Visibility.Hidden;
 		}
 		
 		private void Roubo_Checked(object sender, RoutedEventArgs e)
@@ -144,27 +149,13 @@ namespace Cotador
 			//this.TAQ_RCF_DC.Visibility = Visibility.Visible;
 			this.Taxa_Roubo.Visibility = Visibility.Visible;
 			this.Taxa_Roubo.Visibility = Visibility.Visible;
-			this.LAB_LMG_POS.Visibility = Visibility.Visible;
+			/*this.LAB_LMG_POS.Visibility = Visibility.Visible;
 			this.POS_1.Visibility = Visibility.Visible;
 			this.POS_2.Visibility = Visibility.Visible;
-			this.POS_3.Visibility = Visibility.Visible;
+			this.POS_3.Visibility = Visibility.Visible;*/
+			LAB_N_RCTR_C_Copy.Visibility = Visibility.Visible;
+			RCFDC.Visibility = Visibility.Visible;
 
-		}
-		private void check_Click(object sender, RoutedEventArgs e)
-		{
-			OpenFileDialog openFileDialog1 = new OpenFileDialog();
-			openFileDialog1.Filter = "check.txt|check.txt";
-			openFileDialog1.Title = "Procurar pelo arquivo check.txt";
-			var x = openFileDialog1.ShowDialog();
-			if (x == true)
-			{
-				this.Gerar.IsEnabled = true;
-				path = openFileDialog1.FileName.Replace("Check.txt","");
-				Properties.Settings.Default.path = path;
-				Properties.Settings.Default.Save();
-				this.check.Background = Brushes.Green;
-				this.check.BorderBrush = Brushes.Green;
-			}
 		}
 
 		private void Limpar_Click(object sender, RoutedEventArgs e)
@@ -190,9 +181,34 @@ namespace Cotador
 			//MessageBox.Show(c.C(Sinistros.Text));
 			try
 			{
-				Core.Debug.Write("entrando em Gerar_Arquivo.gerar()");
+				//Core.Debug.Write("entrando em Gerar_Arquivo.gerar()");
+				//
+				var x = 0;
+				x++;
+				//var stream = Assembly.GetExecutingAssembly();//.GetManifestResourceStream("xyz.Cotador.Resources.Cotador.zip");
+				byte[] aa = Properties.Resources.Cotador;
+				MemoryStream MS = new MemoryStream(aa);
+				//StreamReader sr = new StreamReader(MS);
+				FileStream bb = File.Create(System.IO.Path.GetTempPath()+"cot.zip",aa.Length);
+				bb.Write(aa,0,aa.Length);
+				bb.Close();
+				var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+				var stringChars = new char[8];
+				var random = new Random();
+
+				for (int i = 0; i < stringChars.Length; i++)
+				{
+					stringChars[i] = chars[random.Next(chars.Length)];
+				}
+
+				var finalString = new String(stringChars);
+
+				ZipFile.ExtractToDirectory(System.IO.Path.GetTempPath() + "cot.zip", System.IO.Path.GetTempPath()+finalString+"\\");
+				path = System.IO.Path.GetTempPath() + finalString + "\\";
+				
 				Gerar_Arquivo.gerar();
-				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Arquivo gerado","Arquivo foi gerado com sucesso");
+				//File.Delete(System.IO.Path.GetTempPath() + "cotador/");
+				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Arquivo gerado", "Arquivo foi gerado com sucesso");
 				messa.Show();
 				
 			}
@@ -282,10 +298,9 @@ namespace Cotador
 			LAB_Container_LMG.Visibility = Visibility.Hidden;
 			Lmg_Container.Visibility = Visibility.Hidden;
 			// Converter Para Web
-			LAB_N_RCTR_C.Visibility = Visibility.Hidden;
 			LAB_N_RCTR_C_Copy.Visibility = Visibility.Hidden;
 			RCFDC.Visibility = Visibility.Hidden;
-			RCTRC.Visibility = Visibility.Hidden;
+			
 		}
 		
 		private void Ativar_Adicionais_Checked(object sender, RoutedEventArgs e)

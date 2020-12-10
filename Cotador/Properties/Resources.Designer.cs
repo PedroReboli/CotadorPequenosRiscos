@@ -59,5 +59,15 @@ namespace Cotador.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Cotador {
+            get {
+                object obj = ResourceManager.GetObject("Cotador", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

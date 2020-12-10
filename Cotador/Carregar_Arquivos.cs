@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows;
 
 namespace Cotador
 {
@@ -11,8 +12,16 @@ namespace Cotador
     {
         string Ler(string path)
         {
-
-            string str = path;
+            MainWindow Main = new MainWindow();
+            foreach (var janela in Application.Current.Windows)
+            {
+                if (janela.GetType() == Main.GetType())
+                {
+                    Main = (MainWindow)janela;
+                    break;
+                }
+            }
+            string str = Main.path + path;
             StreamReader eae = new StreamReader(str);
             string saida = string.Empty;
             string linha;
@@ -36,42 +45,42 @@ namespace Cotador
             {
                 get
                 {
-                    return C.Ler(Main.path + "/Textos/Limpeza de Pista/Cobertura Adicional.txt");
+                    return C.Ler("/Textos/Limpeza de Pista/Cobertura Adicional.txt");
                 }
             }
             static public string Limpeza_de_pista_franquia
             {
                 get
                 {
-                    return C.Ler(Main.path + "/Textos/Limpeza de Pista/Franquia.txt");
+                    return C.Ler("/Textos/Limpeza de Pista/Franquia.txt");
                 }
             }
             static public string Limpeza_de_pista_cobertura
             {
                 get
                 {
-                    return C.Ler(Main.path + "/Textos/Limpeza de Pista/Cobertura.txt");
+                    return C.Ler( "/Textos/Limpeza de Pista/Cobertura.txt");
                 }
             }
             static public string Avaria_Cobertura
             {
                 get
                 {
-                    return C.Ler(Main.path + "/Textos/Avaria/Cobertura Adicional.txt");
+                    return C.Ler("/Textos/Avaria/Cobertura Adicional.txt");
                 }
             }
             static public string Avaria_Taxa
             {
                 get
                 {
-                    return C.Ler(Main.path + "/Textos/Avaria/Taxa.txt");
+                    return C.Ler("/Textos/Avaria/Taxa.txt");
                 }
             }
             static public string Container
             {
                 get
                 {
-                    return C.Ler(Main.path + "/Textos/Container/Cobertura Adicional.txt");
+                    return C.Ler("/Textos/Container/Cobertura Adicional.txt");
                 }
             }
         }

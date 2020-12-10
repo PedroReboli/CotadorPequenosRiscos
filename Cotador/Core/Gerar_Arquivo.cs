@@ -25,8 +25,8 @@ namespace Cotador
 		{
 
 
-			MainWindow Main = new MainWindow();
-			Nacional.Nacional nacional = new Nacional.Nacional();
+			//MainWindow Main = new MainWindow();
+			//Nacional.Nacional nacional = new Nacional.Nacional();
 
 
 			StackTrace trace = new StackTrace();
@@ -80,28 +80,13 @@ namespace Cotador
 					break;
 				}
 			}
-			if (Main.Web.IsChecked.Value == true)
+			objdoc = oWord.Documents.Open(Main.path + "Acidente.docx");
+			avaria.avaria();
+			if (Main.Chk_Roubo.IsChecked.Value == true)
 			{
-				objdoc = oWord.Documents.Open(Main.path + "Web\\" + "Acidente.docx");
-				avaria.avaria();
-				Acidente = objdoc;
-				if (Main.Chk_Roubo.IsChecked.Value == true)
-				{
-					oDoc = oWord.Documents.Open(Main.path + "Web\\" + "Roubo.docx");
-					objdoc = oDoc;
-					roubo.Roubo();
-				}
-			}
-			else
-			{
-				objdoc = oWord.Documents.Open(Main.path + "Acidente.docx");
-				avaria.avaria();
-				if (Main.Chk_Roubo.IsChecked.Value == true)
-				{
-					oDoc = oWord.Documents.Open(Main.path + "Roubo.docx");
-					objdoc = oDoc;
-					roubo.Roubo();
-				}
+				oDoc = oWord.Documents.Open(Main.path + "Roubo.docx");
+				objdoc = oDoc;
+				roubo.Roubo();
 			}
 		}
 	}
