@@ -25,7 +25,7 @@ namespace Cotador.Core
 
 			Sock.Send("eae");
 			MessageBox.Show((string)Sock.Recv());
-			Sock.Send("Vai tomar no Cu Servidor");
+			Sock.Send("Isso é um Teste");
 		}
 	}
 
@@ -154,7 +154,7 @@ namespace Cotador.Core
 			byte[] enviar;
 			if (valor is string)
 			{
-				enviar = Encoding.ASCII.GetBytes((string)valor);
+				enviar = Encoding.UTF8.GetBytes((string)valor);
 				TSend(STR);
 			}
 			else if (valor is Byte[])
@@ -206,7 +206,7 @@ namespace Cotador.Core
 			//KEY.Clear();
 			if (Tstr == true)
 			{
-				return Encoding.ASCII.GetString(data);
+				return Encoding.UTF8.GetString(data);
 			}
 			if (Tbyt == true)
 			{
