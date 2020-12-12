@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Cotador"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Cotador.MainWindow"
         mc:Ignorable="d"
-        Title="EZ Cotador" Height="538.75" Width="658" WindowStartupLocation="CenterScreen">
+        Title="EZ Cotador" Height="549.75" Width="658" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
 	<Window.Background>
 		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
 			<LinearGradientBrush.RelativeTransform>

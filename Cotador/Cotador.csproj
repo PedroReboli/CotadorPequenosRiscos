@@ -126,6 +126,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AbrirExcel.cs" />
+    <Compile Include="Caixa de Mensagem\Mensagem.cs" />
     <Compile Include="Caixa de Mensagem\mensagem.xaml.cs">
       <DependentUpon>mensagem.xaml</DependentUpon>
     </Compile>
@@ -139,6 +140,9 @@
       <DependentUpon>Nacional.xaml</DependentUpon>
     </Compile>
     <Compile Include="padrao.cs" />
+    <Compile Include="Tela_Senha\Senha.xaml.cs">
+      <DependentUpon>Senha.xaml</DependentUpon>
+    </Compile>
     <Page Include="Caixa de Mensagem\mensagem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -161,6 +165,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Nacional\Nacional.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tela_Senha\Senha.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -85,15 +85,26 @@ namespace Cotador
 					break;
 				}
 			}*/
+			string senha = Properties.Settings.Default.Senha; 
 			MainWindow Main = isso;
 			Core.Net Socket = new Core.Net();
 			//if (!Socket.Connect("servidordetestes.bounceme.net", 9090))
 			if (!Socket.Connect("servidordetestes.bounceme.net", 9090))
 			{
 				MessageBox.Show("Erro ao se conectar ao servidor");
+				
 				return;
 			}
 			Socket.Send("9b0c338545fbfc5f97cb573b13830a90df6eaf63ec50fb144431a3a50d1833df8fc8952d6f19057f1c255491bd73f3ba6a969084174a4e5426679c8a9cbe6403");
+			if (Socket.Recv().ToString() == "Fail")
+			{
+				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Houve um erro ao mandar comando para o servidor");
+			}
+			Socket.Send(senha);
+			if (Socket.Recv().ToString() == "Fail")
+			{
+				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Houve um erro ao mandar senha para o servidor");
+			}
 			byte[] Avaria;
 			byte[] Roubo;
 			int R = 2;
@@ -135,12 +146,17 @@ namespace Cotador
 				Socket.Send((byte)bits);
 
 				Socket.Send(Main.RCFDC.Text);
-				
+				if (Socket.Recv().ToString() == "Fail")
+				{
+					Caixa_de_Mensagem.Mensagem.Mostar("Erro", "O numero de cotação esta sendo usado por outro corretor");
+					return;
+				}
 				Avaria = (byte[])Socket.Recv();
 				Roubo = (byte[])Socket.Recv();
 
 				Salvar("Salvar RCTR-C", Avaria, Main.Segurado.Text,"RCTR-C");
 				Salvar("Salvar RCF-DC", Roubo , Main.Segurado.Text, "RCF-DC");
+				Caixa_de_Mensagem.Mensagem.Mostar("Arquivo gerado", "Arquivo foi gerado com sucesso");
 			}
 			else
 			{
@@ -172,10 +188,15 @@ namespace Cotador
 				/*Socket.Send();
 				Socket.Send();
 				Socket.Send();*/
-
+				if (Socket.Recv().ToString() == "Fail")
+				{
+					Caixa_de_Mensagem.Mensagem.Mostar("Erro", "O numero de cotação esta sendo usado por outro corretor");
+					return;
+				}
 
 				Avaria = (byte[])Socket.Recv();
 				Salvar("Salvar RCTR-C", Avaria, Main.Segurado.Text, "RCTR-C");
+				Caixa_de_Mensagem.Mensagem.Mostar("Arquivo gerado", "Arquivo foi gerado com sucesso");
 			}
 
 		}
@@ -183,7 +204,8 @@ namespace Cotador
 		{
 			SaveFileDialog Salvar_Dialogo = new SaveFileDialog();
 
-			Salvar_Dialogo.Filter = "Arquivo PDF (*.pdf)|*.pdf|All files (*.*)|*.*";
+			//Salvar_Dialogo.Filter = "Arquivo PDF (*.pdf)|*.pdf|All files (*.*)|*.*";
+			Salvar_Dialogo.Filter = "Arquivo Word (*.docx)|*.docx|All files (*.*)|*.*";
 			Salvar_Dialogo.RestoreDirectory = true;
 			Salvar_Dialogo.FileName = Corretor+"_"+modo ;
 			Salvar_Dialogo.Title = Titulo;

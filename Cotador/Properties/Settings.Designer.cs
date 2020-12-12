@@ -46,5 +46,17 @@ namespace Cotador.Properties {
                 this["Controle_Cotacao"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Senha {
+            get {
+                return ((string)(this["Senha"]));
+            }
+            set {
+                this["Senha"] = value;
+            }
+        }
     }
 }

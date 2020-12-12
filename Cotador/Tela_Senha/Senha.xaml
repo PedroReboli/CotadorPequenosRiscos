@@ -1,0 +1,16 @@
+﻿<Window x:Class="Cotador.Tela_Senha.Senha"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cotador.Tela_Senha"
+        mc:Ignorable="d"
+        Title="Senha" Height="202.5" Width="246.874">
+	<Grid>
+		<Label Content="Senha" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top"/>
+		<Button Content="Conectar" Click="Button_Click" HorizontalAlignment="Left" Margin="73,111,0,0" VerticalAlignment="Top" Width="98"/>
+		<TextBox x:Name="TXT_Senha" HorizontalAlignment="Left" Height="23" Margin="64,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		<Label x:Name="Erro" Content="Senha é invalida" HorizontalAlignment="Left" Margin="77,82,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+
+	</Grid>
+</Window>

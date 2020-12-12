@@ -35,6 +35,7 @@ namespace Cotador
 		public string[] lista = new string[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" };
 		public MainWindow()
 		{
+			//MessageBox.Show(Properties.Settings.Default.Senha);
 			
 			InitializeComponent();
 			this.Gerar.IsEnabled = true;
@@ -146,10 +147,10 @@ namespace Cotador
 			//this.TAQ_RCF_DC.Visibility = Visibility.Visible;
 			this.Taxa_Roubo.Visibility = Visibility.Visible;
 			this.Taxa_Roubo.Visibility = Visibility.Visible;
-			this.LAB_LMG_POS.Visibility = Visibility.Visible;
+			/*this.LAB_LMG_POS.Visibility = Visibility.Visible;
 			this.POS_1.Visibility = Visibility.Visible;
 			this.POS_2.Visibility = Visibility.Visible;
-			this.POS_3.Visibility = Visibility.Visible;
+			this.POS_3.Visibility = Visibility.Visible;*/
 			RCFDC.Visibility = Visibility.Visible;
 			LAB_N_RCF_DC.Visibility = Visibility.Visible;
 		}
@@ -182,8 +183,8 @@ namespace Cotador
 			{
 				//Core.Debug.Write("entrando em Gerar_Arquivo.gerar()");
 				Gerar_Arquivo.gerar(this);
-				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Arquivo gerado","Arquivo foi gerado com sucesso");
-				messa.Show();
+				/*Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Arquivo gerado","Arquivo foi gerado com sucesso");
+				messa.Show();*/
 				
 			}
 			catch (Exception ex)
