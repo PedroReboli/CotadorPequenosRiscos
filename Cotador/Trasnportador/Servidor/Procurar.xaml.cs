@@ -30,16 +30,21 @@ namespace Cotador.Trasnportador.Servidor
 			InitializeComponent();
 			if (!Socket.Connect("servidordetestes.bounceme.net", 9090))
 			{
-				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Erro", "Erro ao se conectar no servidor");
+				//Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Erro", "Erro ao se conectar no servidor");
+				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Erro ao se conectar no servidor");
 				//Servidor.Foreground = new SolidColorBrush(Color.FromRgb(255, 43, 43));
 				return;
 			}
 			//MessageBox.Show("Connectado");
-			Socket.Send("!Modo Subscritor!");
+			Socket.Send("210be131038c715e5712717621a3d8e9a9ff5ca4858a386c469975fe8da89fecb38b46e9dbe8f433d5d67be89807df952dc964ece5b70805f7e437411910d40d");
 			//MessageBox.Show("Esperando OK");
 			if (((string)Socket.Recv()).Contains("OK"))
 			{
 				Servidor.Foreground = new SolidColorBrush(Color.FromRgb(80, 170, 28));
+			}
+			else
+			{
+				Caixa_de_Mensagem.Mensagem.Mostar("Erro","Erro ao se autenticar no servidor");
 			}
 		}
 		public static void UpdateColumnWidths(GridView gridView)
@@ -126,8 +131,8 @@ namespace Cotador.Trasnportador.Servidor
 		{
 			if(Cotacoes.SelectedIndex == -1)
 			{
-				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Erro","Nenhum item foi selecionado");
-				messa.Show();
+				Caixa_de_Mensagem.Mensagem.Mostar("Erro","Nenhum item foi selecionado");
+				
 				return;
 			}
 				
