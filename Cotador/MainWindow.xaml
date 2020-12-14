@@ -24,33 +24,37 @@
 	</Window.Background>
 
 	<Grid Margin="0,0,0,0">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="389*"/>
+			<ColumnDefinition Width="263*"/>
+		</Grid.ColumnDefinitions>
 
 
 		<Label Content="Segurado" HorizontalAlignment="Left" Margin="49,62,0,0" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold" Foreground="Black" Width="69" Height="24"/>
 		<TextBox TabIndex="2" x:Name="Segurado" HorizontalAlignment="Left" Height="24" Margin="127,62,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"  />
 		<Label Content="CNPJ" HorizontalAlignment="Left" Margin="76,91,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="24" Width="37" FontWeight="Bold" Foreground="Black"/>
 		<TextBox TabIndex="3" x:Name="CNPJ" HorizontalAlignment="Left" Height="24" Margin="127,91,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"  />
-		<Label Content="Corretor" HorizontalAlignment="Left" Margin="59,120,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="24" Width="59" FontWeight="Bold" Foreground="Black"/>
-		<TextBox TabIndex="5" x:Name="Corretor" HorizontalAlignment="Left" Height="24" Margin="127,120,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"  />
+		<Label Content="Corretor" HorizontalAlignment="Left" Margin="59,120,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="24" Width="59" FontWeight="Bold" Foreground="Black" Visibility="Hidden"/>
+		<TextBox TabIndex="5" x:Name="Corretor" HorizontalAlignment="Left" Height="24" Margin="127,120,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display" Visibility="Hidden"  />
 
-		<Label Content="Sinistros" HorizontalAlignment="Left" Margin="61,150,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="24" Width="57" FontWeight="Bold" Foreground="Black"/>
-		<TextBox TabIndex="4" x:Name="Sinistros" HorizontalAlignment="Left" Height="24" Margin="127,150,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"  />
+		<Label Content="Sinistros" HorizontalAlignment="Left" Margin="61,120,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="24" Width="57" FontWeight="Bold" Foreground="Black"/>
+		<TextBox TabIndex="4" x:Name="Sinistros" HorizontalAlignment="Left" Height="24" Margin="127,120,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"  />
 
-		<Label Content="LMG(R$)" HorizontalAlignment="Left" Margin="56,178,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="24" Width="57" FontWeight="Bold" Foreground="Black"/>
-		<TextBox TabIndex="8" x:Name="LMG" HorizontalAlignment="Left" Height="24" Margin="127,178,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
-		<CheckBox x:Name="Main_Desconto" HorizontalAlignment="Left" Margin="39,207,0,0" VerticalAlignment="Top" OpacityMask="White" Background="#FF1ACAF1" BorderBrush="White" Foreground="Black" Height="20" Width="79" Content="Desconto" FontWeight="Bold" Checked="Main_Desconto_Checked" Unchecked="Main_Desconto_Unchecked"/>
-		<CheckBox x:Name="Main_Taxa" HorizontalAlignment="Left" Margin="39,236,0,0" VerticalAlignment="Top" OpacityMask="White" Background="#FF1ACAF1" BorderBrush="White" Foreground="Black" Height="20" Width="79" Content="Taxa" FontWeight="Bold" Checked="Main_Taxa_Checked" Unchecked="Main_Taxa_Unchecked"/>
-		<TextBox x:Name="Desconto" HorizontalAlignment="Left" Height="24" Margin="127,207,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
-		<TextBox x:Name="Taxa_Unica" HorizontalAlignment="Left" Height="24" Margin="127,236,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
-		<Label Content="Premio Minimo" HorizontalAlignment="Left" Margin="18,265,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="24" Width="100" FontWeight="Bold" Foreground="Black"/>
-		<TextBox x:Name="Premio_Minimo" HorizontalAlignment="Left" Height="24" Margin="127,265,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
+		<Label Content="LMG(R$)" HorizontalAlignment="Left" Margin="56,148,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="24" Width="57" FontWeight="Bold" Foreground="Black"/>
+		<TextBox TabIndex="8" x:Name="LMG" HorizontalAlignment="Left" Height="24" Margin="127,148,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
+		<CheckBox x:Name="Main_Desconto" HorizontalAlignment="Left" Margin="39,177,0,0" VerticalAlignment="Top" OpacityMask="White" Background="#FF1ACAF1" BorderBrush="White" Foreground="Black" Height="20" Width="79" Content="Desconto" FontWeight="Bold" Checked="Main_Desconto_Checked" Unchecked="Main_Desconto_Unchecked"/>
+		<CheckBox x:Name="Main_Taxa" HorizontalAlignment="Left" Margin="39,206,0,0" VerticalAlignment="Top" OpacityMask="White" Background="#FF1ACAF1" BorderBrush="White" Foreground="Black" Height="20" Width="79" Content="Taxa" FontWeight="Bold" Checked="Main_Taxa_Checked" Unchecked="Main_Taxa_Unchecked"/>
+		<TextBox x:Name="Desconto" HorizontalAlignment="Left" Height="24" Margin="127,177,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
+		<TextBox x:Name="Taxa_Unica" HorizontalAlignment="Left" Height="24" Margin="127,206,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
+		<Label Content="Premio Minimo" HorizontalAlignment="Left" Margin="18,235,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="24" Width="100" FontWeight="Bold" Foreground="Black"/>
+		<TextBox x:Name="Premio_Minimo" HorizontalAlignment="Left" Height="24" Margin="127,235,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
 		<Button Content="Limpar" HorizontalAlignment="Left" Margin="31,437,0,0" VerticalAlignment="Top" Width="87" Background="#FF4A8EA8" Click="Limpar_Click" BorderBrush="{x:Null}" Height="52" FontSize="16"/>
 
 
 
 		<!--<Button x:Name="check" Click="check_Click" Content="Check" HorizontalAlignment="Left" Margin="26,465,0,0" VerticalAlignment="Top" Width="75" Background="Red" BorderBrush="Red"/>
 		-->
-		<GroupBox x:Name="Adicionais_Group" Margin="0,10,27,10" Background="#00000000" FontSize="14" HorizontalAlignment="Right" Width="294">
+		<GroupBox x:Name="Adicionais_Group" Margin="0,10,27,10" Background="#00000000" FontSize="14" HorizontalAlignment="Right" Width="294" Grid.ColumnSpan="2">
 			<GroupBox.Header>
 				<Label Content="ADICIONAIS" Height="25" Margin="93,0,95,0" Foreground="#DD076414" FontWeight="Bold" Background="{x:Null}"/>
 			</GroupBox.Header>
@@ -108,12 +112,12 @@
             <materialDesign:PackIcon MouseDown="Procurar_Taxa" Kind="Search" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="34" Width="34" Cursor="Hand"/>
         </Grid>-->
 		<CheckBox x:Name="Web" Content="Converter Para Web" HorizontalAlignment="Left" Margin="127,305,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="Web_Checked" Unchecked="Web_Unchecked" Visibility="Hidden" />
-		<Label x:Name="LAB_N_RCTR_C" Content="N° RCTR-C" HorizontalAlignment="Left" Margin="45,294,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-		<TextBox x:Name="RCTRC" HorizontalAlignment="Left" Height="24" Margin="127,294,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
-		<TextBox TextChanged="Procurar_Taxa" x:Name="De" HorizontalAlignment="Left" Height="26" Margin="127,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="22" Background="White" MaxLength="2" CaretBrush="Black"/>
-		<TextBox TextChanged="Procurar_Taxa" x:Name="Para" HorizontalAlignment="Left" Height="26" Margin="172,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="22" Background="White" MaxLength="2" CaretBrush="Black"/>
-		<TextBox x:Name="Saida" HorizontalAlignment="Left" Height="26" Margin="214,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" Background="White" CaretBrush="Black"/>
-		<Label Content="Tabela RCTR-C" HorizontalAlignment="Left" Margin="28,342,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<Label x:Name="LAB_N_RCTR_C" Content="N° RCTR-C" HorizontalAlignment="Left" Margin="45,264,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<TextBox x:Name="RCTRC" HorizontalAlignment="Left" Height="24" Margin="127,264,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
+		<TextBox TextChanged="Procurar_Taxa" x:Name="De" HorizontalAlignment="Left" Height="26" Margin="127,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="22" Background="White" MaxLength="2" CaretBrush="Black" Visibility="Hidden"/>
+		<TextBox TextChanged="Procurar_Taxa" x:Name="Para" HorizontalAlignment="Left" Height="26" Margin="172,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="22" Background="White" MaxLength="2" CaretBrush="Black" Visibility="Hidden"/>
+		<TextBox x:Name="Saida" HorizontalAlignment="Left" Height="26" Margin="214,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" Background="White" CaretBrush="Black" Visibility="Hidden"/>
+		<Label Content="Tabela RCTR-C" HorizontalAlignment="Left" Margin="28,312,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
 		<!--<Button Click="taxa_Click" Content="Button" HorizontalAlignment="Left" Height="38" Margin="268,150,0,0" VerticalAlignment="Top" Width="52"/>
 		<Button Click="Button_Click" Content="Copiar" HorizontalAlignment="Left" Margin="268,224,0,0" VerticalAlignment="Top" Width="52" Background="#FF0097FF" BorderBrush="#FF0097FF"/>
 		-->

@@ -5,12 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cotador.Tela_Senha"
         mc:Ignorable="d"
-        Title="Senha" Height="202.5" Width="246.874">
+        Title="Senha" Height="187.734" Width="226.624" WindowStartupLocation="CenterScreen" Background="#FFF0F0F0">
 	<Grid>
-		<Label Content="Senha" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top"/>
-		<Button Content="Conectar" Click="Button_Click" HorizontalAlignment="Left" Margin="73,111,0,0" VerticalAlignment="Top" Width="98"/>
-		<TextBox x:Name="TXT_Senha" HorizontalAlignment="Left" Height="23" Margin="64,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-		<Label x:Name="Erro" Content="Senha é invalida" HorizontalAlignment="Left" Margin="77,82,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+		<Label Content="Senha" HorizontalAlignment="Left" Margin="83,27,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+		<Button Content="Conectar" Click="Button_Click" HorizontalAlignment="Left" Margin="64,94,0,0" VerticalAlignment="Top" Background="#FF3C9528" BorderBrush="#FF90B08E" />
+		<TextBox x:Name="TXT_Senha" HorizontalAlignment="Left" Height="23" Margin="47,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" CaretBrush="Black"/>
 
 	</Grid>
 </Window>
