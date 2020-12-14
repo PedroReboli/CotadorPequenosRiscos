@@ -40,7 +40,7 @@ namespace Cotador
 					Gerar_Nacional(isso);
 					break;
 				case "Cotador.MainWindow":
-					Gerar_Transporte();
+					Gerar_Transporte((MainWindow)isso);
 					break;
 
 			}
@@ -59,21 +59,13 @@ namespace Cotador
 			Nacional.Gerar_Nacional.Gerar(isso);
 
 		}
-		static void Gerar_Transporte()
+		static void Gerar_Transporte(MainWindow isso)
 		{
 			oWord = new Word.Application();
 			oWord.Visible = true;
 			Word.Document Acidente;
-			MainWindow Main = new MainWindow();
-			foreach (var janela in Application.Current.Windows)
-			{
-				if (janela.GetType() == Main.GetType())
-				{
-					Main.Close();
-					Main = (MainWindow)janela;
-					break;
-				}
-			}
+			MainWindow Main = isso;
+			
 			if (Main.Web.IsChecked.Value == true)
 			{
 				objdoc = oWord.Documents.Open(Main.path + "Web\\" + "Acidente.docx");
