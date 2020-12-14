@@ -600,7 +600,7 @@ N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
 				try
 				{
 					LoopVisualTree(this);
-					Excel.Abrir(fileName[0],this);
+					Excel.Abrir(fileName[0]);
 				}
 				catch(Exception f)
 				{

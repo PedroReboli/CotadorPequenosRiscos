@@ -65,8 +65,8 @@ namespace Cotador.Inicio
                 {
                     //Desaparecer();
                     //LoopVisualTree(this);
-                    //Adicionar_Cotacao.Abrir_e_Adicionar cot = new Adicionar_Cotacao.Abrir_e_Adicionar(fileName[0]);
-                    
+                    Adicionar_Cotacao.Abrir_e_Adicionar cot = new Adicionar_Cotacao.Abrir_e_Adicionar(fileName[0]);
+                    cot.show()
                 }
                 catch (Exception f)
                 {
@@ -77,7 +77,7 @@ namespace Cotador.Inicio
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
 		{
-            
+
 		}
 	}
 }
