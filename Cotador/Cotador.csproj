@@ -128,7 +128,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Caixa de Mensagem\Mensagem.cs" />
     <Compile Include="Trasnportador\AbrirExcel.cs" />
     <Compile Include="Adicionar Cotacao\Abrir_e_Adicionar.cs" />
     <Compile Include="Caixa de Mensagem\mensagem.xaml.cs">
