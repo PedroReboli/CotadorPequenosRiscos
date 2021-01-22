@@ -28,7 +28,7 @@ namespace Cotador.Trasnportador.Servidor
 		public Procurar()
 		{
 			InitializeComponent();
-			if (!Socket.Connect("servidordetestes.bounceme.net", 9090))
+			if (!Socket.Connect("servidordetestes.bounceme.net", 9090))//servidordetestes.bounceme.net
 			{
 				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Erro", "Erro ao se conectar no servidor");
 				messa.Show();
@@ -119,6 +119,7 @@ namespace Cotador.Trasnportador.Servidor
 			Cotacoes.ItemsSource = items;
 			var cota = Cotacoes.View as GridView;
 			UpdateColumnWidths(cota);
+			Cotacoes.SelectedIndex = -1;
 		}
 		public class Cotacao
 		{
@@ -140,7 +141,12 @@ namespace Cotador.Trasnportador.Servidor
 				
 
 			string N = ((Cotacao)Cotacoes.SelectedItem).Cota;
-
+			if (N == "")
+			{
+				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Erro", "Nenhum item foi selecionado");
+				messa.Show();
+				return;
+			}
 			Socket.Send((byte)2);
 			Socket.Send(N);
 			byte[] modo = (byte[])Socket.Recv();
