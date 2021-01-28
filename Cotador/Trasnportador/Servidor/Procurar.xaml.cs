@@ -190,7 +190,17 @@ namespace Cotador.Trasnportador.Servidor
 
 		private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			Socket.Send((byte)00);
+			try
+			{
+				Socket.Send((byte)00);
+			}
+			catch
+			{
+
+			}
+				
+			
+			
 		}
 	}
 }

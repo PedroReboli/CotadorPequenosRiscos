@@ -29,7 +29,7 @@ namespace Cotador.Core
 		}
 	}
 
-	class Net
+	public class Net
 	{
 
 		Socket sock;
