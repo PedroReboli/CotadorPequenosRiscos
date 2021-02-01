@@ -118,6 +118,10 @@
 		<Grid Margin="281,451,0,0" Cursor="Hand" MouseDown="Grid_MouseDown" Background="Transparent" Height="46" VerticalAlignment="Top" HorizontalAlignment="Left" Width="39">
 			<materialDesign:PackIcon Kind="CloudSearchOutline" HorizontalAlignment="Left" VerticalAlignment="Top" Height="41" Width="39"/>
 		</Grid>
+		<Grid Margin="281,405,0,0" Cursor="Hand" MouseDown="Abrir_Procurar_Modelo" HorizontalAlignment="Left" VerticalAlignment="Top" Height="41" Width="39">
+			<materialDesign:PackIcon Kind="filecloudoutline" Height="41" Width="39"/>
+		</Grid>
+		
 
 
 

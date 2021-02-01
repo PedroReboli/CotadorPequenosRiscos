@@ -1,0 +1,40 @@
+﻿<Window x:Class="Cotador.Trasnportador.Servidor.Selecionar_Modelo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cotador.Trasnportador.Servidor"
+        mc:Ignorable="d"
+        Title="Selecionar_Modelo" Height="433" Width="695">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<LinearGradientBrush.RelativeTransform>
+				<TransformGroup>
+					<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+					<SkewTransform CenterY="0.5" CenterX="0.5"/>
+					<RotateTransform Angle="-322.39" CenterY="0.5" CenterX="0.5"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</LinearGradientBrush.RelativeTransform>
+			<GradientStop Color="#FFCFF99C" Offset="1"/>
+			<GradientStop Color="#FF01645B"/>
+			<GradientStop Color="#FF1AB97F" Offset="0.657"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<Grid>
+		<Grid Background="#5FFFFFFF" Margin="43,136,52,32">
+			<ListView x:Name="Cotacoes" Margin="0,0,0,0" BorderThickness="10" Background="Red" Foreground="Black" OpacityMask="#FFF06868" BorderBrush="Black" >
+				<ListView.View>
+					<GridView>
+
+						<GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="auto"/>
+						<GridViewColumn Header="Nome" DisplayMemberBinding="{Binding Nome}" Width="auto"/>
+						<GridViewColumn Header="CNPJ" DisplayMemberBinding="{Binding CNPJ}" Width="auto"/>
+						<GridViewColumn Header="Corretora" DisplayMemberBinding="{Binding Corretora}" Width="auto"/>
+
+					</GridView>
+				</ListView.View>
+			</ListView>
+		</Grid>
+	</Grid>
+</Window>

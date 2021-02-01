@@ -62,27 +62,37 @@ namespace Cotador
 		}
 		static void Gerar_Transporte(MainWindow isso)
 		{
-			oWord = new Word.Application();
-			oWord.Visible = true;
-			Word.Document Acidente;
+			//oWord = new Word.Application();
+			//oWord.Visible = true;
+			//Word.Document Acidente;
 			MainWindow Main = isso;
 			Core.Net Socket = new Core.Net();
-			if (!Socket.Connect("servidordetestes.bounceme.net", 9090))
+			if (!Socket.Connect("192.168.0.10", 9090))
 			{
 				System.Windows.MessageBox.Show("Erro ao se conectar ao servidor");
 
 				return;
 			}
-			Socket.Send("9b0c338545fbfc5f97cb573b13830a90df6eaf63ec50fb144431a3a50d1833df8fc8952d6f19057f1c255491bd73f3ba6a969084174a4e5426679c8a9cbe6403");
+			Socket.Send("2ddb03e4e01ea00e3f0c49a5a880985d314c631acba420db3bea8cc91a27083ffd6e2b9e289bb3e862b29a6953ca60febffef816cbc1b8f5cbe7141041c53284");
 			if (Socket.Recv().ToString() == "Fail")
 			{
 				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Houve um erro ao mandar comando para o servidor");
 			}
+			Socket.Send((byte)00); // Diz que o modo é cotaçao
+			if (Socket.Recv().ToString() == "Fail")
+			{
+				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Modo cotação nao disponivel");
+			}
+			Socket.Send((byte)00); // Diz que o tipo da cotaçao é transportador
+			if (Socket.Recv().ToString() == "Fail")
+			{
+				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Modo cotação trasportador nao disponivel");
+			}
 			byte[] Avaria;
 			byte[] Roubo;
-			int R = 2;
-			int A = 1;
-			int bits = 0;
+			int R = 3;
+			int A = 2;
+			int bits = 0; // Fazendo magica com os bits
 			if (Main.Chk_Avaraia.IsChecked.Value == true)
 				bits += 1;
 			if (Main.Chk_limpeza.IsChecked.Value == true)

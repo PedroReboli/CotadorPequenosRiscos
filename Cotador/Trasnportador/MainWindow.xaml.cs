@@ -46,13 +46,13 @@ namespace Cotador
 				
 			}
 			Desaparecer();
-			Socket = new Core.Net();
+			/*Socket = new Core.Net();
 			if (!Socket.Connect("servidordetestes.bounceme.net", 9090))
 			{
 				MessageBox.Show("Erro ao se conectar ao servidor");
 
 				return;
-			}
+			}*/
 		}
 		private void RelacaoArquivos_Drop(Object sender , DragEventArgs e)
 		{
@@ -403,6 +403,11 @@ namespace Cotador
 		{
 			Trasnportador.Servidor.Procurar pro = new Trasnportador.Servidor.Procurar();
 			pro.Show();
+		}
+
+		private void Abrir_Procurar_Modelo(object sender, MouseButtonEventArgs e)
+		{
+
 		}
 	}
 }

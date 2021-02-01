@@ -155,6 +155,9 @@
     <Compile Include="Trasnportador\Servidor\Procurar.xaml.cs">
       <DependentUpon>Procurar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Trasnportador\Servidor\Selecionar_Modelo.xaml.cs">
+      <DependentUpon>Selecionar_Modelo.xaml</DependentUpon>
+    </Compile>
     <Page Include="Caixa de Mensagem\mensagem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -189,6 +192,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Trasnportador\Servidor\Procurar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Trasnportador\Servidor\Selecionar_Modelo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
