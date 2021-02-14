@@ -1,0 +1,89 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cotador.Internacional"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Cotador.Internacional.janela_Internacional"
+        mc:Ignorable="d"
+        Title="janela_Internacional" Height="736.187" Width="1145.22">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<LinearGradientBrush.RelativeTransform>
+				<TransformGroup>
+					<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+					<SkewTransform CenterY="0.5" CenterX="0.5"/>
+					<RotateTransform Angle="-322.39" CenterY="0.5" CenterX="0.5"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</LinearGradientBrush.RelativeTransform>
+			<GradientStop Color="#FFCFF99C" Offset="1"/>
+			<GradientStop Color="#FF01645B"/>
+			<GradientStop Color="#FF1AB97F" Offset="0.353"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<Grid>
+		<Label Content="Segurado" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="97,14,0,0" FontWeight="Bold"/>
+		<TextBox x:Name="Segurado" HorizontalAlignment="Left" Height="23" Margin="184,10,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
+		<Label Content="CNPJ" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="97,72,0,0" FontWeight="Bold"/>
+		<TextBox x:Name="CNPJ" HorizontalAlignment="Left" Height="23" Margin="184,72,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
+		<Label Content="Corretor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="97,101,0,0" FontWeight="Bold"/>
+
+		<Label Content="LMG (US$)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="97,156,0,0" FontWeight="Bold"/>
+		<Label Content="Taxa" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="97,260,0,0" FontWeight="Bold"/>
+		<Label Content="Importancia Segurado" HorizontalAlignment="Left" Margin="45,289,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<TextBox x:Name="Corretor" HorizontalAlignment="Left" Height="23" Margin="184,101,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
+		<TextBox x:Name="LMG" HorizontalAlignment="Left" Height="23" Margin="184,156,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
+		<TextBox x:Name="Taxa" HorizontalAlignment="Left" Height="23" Margin="184,262,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
+		<TextBox x:Name="Importancia_Segurada" HorizontalAlignment="Left" Height="23" Margin="184,290,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
+		<Label Content="Sinistros (US$)" HorizontalAlignment="Left" Margin="78,317,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<TextBox x:Name="Sinistros" HorizontalAlignment="Left" Height="23" Margin="184,318,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
+		<Label Content="Mercadoria" HorizontalAlignment="Left" Margin="88,346,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<TextBox x:Name="Mercadoria" HorizontalAlignment="Left" Height="23" Margin="184,346,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
+		<Label Content="NCotaçao" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="97,42,0,0" FontWeight="Bold"/>
+		<TextBox x:Name="Ncotacao" HorizontalAlignment="Left" Height="23" Margin="184,44,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
+		<Label Content="Expectativa de Fechamento" HorizontalAlignment="Left" Margin="23,406,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<TextBox x:Name="Expectativa" HorizontalAlignment="Left" Height="23" Margin="184,407,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
+		<Label Content="Premio Anual (R$)" HorizontalAlignment="Left" Margin="61,379,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<TextBox x:Name="Premio_Anual" HorizontalAlignment="Left" Height="23" Margin="184,379,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
+		<TextBox x:Name="Assessoria" HorizontalAlignment="Left" Height="23" Margin="184,128,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
+		<CheckBox Checked="Ajustavel_Checked" Unchecked="Ajustavel_Checked" x:Name="Ajustavel" Content="Ajustavel" HorizontalAlignment="Left" Margin="72,491,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<CheckBox Checked="Averbavel_Checked" Unchecked="Averbavel_Checked" x:Name="Averbavel" Content="Averbavel" HorizontalAlignment="Left" Margin="72,439,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<Label x:Name="LAB_Quantidade_De_Parcelas" Content="Quantidade de Parcelas " HorizontalAlignment="Left" Margin="32,514,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<TextBox x:Name="Ajustavel_Quantidade_Parcela" HorizontalAlignment="Left" Height="23" Margin="178,515,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
+		<Label x:Name="LAB_Premio_Minimo" Content="Premio Minimo" HorizontalAlignment="Left" Margin="74,463,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<TextBox x:Name="Premio_Minimo" HorizontalAlignment="Left" Height="23" Margin="180,463,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
+		<CheckBox x:Name="_80" Content="80%" HorizontalAlignment="Left" Margin="148,564,0,0" VerticalAlignment="Top"/>
+		<CheckBox x:Name="_90" Content="90%" HorizontalAlignment="Left" Margin="198,564,0,0" VerticalAlignment="Top"/>
+		<CheckBox x:Name="_100" Content="100%" HorizontalAlignment="Left" Margin="248,564,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="LAB_Ajustavel_Premio_MInimo" Content="Premio Minimo" HorizontalAlignment="Left" Margin="54,546,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<Label x:Name="LAB_SubLimite" Content="SubLimite" HorizontalAlignment="Left" Margin="97,224,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<TextBox x:Name="Sub_Limite" HorizontalAlignment="Left" Height="23" Margin="184,225,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
+		<CheckBox x:Name="Chk_DDR" Content="DDR" HorizontalAlignment="Left" Margin="74,674,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<Label x:Name="LAB_Franquia" Content="Franquia" HorizontalAlignment="Left" Margin="114,640,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<TextBox x:Name="Franquia" HorizontalAlignment="Left" Height="23" Margin="180,640,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
+		<CheckBox Content="Assessoria" HorizontalAlignment="Left" Margin="95,133,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<TextBox x:Name="complementar_preliminar" HorizontalAlignment="Left" Height="23" Margin="184,190,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
+		<CheckBox Checked="Complementar" Unchecked="Complementar" x:Name="Com_Pre" Content="Complementar/Preliminar" Margin="6,185,958,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<CheckBox x:Name="Impor" Content="Importação" Click="Atualizar" HorizontalAlignment="Left" Margin="72,617,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<CheckBox x:Name="Expor" Content="Exportação" Click="Atualizar" HorizontalAlignment="Left" Margin="72,592,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+
+		<ListBox x:Name="Coberturas"  Margin="318,72,229,13" Background="#33FFFFFF" BorderThickness="1" BorderBrush="#66FFFFFF">
+			<ListBox.ItemContainerStyle>
+				<Style TargetType="{x:Type ListBoxItem}">
+					<EventSetter
+						Event="UIElement.PreviewMouseLeftButtonDown" 
+						Handler="ListBoxItem_PreviewMouseLeftButtonDown" />
+				</Style>
+			</ListBox.ItemContainerStyle>
+
+		</ListBox>
+		<RadioButton x:Name="Basica" Click="Atualizar" Content="Basicas" HorizontalAlignment="Left" Margin="318,50,0,0" VerticalAlignment="Top" IsChecked="True" Background="#FF002EFF"/>
+		<RadioButton x:Name="Especifica" Click="Atualizar" Content="Especificas" HorizontalAlignment="Left" Margin="318,4,0,0" VerticalAlignment="Top" Background="#FF002EFF"/>
+		<RadioButton x:Name="Adicional" Click="Atualizar" Content="Adicionais" HorizontalAlignment="Left" Margin="318,27,0,0" VerticalAlignment="Top" BorderBrush="#FFDED056" Background="#FF002EFF"/>
+		<Button x:Name="Gerar" Click="Button_Click" Content="Gerar" Margin="0,526,12,0" VerticalAlignment="Top" Height="98" Background="#FF44BB38" BorderBrush="#FF44BB38" FontSize="20" HorizontalAlignment="Right" Width="194"/>
+		<Button Content="Limpar" Margin="0,635,128,0" VerticalAlignment="Top" Background="#FF4A8EA8" Click="Limpar_Click" BorderBrush="{x:Null}" Height="46" FontSize="14" HorizontalAlignment="Right" Width="78"/>
+		<Button Content="Recusar" Margin="0,635,12,0" VerticalAlignment="Top" Background="#FFFF5947" Click="AbrirRecusar" BorderBrush="{x:Null}" Height="46" FontSize="14" HorizontalAlignment="Right" Width="88"/>
+
+	</Grid>
+</Window>

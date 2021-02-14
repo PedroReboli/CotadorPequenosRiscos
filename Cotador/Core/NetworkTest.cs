@@ -156,7 +156,7 @@ namespace Cotador.Core
 			byte[] enviar;
 			if (valor is string)
 			{
-				enviar = Encoding.ASCII.GetBytes((string)valor);
+				enviar = Encoding.UTF8.GetBytes((string)valor);
 				TSend(STR);
 			}
 			else if (valor is Byte[])

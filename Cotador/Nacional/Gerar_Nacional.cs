@@ -11,7 +11,7 @@ namespace Cotador.Nacional
 {
 	class Gerar_Nacional
 	{
-		static Nacional Main;
+		public static Nacional Main;
 		public static void Gerar(object isso)
 		{
 			consertar_numeros c = new consertar_numeros();
@@ -51,7 +51,7 @@ namespace Cotador.Nacional
 				double premio_total;
 				double parcelas = double.Parse(Main.Ajustavel_Quantidade_Parcela.Text);
 				//MessageBox.Show(taxa.ToString());
-				premio_liquido = importancia_segurada * (taxa / 1000);
+				premio_liquido = importancia_segurada * (taxa / 100);
 				IOF = premio_liquido * (7.38 / 100);
 				premio_total = premio_liquido + IOF;
 				//.ToString("N", new CultureInfo("pt-br", false)

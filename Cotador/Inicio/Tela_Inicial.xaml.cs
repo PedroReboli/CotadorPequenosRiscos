@@ -45,8 +45,8 @@ namespace Cotador.Inicio
 
 		private void Internacional_Click(object sender, RoutedEventArgs e)
 		{
-            Caixa_de_Mensagem.mensagem men = new Caixa_de_Mensagem.mensagem("Erro","Intenacional ainda não implementado");
-            men.Show();
+            Internacional.janela_Internacional internacional = new Internacional.janela_Internacional();
+            internacional.Show();
 		}
 
 		private void Avulsas_Click(object sender, RoutedEventArgs e)

@@ -38,13 +38,6 @@ namespace Cotador
 		{
 			
 			InitializeComponent();
-			path = Properties.Settings.Default.path;
-			if (path != "" && path != null) {
-				this.check.Background = Brushes.Green;
-				this.check.BorderBrush = Brushes.Green;
-				this.Gerar.IsEnabled = true;
-				
-			}
 			Desaparecer();
 			/*Socket = new Core.Net();
 			if (!Socket.Connect("servidordetestes.bounceme.net", 9090))
@@ -170,8 +163,6 @@ namespace Cotador
 				path = openFileDialog1.FileName.Replace("Check.txt","");
 				Properties.Settings.Default.path = path;
 				Properties.Settings.Default.Save();
-				this.check.Background = Brushes.Green;
-				this.check.BorderBrush = Brushes.Green;
 			}
 		}
 
@@ -289,11 +280,6 @@ namespace Cotador
 			// Container
 			LAB_Container_LMG.Visibility = Visibility.Hidden;
 			Lmg_Container.Visibility = Visibility.Hidden;
-			// Converter Para Web
-			LAB_N_RCTR_C.Visibility = Visibility.Hidden;
-			LAB_N_RCTR_C_Copy.Visibility = Visibility.Hidden;
-			RCFDC.Visibility = Visibility.Hidden;
-			RCTRC.Visibility = Visibility.Hidden;
 		}
 		
 		private void Ativar_Adicionais_Checked(object sender, RoutedEventArgs e)
@@ -408,6 +394,12 @@ namespace Cotador
 		private void Abrir_Procurar_Modelo(object sender, MouseButtonEventArgs e)
 		{
 
+		}
+
+		private void AbrirRecusar(object sender, RoutedEventArgs e)
+		{
+			Trasnportador.RecusarJanela x = new Trasnportador.RecusarJanela(this);
+			x.Show();
 		}
 	}
 }

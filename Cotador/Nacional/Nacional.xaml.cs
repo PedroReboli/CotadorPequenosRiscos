@@ -221,19 +221,6 @@ namespace Cotador.Nacional
 		public Nacional()
 		{
 			InitializeComponent();
-			path = Properties.Settings.Default.path;
-			if (path != string.Empty)
-			{
-				this.Gerar.IsEnabled = true;
-				this.check.Background = Brushes.Green;
-				this.check.BorderBrush = Brushes.Green;
-			}
-			else
-			{
-				this.Gerar.IsEnabled = false;
-				this.check.Background = Brushes.Red;
-				this.check.BorderBrush = Brushes.Red;
-			}
 			/*string para = @"N° 301 – 	Cláusula Específica para bens usados (limitado à Básica Restrita C);
 N° 302 –	Cláusula Específica para embarques aéreos sem valor declarado;
 N° 303 –	Cláusula Específica para seguros de importação chapas galvanizadas e/ou folhas de ferro zincadas (folha de flandres), (limitado à Básica Restrita C);
@@ -401,22 +388,6 @@ N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
 			MessageBox.Show(Gerar_Nacional.Coberturas());
 		}
 
-		private void check_Click(object sender, RoutedEventArgs e)
-		{
-			OpenFileDialog openFileDialog1 = new OpenFileDialog();
-			openFileDialog1.Filter = "check.txt|check.txt";
-			openFileDialog1.Title = "Procurar pelo arquivo check.txt";
-			var x = openFileDialog1.ShowDialog();
-			if (x == true)
-			{
-				this.Gerar.IsEnabled = true;
-				path = openFileDialog1.FileName.Replace("Check.txt", "");
-				Properties.Settings.Default.path = path;
-				Properties.Settings.Default.Save();
-				this.check.Background = Brushes.Green;
-				this.check.BorderBrush = Brushes.Green;
-			}
-		}
 		long total = DateTime.Now.Ticks;
 		private void DDR(object sender, RoutedEventArgs e)
 		{
@@ -607,6 +578,15 @@ N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
 					MessageBox.Show($"Houve um erro na hora de importar o arquivo Excel\n{f}");
 				}
 			}
+		}
+		private void Limpar_Click(object sender, RoutedEventArgs e)
+		{
+			LoopVisualTree(this);
+		}
+		private void AbrirRecusar(object sender, RoutedEventArgs e)
+		{
+			Trasnportador.RecusarJanela x = new Trasnportador.RecusarJanela(this);
+			x.Show();
 		}
 	}
 }

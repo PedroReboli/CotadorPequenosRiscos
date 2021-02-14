@@ -129,6 +129,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Caixa de Mensagem\Mensagem.cs" />
+    <Compile Include="Internacional\janela_Internacional.xaml.cs">
+      <DependentUpon>janela_Internacional.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Trasnportador\AbrirExcel.cs" />
     <Compile Include="Adicionar Cotacao\Abrir_e_Adicionar.cs" />
     <Compile Include="Caixa de Mensagem\mensagem.xaml.cs">
@@ -151,6 +154,9 @@
       <DependentUpon>Nacional.xaml</DependentUpon>
     </Compile>
     <Compile Include="Trasnportador\padrao.cs" />
+    <Compile Include="Trasnportador\RecusarJanela.xaml.cs">
+      <DependentUpon>RecusarJanela.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Trasnportador\roubo.cs" />
     <Compile Include="Trasnportador\Servidor\Procurar.xaml.cs">
       <DependentUpon>Procurar.xaml</DependentUpon>
@@ -167,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Inicio\Tela_Inicial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Internacional\janela_Internacional.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,6 +198,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Nacional\Nacional.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Trasnportador\RecusarJanela.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
