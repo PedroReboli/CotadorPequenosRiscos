@@ -21,6 +21,7 @@ namespace Cotador.Trasnportador
 	{
 		MainWindow Main;
 		Nacional.Nacional nacional;
+		Internacional.janela_Internacional Inter;
 		int I = 0;
 		public RecusarJanela(MainWindow main)
 		{
@@ -33,6 +34,12 @@ namespace Cotador.Trasnportador
 			nacional = main;
 			InitializeComponent();
 			I = 2;
+		}
+		public RecusarJanela(Internacional.janela_Internacional main)
+		{
+			Inter = main;
+			InitializeComponent();
+			I = 3;
 		}
 		void EnviarRecusa(object sender, RoutedEventArgs e)
 		{
@@ -56,6 +63,10 @@ namespace Cotador.Trasnportador
 			{
 				transportador(Socket);
 			}else if (I == 2)
+			{
+				Nacional(Socket);
+			}
+			else if (I == 3)
 			{
 				Nacional(Socket);
 			}

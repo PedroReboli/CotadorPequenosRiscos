@@ -129,6 +129,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Caixa de Mensagem\Mensagem.cs" />
+    <Compile Include="Internacional\Gerar_Tabela.cs" />
     <Compile Include="Internacional\janela_Internacional.xaml.cs">
       <DependentUpon>janela_Internacional.xaml</DependentUpon>
     </Compile>

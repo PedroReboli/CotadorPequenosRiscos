@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -195,9 +196,11 @@ namespace Cotador.Internacional
 		{
 			//Remover Todas as claususlas 15 se nao tiver complementar ou preliminar
 			InitializeComponent();
-			Coberturas.Items.Clear();
+			Adicionais();
+			Especificas();
 			Basica.IsChecked = true;
 			Basicas();
+
 			LAB_Premio_Minimo.Visibility = Visibility.Hidden;
 			Premio_Minimo.Visibility = Visibility.Hidden;
 
@@ -350,6 +353,45 @@ namespace Cotador.Internacional
 			}
 			
 		}
+		void LoopVisualTree(DependencyObject obj)
+		{
+			for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
+			{
+				if (obj is TextBox)
+					((TextBox)obj).Text = string.Empty;
+				if (obj is CheckBox)
+					((CheckBox)obj).IsChecked = false;
+				LoopVisualTree(VisualTreeHelper.GetChild(obj, i));
+			}
+
+		}
+		private void Limpar_Click(object sender, RoutedEventArgs e)
+		{
+			LoopVisualTree(this);
+		}
+		private void AbrirRecusar(object sender, RoutedEventArgs e)
+		{
+			Trasnportador.RecusarJanela x = new Trasnportador.RecusarJanela(this);
+			x.Show();
+		}
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			try
+			{
+				Gerar_Arquivo.gerar(this);
+				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Arquivo gerado", "Arquivo foi gerado com sucesso");
+				messa.Show();
+			}
+			catch (Exception f)
+			{
+				System.IO.File.WriteAllText(Directory.GetCurrentDirectory() + @"\Debug.txt", f.Message);
+
+				MessageBox.Show($"Houve um erro em gerar o arquivo\nUm relatorio de erros foi salvo em\n{Directory.GetCurrentDirectory() + @"\Debug.txt"}");
+				//messa.Show();
+			}
+
+		}
+
 		public CheckBox B1 = new CheckBox();
 		public CheckBox B2 = new CheckBox();
 		public CheckBox B3 = new CheckBox();
