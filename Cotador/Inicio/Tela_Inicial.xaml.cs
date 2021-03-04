@@ -55,6 +55,11 @@ namespace Cotador.Inicio
             men.Show();
         }
 
+        private void Relatorio(object sender, object e)
+		{
+            Relatorio.Relatorio_Janela Relatorio = new Relatorio.Relatorio_Janela();
+            Relatorio.Show();
+		}
 
         private void RelacaoArquivos_Drop(Object sender, DragEventArgs e)
         {

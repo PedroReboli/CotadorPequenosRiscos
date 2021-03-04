@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using System.Windows.Forms;
+using static Cotador.Core.Constants;
 using MessageBox = System.Windows.MessageBox;
 using Application = System.Windows.Application;
 namespace Cotador.Trasnportador.Servidor
@@ -28,7 +29,7 @@ namespace Cotador.Trasnportador.Servidor
 		public Procurar()
 		{
 			InitializeComponent();
-			if (!Socket.Connect("servidordetestes.bounceme.net", 9090))//servidordetestes.bounceme.net
+			if (!Socket.Connect(ServerIP, ServerPort))//servidordetestes.bounceme.net
 			{
 				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Erro", "Erro ao se conectar no servidor");
 				messa.Show();

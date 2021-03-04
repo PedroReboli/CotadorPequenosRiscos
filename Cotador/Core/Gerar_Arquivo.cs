@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Word = Microsoft.Office.Interop.Word;
-using System.Windows.Controls;
-using System.Windows;
 using System.Diagnostics;
-using Microsoft.Win32;
 using System.IO;
 using System.Windows.Forms;
 using SaveFileDialog = System.Windows.Forms.SaveFileDialog;
+using static Cotador.Core.Constants;
 
 namespace Cotador
 {
@@ -60,7 +54,7 @@ namespace Cotador
 			Nacional.Nacional Main = (Nacional.Nacional)isso;
 
 			Core.Net Socket = new Core.Net();
-			if (!Socket.Connect("192.168.0.10", 9090))
+			if (!Socket.Connect(ServerIP, ServerPort))
 			{
 				System.Windows.MessageBox.Show("Erro ao se conectar ao servidor");
 
@@ -135,7 +129,7 @@ namespace Cotador
 			//Word.Document Acidente;
 			MainWindow Main = isso;
 			Core.Net Socket = new Core.Net();
-			if (!Socket.Connect("192.168.0.10", 9090))
+			if (!Socket.Connect(ServerIP, ServerPort))
 			{
 				System.Windows.MessageBox.Show("Erro ao se conectar ao servidor");
 
@@ -261,7 +255,7 @@ namespace Cotador
 		static void Gerar_Internacio(Internacional.janela_Internacional Main)
 		{
 			Core.Net Socket = new Core.Net();
-			if (!Socket.Connect("192.168.0.10", 9090))
+			if (!Socket.Connect(ServerIP, ServerPort))
 			{
 				System.Windows.MessageBox.Show("Erro ao se conectar ao servidor");
 

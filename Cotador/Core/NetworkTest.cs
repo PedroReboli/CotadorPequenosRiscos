@@ -208,7 +208,7 @@ namespace Cotador.Core
 			//KEY.Clear();
 			if (Tstr == true)
 			{
-				return Encoding.ASCII.GetString(data);
+				return Encoding.UTF8.GetString(data);
 			}
 			if (Tbyt == true)
 			{

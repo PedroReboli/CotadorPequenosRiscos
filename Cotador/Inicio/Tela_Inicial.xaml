@@ -4,111 +4,198 @@
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:Cotador.Inicio"
+		xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
 		mc:Ignorable="d"
-		Title="Tela_Inicial" Height="439.688" Width="672.415">
+		Title="Tela_Inicial" Height="414.955" Width="630.368" MinWidth="560.661" MinHeight="407.627">
+	<Window.Resources>
+		<Storyboard x:Key="BotaoFechar">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="TabMenu">
+				<EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Fundo">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Fundo" Storyboard.TargetProperty="(UIElement.Visibility)">
+				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+			</ObjectAnimationUsingKeyFrames>
+
+		</Storyboard>
+		<Storyboard x:Key="BotaoAbrir">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="TabMenu">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="200"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Fundo">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Fundo" Storyboard.TargetProperty="(UIElement.Visibility)">
+				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+		</Storyboard>
+	</Window.Resources>
+	<Window.Triggers>
+		<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="BotaoFechar">
+			<BeginStoryboard x:Name="CloseMenu_BeginStoryboard" Storyboard="{StaticResource BotaoFechar}"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="BotaoAbrir">
+			<BeginStoryboard Storyboard="{StaticResource BotaoAbrir}"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="MouseDown" SourceName="Fundo">
+			<BeginStoryboard Storyboard="{StaticResource BotaoFechar}"/>
+		</EventTrigger>
+	</Window.Triggers>
 	<Grid Margin="0,0,-8,0">
+		<Grid Margin="0,0,0,0">
+			<Button x:Name="BotaoAbrir" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Width="32" Height="32" Padding="0">
+				<materialDesign:PackIcon Kind="Menu" Foreground="#FF313131" Width="Auto" Height="Auto"/>
+			</Button>
+			<Button Click="Nacional_Click"  HorizontalAlignment="Left" Margin="40,24,0,0" VerticalAlignment="Top" Width="248" Height="164" BorderBrush="#4C2656D4">
+				<Button.Background>
+					<VisualBrush>
 
-		<Button Click="Nacional_Click"  HorizontalAlignment="Left" Margin="26,24,0,0" VerticalAlignment="Top" Width="248" Height="164" BorderBrush="#4C2656D4">
-			<Button.Background>
-				<VisualBrush>
+						<VisualBrush.Visual>
 
-					<VisualBrush.Visual>
-
-						<Grid Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}}, Mode=OneWay}" 
+							<Grid Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}}, Mode=OneWay}" 
 						  Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}}, Mode=OneWay}">
 
-							<Rectangle Fill="#FF2656D4" />
+								<Rectangle Fill="#FF2656D4" />
 
-							<Image Source="/Cotador;component/Imagens/brasil.png" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+								<Image Source="/Cotador;component/Imagens/brasil.png" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
 
-						</Grid>
+							</Grid>
 
-					</VisualBrush.Visual>
+						</VisualBrush.Visual>
 
-				</VisualBrush>
-			</Button.Background>
-			<Button.Content>
-				<Label Content="Nacional" FontFamily="Arial Black" FontSize="24"/>
+					</VisualBrush>
+				</Button.Background>
+				<Button.Content>
+					<Label Content="Nacional" FontFamily="Arial Black" FontSize="24"/>
 
-			</Button.Content>
+				</Button.Content>
 
-		</Button>
-		<Button Click="Trasporte_Click"  HorizontalAlignment="Left" Margin="336,24,0,0" VerticalAlignment="Top" Width="248" Height="164" BorderBrush="#4C2656D4">
-			<Button.Background>
-				<VisualBrush>
+			</Button>
+			<Button Click="Trasporte_Click" Margin="248,24,20,0" VerticalAlignment="Top" Height="164" BorderBrush="#4C2656D4" Width="248" HorizontalAlignment="Right">
+				<Button.Background>
+					<VisualBrush>
 
-					<VisualBrush.Visual>
+						<VisualBrush.Visual>
 
-						<Grid Width="{Binding ActualWidth, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type Button}, Mode=FindAncestor}}" 
+							<Grid Width="{Binding ActualWidth, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type Button}, Mode=FindAncestor}}" 
 							Height="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type Button}, Mode=FindAncestor}}">
 
-							<Rectangle Fill="#FF2656D4" />
+								<Rectangle Fill="#FF2656D4" />
 
-							<Image Source="/Cotador;component/Imagens/4_(17).png" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+								<Image Source="/Cotador;component/Imagens/4_(17).png" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
 
-						</Grid>
+							</Grid>
 
-					</VisualBrush.Visual>
+						</VisualBrush.Visual>
 
-				</VisualBrush>
-			</Button.Background>
-			<Label Content="RCF-DC/RCTR-C" FontFamily="Arial Black" FontSize="24" FontWeight="Normal"/>
+					</VisualBrush>
+				</Button.Background>
+				<Label Content="RCF-DC/RCTR-C" FontFamily="Arial Black" FontSize="24" FontWeight="Normal"/>
 
-		</Button>
-		<Button Click="Internacional_Click"  HorizontalAlignment="Left" Margin="26,204,0,0" VerticalAlignment="Top" Width="248" Height="164" BorderBrush="#4C2656D4">
-			<Button.Background>
-				<VisualBrush>
+			</Button>
+			<Button Click="Internacional_Click"  HorizontalAlignment="Left" Margin="40,204,0,0" VerticalAlignment="Top" Width="248" Height="164" BorderBrush="#4C2656D4">
+				<Button.Background>
+					<VisualBrush>
 
-					<VisualBrush.Visual>
+						<VisualBrush.Visual>
 
-						<Grid Width="{Binding ActualWidth, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type Button}, Mode=FindAncestor}}" 
+							<Grid Width="{Binding ActualWidth, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type Button}, Mode=FindAncestor}}" 
 					  Height="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type Button}, Mode=FindAncestor}}">
 
-							<Rectangle Fill="#FF2656D4" />
+								<Rectangle Fill="#FF2656D4" />
 
-							<Image Source="/Cotador;component/Imagens/globo-da-terra.png" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+								<Image Source="/Cotador;component/Imagens/globo-da-terra.png" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
 
-						</Grid>
+							</Grid>
 
-					</VisualBrush.Visual>
+						</VisualBrush.Visual>
 
-				</VisualBrush>
-			</Button.Background>
-			<Label Content="Internacional" FontFamily="Arial Black" FontSize="24" Background="#06FFFFFF" Foreground="Black"/>
+					</VisualBrush>
+				</Button.Background>
+				<Label Content="Internacional" FontFamily="Arial Black" FontSize="24" Background="#06FFFFFF" Foreground="Black"/>
 
-		</Button>
-		<Button Click="Avulsas_Click"  HorizontalAlignment="Left" Margin="336,204,0,0" VerticalAlignment="Top" Width="248" Height="164" BorderBrush="#4C2656D4">
-			<Button.Background>
-				<VisualBrush>
+			</Button>
+			<Button Click="Avulsas_Click" Margin="248,204,20,0" VerticalAlignment="Top" Width="248" Height="164" BorderBrush="#4C2656D4" HorizontalAlignment="Right">
+				<Button.Background>
+					<VisualBrush>
 
-					<VisualBrush.Visual>
+						<VisualBrush.Visual>
 
-						<Grid Width="{Binding ActualWidth, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type Button}, Mode=FindAncestor}}" 
+							<Grid Width="{Binding ActualWidth, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type Button}, Mode=FindAncestor}}" 
 					  Height="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type Button}, Mode=FindAncestor}}">
 
-							<Rectangle Fill="#FF2656D4" />
+								<Rectangle Fill="#FF2656D4" />
 
-							<Image Source="/Cotador;component/Imagens/blank-page (1).png" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+								<Image Source="/Cotador;component/Imagens/blank-page (1).png" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
 
-						</Grid>
+							</Grid>
 
-					</VisualBrush.Visual>
+						</VisualBrush.Visual>
 
-				</VisualBrush>
-			</Button.Background>
-			<Grid Width="{Binding ActualWidth, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type Button}, Mode=FindAncestor}}" 
+					</VisualBrush>
+				</Button.Background>
+				<Grid Width="{Binding ActualWidth, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type Button}, Mode=FindAncestor}}" 
 					  Height="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type Button}, Mode=FindAncestor}}" Margin="-15,0,0,0">
 
-				<Label Content="Avulsas" FontFamily="Arial Black" FontSize="23" FontWeight="Normal" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="72,67,70,67" Width="106" Height="30" >
-					<Label.Background>
-						<RadialGradientBrush RadiusX="0.77" Center="0.4,0.8">
-							<GradientStop Color="White" Offset="0.587"/>
-							<GradientStop Offset="0.65"/>
-						</RadialGradientBrush>
-					</Label.Background>
-				</Label>
-			</Grid>
-		</Button>
+					<Label Content="Avulsas" FontFamily="Arial Black" FontSize="23" FontWeight="Normal" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="72,67,70,67" Width="106" Height="30" >
+						<Label.Background>
+							<RadialGradientBrush RadiusX="0.77" Center="0.4,0.8">
+								<GradientStop Color="White" Offset="0.587"/>
+								<GradientStop Offset="0.65"/>
+							</RadialGradientBrush>
+						</Label.Background>
+					</Label>
+				</Grid>
+			</Button>
+		</Grid>
+		<DockPanel LastChildFill="True">
+			<StackPanel DockPanel.Dock="Right" RenderTransformOrigin="0.5,0.5" Width="628" >
+				<StackPanel.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform ScaleX="-1"/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</StackPanel.RenderTransform>
+				<Grid x:Name="Fundo" Opacity="0" Visibility="Hidden" Background="#DA000000" Height="414.955"  />
+			</StackPanel>
+			<Grid x:Name="TabMenu" DockPanel.Dock="Left" HorizontalAlignment="Left" Width="200" Background="#FF4380EA" Margin="-200,0,0,0" RenderTransformOrigin="0.5,0.5">
+				<Grid.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Grid.RenderTransform>
+				<StackPanel>
+					<Image Height="40" Stretch="Fill" Margin="5,0,50,0" Source="/Cotador;component/Imagens/logoHeader_3.png">
 
+					</Image>
+					<ListView FontFamily="Champagne &amp; Limousines" FontSize="18">
+						<ListViewItem Height="45" PreviewMouseLeftButtonUp="Relatorio">
+							<StackPanel  Orientation="Horizontal">
+								<materialDesign:PackIcon Kind="filedocument" Width="25" Height="25" Margin="0,0,8,0" Foreground="#FFF9F9F9" />
+								<TextBlock Text="Relatorio" VerticalAlignment="Center"/>
+							</StackPanel>
+						</ListViewItem>
+					</ListView>
+				</StackPanel>
+				<Button x:Name="BotaoFechar" HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Width="30" Height="30" Padding="0">
+					<materialDesign:PackIcon Kind="Close"/>
+				</Button>
+
+			</Grid>
+
+
+
+		</DockPanel>
 	</Grid>
 </Window>

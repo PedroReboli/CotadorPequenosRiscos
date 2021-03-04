@@ -75,12 +75,11 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClosedXML, Version=0.80.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
-      <HintPath>..\packages\ClosedXML.0.80.1\lib\net35-client\ClosedXML.dll</HintPath>
+    <Reference Include="ClosedXML, Version=0.85.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.85.0\lib\net40\ClosedXML.dll</HintPath>
     </Reference>
-    <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\DocumentFormat.OpenXml.1.0\lib\DocumentFormat.OpenXml.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.12.3.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.12.3\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
     <Reference Include="EPPlus, Version=4.5.3.3, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.4.5.3.3\lib\net40\EPPlus.dll</HintPath>
@@ -129,9 +128,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Caixa de Mensagem\Mensagem.cs" />
+    <Compile Include="Core\Constants.cs" />
     <Compile Include="Internacional\Gerar_Tabela.cs" />
     <Compile Include="Internacional\janela_Internacional.xaml.cs">
       <DependentUpon>janela_Internacional.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorio\Relatorio_Janela.xaml.cs">
+      <DependentUpon>Relatorio_Janela.xaml</DependentUpon>
     </Compile>
     <Compile Include="Trasnportador\AbrirExcel.cs" />
     <Compile Include="Adicionar Cotacao\Abrir_e_Adicionar.cs" />
@@ -178,6 +181,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Internacional\janela_Internacional.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Relatorio\Relatorio_Janela.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,0 +1,71 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cotador.Relatorio"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Cotador.Relatorio.Relatorio_Janela"
+
+	mc:Ignorable="d"
+        Title="Relatorio_Janela" Height="217.667" Width="407.938">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<LinearGradientBrush.RelativeTransform>
+				<TransformGroup>
+					<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+					<SkewTransform CenterY="0.5" CenterX="0.5"/>
+					<RotateTransform Angle="-322.39" CenterY="0.5" CenterX="0.5"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</LinearGradientBrush.RelativeTransform>
+			<GradientStop Color="#FFCFF99C" Offset="1"/>
+			<GradientStop Color="#FF01645B"/>
+			<GradientStop Color="#FF1AB97F" Offset="0.657"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<Grid>
+		<StackPanel Margin="30,10,0,0">
+			<StackPanel Orientation="Horizontal">
+				<Label Content="Data Inicio" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0,0,20,0" FontFamily="Open Sans" FontSize="20" Background="{x:Null}" Foreground="#C9FFFFFF" FontWeight="Light"/>
+				<DatePicker x:Name="Inicio" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Foreground="Black" BorderBrush="#C9FFFFFF" Background="{x:Null}"  />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Content="Data Fim" Margin="0,0,32,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Open Sans" FontSize="20" Foreground="#C9FFFFFF" FontWeight="Light" />
+				<DatePicker x:Name="Fim" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="120" Foreground="#C9FFFFFF" BorderBrush="#C9FFFFFF"/>
+			</StackPanel>
+			<StackPanel >
+				<Label Content="Status" HorizontalAlignment="Left"  VerticalAlignment="Center" FontFamily="Open Sans" FontSize="20" Foreground="#C9FFFFFF" FontWeight="Light"/>
+				<StackPanel Orientation="Horizontal" Margin="60,-10,0,0" >
+					<CheckBox x:Name="Cancelada" Content= "Cancelada" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0" FontFamily="Open Sans" FontSize="16" Foreground="#C9FFFFFF" IsChecked="True" FontWeight="Light">
+						<CheckBox.Resources>
+							<SolidColorBrush x:Key="MaterialDesignCheckBoxOff" Color="#C9FFFFFF"/>
+							<SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#C9C8FFE6"/>
+						</CheckBox.Resources>
+					</CheckBox>
+					<CheckBox x:Name="Emitida" Content= "Emitida" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="5,0,0,0" FontFamily="Open Sans" FontSize="16" Foreground="#C9FFFFFF" IsChecked="True" FontWeight="Light" >
+						<CheckBox.Resources>
+							<SolidColorBrush x:Key="MaterialDesignCheckBoxOff" Color="#C9FFFFFF"/>
+							<SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#C9C8FFE6"/>
+						</CheckBox.Resources>
+					</CheckBox>
+					<CheckBox x:Name="Corretor" Content= "Corretor" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="5,0,0,0" FontFamily="Open Sans" FontSize="16" Foreground="#C9FFFFFF" IsChecked="True" FontWeight="Light" >
+						<CheckBox.Resources>
+							<SolidColorBrush x:Key="MaterialDesignCheckBoxOff" Color="#C9FFFFFF"/>
+							<SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#C9C8FFE6"/>
+						</CheckBox.Resources>
+					</CheckBox>
+				</StackPanel>
+
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Margin="0,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+
+				<Button Click="GerarExcel" Content="Gerar Excel" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="142" Margin="20,0,0,0" Background="#B788D19F" BorderBrush="{x:Null}" Foreground="White"/>
+				<Button Click="Copiar" Content="Copiar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="142" Margin="20,0,0,0" Background="#B788D19F" BorderBrush="{x:Null}" Foreground="White"/>
+			</StackPanel>
+
+		</StackPanel>
+
+
+	</Grid>
+</Window>
