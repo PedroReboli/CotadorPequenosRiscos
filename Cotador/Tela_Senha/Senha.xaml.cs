@@ -86,5 +86,10 @@ namespace Cotador.Tela_Senha
 			}
 			
 		}
+
+		private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+			DragMove();
+		}
 	}
 }

@@ -5,11 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cotador.Tela_Senha"
         mc:Ignorable="d"
-        Title="Senha" Height="187.734" Width="226.624" WindowStartupLocation="CenterScreen" Background="#FFF0F0F0">
+		WindowStyle="None"
+		AllowsTransparency="True"
+		xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Senha" Height="316.89" Width="295.629" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="{x:Null}">
 	<Grid>
-		<Label Content="Senha" HorizontalAlignment="Left" Margin="83,27,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-		<Button Content="Conectar" Click="Button_Click" HorizontalAlignment="Left" Margin="64,94,0,0" VerticalAlignment="Top" Background="#FF3C9528" BorderBrush="#FF90B08E" />
-		<TextBox x:Name="TXT_Senha" HorizontalAlignment="Left" Height="23" Margin="47,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" CaretBrush="Black"/>
+
+
+		<Border CornerRadius="20,20,0,0" Background="#FFF3F3F3" >
+			<Border MouseDown="Border_MouseDown"  Height="185" VerticalAlignment="Top" CornerRadius="20,20,0,0">
+				<Image Source="/Cotador;component/Imagens/logoHeader_3.png" Margin="20,0,20,50" />
+				<Border.Background>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<LinearGradientBrush.RelativeTransform>
+							<TransformGroup>
+								<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+								<SkewTransform CenterY="0.5" CenterX="0.5"/>
+								<RotateTransform Angle="420.21" CenterY="0.5" CenterX="0.5"/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</LinearGradientBrush.RelativeTransform>
+						<GradientStop Color="#FF168370" Offset="0"/>
+						<GradientStop Color="#FF68D358" Offset="1"/>
+					</LinearGradientBrush>
+				</Border.Background>
+			</Border>
+		</Border>
+		<Border Margin="42,111,42,0" Background="White" BorderThickness="0" CornerRadius="10" Height="131" VerticalAlignment="Top">
+			<Border.Effect>
+				<DropShadowEffect BlurRadius="50" Direction="0" ShadowDepth="1" Color="#FF807D7D"/>
+			</Border.Effect>
+			<StackPanel HorizontalAlignment="Center"  >
+				<Label Content="Senha" HorizontalAlignment="Center"  VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Margin="0,20,0,0"/>
+				<TextBox x:Name="TXT_Senha" Height="27" TextWrapping="Wrap"  materialDesign:TextFieldAssist.UnderlineBrush="GreenYellow" VerticalAlignment="Top" CaretBrush="Black" Margin="0,10,0,0" Width="152" HorizontalAlignment="Center" FontFamily="Dosis" FontSize="14" SelectionBrush="Black"/>
+
+			</StackPanel>
+
+		</Border>
+		<Button Content="Conectar" Click="Button_Click" HorizontalAlignment="Center"  VerticalAlignment="Top" Background="#FF3C9528" BorderBrush="#FF90B08E" Margin="106,226,102,0" />
 
 	</Grid>
 </Window>
