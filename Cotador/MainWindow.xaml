@@ -28,12 +28,12 @@
 				</LinearGradientBrush>
 			</Border.Background>
 			<Grid>
-				<Border MouseDown="Border_MouseDown" Height="29" VerticalAlignment="Top" Panel.ZIndex="-1" CornerRadius="20,20,0,0" Background="#44FFFFFF"/>
+				<Border MouseDown="Mover_Janela" Height="29" VerticalAlignment="Top" Panel.ZIndex="-1" CornerRadius="20,20,0,0" Background="#44FFFFFF"/>
 
 				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0">
-					<materialDesign:PackIcon Kind="WindowMinimize" Width="30" Height="30" Margin="0,3,10,0" Background="#00000000" Foreground="Black"/>
+					<materialDesign:PackIcon MouseDown="Minimizar" Kind="WindowMinimize" Width="30" Height="30" Margin="0,3,10,0" Background="#00000000" Foreground="Black" Cursor="Hand"/>
 
-					<materialDesign:PackIcon Kind="Close"   Width="30" Height="30" Background="#00000000" />
+					<materialDesign:PackIcon MouseDown="Fechar" Kind="WindowClose"   Width="30" Height="30" Background="#00000000" Cursor="Hand" />
 				</StackPanel>
 				<Label Content="Segurado" HorizontalAlignment="Left" Margin="49,97,0,0" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold" Foreground="Black" Width="69" Height="24"/>
 				<TextBox TabIndex="2" x:Name="Segurado" HorizontalAlignment="Left" Height="24" Margin="127,97,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"  />
@@ -126,7 +126,7 @@
 		-->
 			</Grid>
 		</Border>
-		
+
 
 
 	</Grid>

@@ -358,9 +358,19 @@ namespace Cotador
 			}
 		}
 
-		private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+		private void Mover_Janela(object sender, MouseButtonEventArgs e)
 		{
+			DragMove();
+		}
 
+		private void Minimizar(object sender, MouseButtonEventArgs e)
+		{
+			this.WindowState = WindowState.Minimized;
+		}
+
+		private void Fechar(object sender, MouseButtonEventArgs e)
+		{
+			this.Close();
 		}
 	}
 }
