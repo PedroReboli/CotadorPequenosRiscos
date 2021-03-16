@@ -11,7 +11,7 @@ using System.IO;
 using System.Windows.Forms;
 using MessageBox = System.Windows.MessageBox;
 using Application = System.Windows.Application;
-
+using static Cotador.Core.Constants;
 namespace Cotador
 {
 	class Gerar_Arquivo
@@ -89,7 +89,7 @@ namespace Cotador
 			MainWindow Main = isso;
 			Core.Net Socket = new Core.Net();
 			//if (!Socket.Connect("servidordetestes.bounceme.net", 9090))
-			if (!Socket.Connect("servidordetestes.bounceme.net", 9090))
+			if (!Socket.Connect(ServerIP, ServerPort))
 			{
 				MessageBox.Show("Erro ao se conectar ao servidor");
 				

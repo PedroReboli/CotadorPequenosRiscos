@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using static Cotador.Core.Constants;
 namespace Cotador.Tela_Senha
 {
 	/// <summary>
@@ -51,7 +51,7 @@ namespace Cotador.Tela_Senha
 		private bool conectar(string senha)
 		{
 			Core.Net Socket = new Core.Net();
-			if (!Socket.Connect("servidordetestes.bounceme.net", 9090))
+			if (!Socket.Connect(ServerIP, ServerPort))
 			{
 				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Erro", "Erro ao se conectar ao servidor");
 				messa.Show();
@@ -90,6 +90,11 @@ namespace Cotador.Tela_Senha
 		private void Border_MouseDown(object sender, MouseButtonEventArgs e)
 		{
 			DragMove();
+		}
+
+		private void PackIcon_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+			Application.Current.Shutdown();
 		}
 	}
 }

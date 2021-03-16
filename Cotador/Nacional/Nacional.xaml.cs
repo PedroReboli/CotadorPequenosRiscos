@@ -221,19 +221,6 @@ namespace Cotador.Nacional
 		public Nacional()
 		{
 			InitializeComponent();
-			path = Properties.Settings.Default.path;
-			if (path != string.Empty)
-			{
-				this.Gerar.IsEnabled = true;
-				this.check.Background = Brushes.Green;
-				this.check.BorderBrush = Brushes.Green;
-			}
-			else
-			{
-				this.Gerar.IsEnabled = false;
-				this.check.Background = Brushes.Red;
-				this.check.BorderBrush = Brushes.Red;
-			}
 			/*string para = @"N° 301 – 	Cláusula Específica para bens usados (limitado à Básica Restrita C);
 N° 302 –	Cláusula Específica para embarques aéreos sem valor declarado;
 N° 303 –	Cláusula Específica para seguros de importação chapas galvanizadas e/ou folhas de ferro zincadas (folha de flandres), (limitado à Básica Restrita C);
@@ -413,8 +400,6 @@ N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
 				path = openFileDialog1.FileName.Replace("Check.txt", "");
 				Properties.Settings.Default.path = path;
 				Properties.Settings.Default.Save();
-				this.check.Background = Brushes.Green;
-				this.check.BorderBrush = Brushes.Green;
 			}
 		}
 		long total = DateTime.Now.Ticks;

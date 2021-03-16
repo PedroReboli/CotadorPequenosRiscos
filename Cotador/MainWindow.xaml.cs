@@ -64,16 +64,6 @@ namespace Cotador
 				}
 			}
 		}
-		private void Procurar_Taxa(Object sender, RoutedEventArgs e)
-		{
-			if (De.Text.Length == 2 && Para.Text.Length == 2 && lista.Contains(De.Text.ToUpper()) && lista.Contains(De.Text.ToUpper()))
-			{
-				int de = Array.IndexOf(lista, De.Text.ToUpper());
-				int para = Array.IndexOf(lista, Para.Text.ToUpper());
-				Saida.Text = valores[de, para];
-			}
-			
-		}
 		private void Avaria_Unchecked(object sender, RoutedEventArgs e)
 		{
 			this.LAB_Avaraia_LMG.Visibility = Visibility.Hidden;

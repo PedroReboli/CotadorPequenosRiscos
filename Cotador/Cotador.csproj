@@ -130,6 +130,7 @@
     <Compile Include="Caixa de Mensagem\mensagem.xaml.cs">
       <DependentUpon>mensagem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Core\Constants.cs" />
     <Compile Include="Core\NetworkTest.cs" />
     <Compile Include="Inicio\Tela_Inicial.xaml.cs">
       <DependentUpon>Tela_Inicial.xaml</DependentUpon>

@@ -14,7 +14,6 @@
 
 		<Border CornerRadius="20,20,0,0" Background="#FFF3F3F3" >
 			<Border MouseDown="Border_MouseDown"  Height="185" VerticalAlignment="Top" CornerRadius="20,20,0,0">
-				<Image Source="/Cotador;component/Imagens/logoHeader_3.png" Margin="20,0,20,50" />
 				<Border.Background>
 					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
 						<LinearGradientBrush.RelativeTransform>
@@ -29,6 +28,11 @@
 						<GradientStop Color="#FF68D358" Offset="1"/>
 					</LinearGradientBrush>
 				</Border.Background>
+				<Grid>
+					<Image Source="/Cotador;component/Imagens/logoHeader_3.png" Margin="20,0,20,50" />
+					<materialDesign:PackIcon MouseDown="PackIcon_MouseDown" Kind="Close" HorizontalAlignment="Right" Margin="0,0,15,0" Foreground="White" Width="20" Height="20" Background="#00000000"   />
+
+				</Grid>
 			</Border>
 		</Border>
 		<Border Margin="42,111,42,0" Background="White" BorderThickness="0" CornerRadius="10" Height="131" VerticalAlignment="Top">

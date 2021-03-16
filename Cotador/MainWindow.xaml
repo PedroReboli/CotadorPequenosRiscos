@@ -56,8 +56,10 @@
 		-->
 		<GroupBox x:Name="Adicionais_Group" Margin="0,10,27,10" Background="#00000000" FontSize="14" HorizontalAlignment="Right" Width="294" Grid.ColumnSpan="2">
 			<GroupBox.Header>
-				<Label Content="ADICIONAIS" Height="25" Margin="93,0,95,0" Foreground="#DD076414" FontWeight="Bold" Background="{x:Null}"/>
-			</GroupBox.Header>
+
+					<Label Content="ADICIONAIS" Height="25" Margin="93,0,95,0" Foreground="#DD076414" FontWeight="Bold" Background="{x:Null}"/>
+
+				</GroupBox.Header>
 			<Grid Margin="-10,-10,0,-10" Width="307" OpacityMask="White">
 				<CheckBox x:Name="Chk_Avaraia" x:FieldModifier="public" Content="Avarias" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Unchecked="Avaria_Unchecked" Checked="Avaria_Checked" FontWeight="Bold" />
 
@@ -114,10 +116,6 @@
 		<CheckBox x:Name="Web" Content="Converter Para Web" HorizontalAlignment="Left" Margin="127,305,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="Web_Checked" Unchecked="Web_Unchecked" Visibility="Hidden" />
 		<Label x:Name="LAB_N_RCTR_C" Content="N° RCTR-C" HorizontalAlignment="Left" Margin="45,264,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 		<TextBox x:Name="RCTRC" HorizontalAlignment="Left" Height="24" Margin="127,264,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
-		<TextBox TextChanged="Procurar_Taxa" x:Name="De" HorizontalAlignment="Left" Height="26" Margin="127,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="22" Background="White" MaxLength="2" CaretBrush="Black" Visibility="Hidden"/>
-		<TextBox TextChanged="Procurar_Taxa" x:Name="Para" HorizontalAlignment="Left" Height="26" Margin="172,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="22" Background="White" MaxLength="2" CaretBrush="Black" Visibility="Hidden"/>
-		<TextBox x:Name="Saida" HorizontalAlignment="Left" Height="26" Margin="214,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" Background="White" CaretBrush="Black" Visibility="Hidden"/>
-		<Label Content="Tabela RCTR-C" HorizontalAlignment="Left" Margin="28,312,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
 		<!--<Button Click="taxa_Click" Content="Button" HorizontalAlignment="Left" Height="38" Margin="268,150,0,0" VerticalAlignment="Top" Width="52"/>
 		<Button Click="Button_Click" Content="Copiar" HorizontalAlignment="Left" Margin="268,224,0,0" VerticalAlignment="Top" Width="52" Background="#FF0097FF" BorderBrush="#FF0097FF"/>
 		-->
