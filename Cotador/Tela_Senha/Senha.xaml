@@ -30,7 +30,7 @@
 				</Border.Background>
 				<Grid>
 					<Image Source="/Cotador;component/Imagens/logoHeader_3.png" Margin="20,0,20,50" />
-					<materialDesign:PackIcon MouseDown="PackIcon_MouseDown" Kind="Close" HorizontalAlignment="Right" Margin="0,0,15,0" Foreground="White" Width="20" Height="20" Background="#00000000"   />
+					<materialDesign:PackIcon Cursor="Hand"  MouseDown="PackIcon_MouseDown" Kind="Close" HorizontalAlignment="Right" Margin="0,0,15,0" Foreground="White" Width="20" Height="20" Background="#00000000"   />
 
 				</Grid>
 			</Border>

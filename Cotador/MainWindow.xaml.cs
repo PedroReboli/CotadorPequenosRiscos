@@ -357,5 +357,10 @@ namespace Cotador
 				Clipboard.Flush();
 			}
 		}
+
+		private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+
+		}
 	}
 }
