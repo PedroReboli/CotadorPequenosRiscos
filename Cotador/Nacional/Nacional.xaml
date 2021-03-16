@@ -7,105 +7,107 @@
 		xmlns:local="clr-namespace:Cotador.Nacional"
 		xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" x:Class="Cotador.Nacional.Nacional"
 		mc:Ignorable="d"
-		AllowDrop="True" Drop="Window_Drop" Title="Nacional" Height="731.645" Width="888.843" ResizeMode="CanMinimize" >
-	<Window.Background>
-		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-			<LinearGradientBrush.RelativeTransform>
-				<TransformGroup>
-					<ScaleTransform CenterY="0.5" CenterX="0.5"/>
-					<SkewTransform CenterY="0.5" CenterX="0.5"/>
-					<RotateTransform Angle="-322.39" CenterY="0.5" CenterX="0.5"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</LinearGradientBrush.RelativeTransform>
-			<GradientStop Color="#FFCFF99C" Offset="1"/>
-			<GradientStop Color="#FF01645B"/>
-			<GradientStop Color="#FF1AB97F" Offset="0.353"/>
-		</LinearGradientBrush>
-	</Window.Background>
+		AllowsTransparency="True"
+		AllowDrop="False" Title="Nacional"  Height="813.341" Width="865.843" WindowStyle="None" Background="{x:Null}" >
 
-	<Grid Background="#00000000">
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition/>
-		</Grid.ColumnDefinitions>
-		<Rectangle HorizontalAlignment="Left" Height="46" Margin="46,10,0,0" VerticalAlignment="Top" Width="175">
-			<Rectangle.Fill>
-				<ImageBrush ImageSource="/Cotador;component/Imagens/logoHeader_3.png"/>
-			</Rectangle.Fill>
-		</Rectangle>
-		<ListBox x:Name="Coberturas" SelectionChanged="ListBox_SelectionChanged" Margin="25,383,21,17" Background="White" BorderBrush="Black">
-			<ListBox.ItemContainerStyle>
-				<Style TargetType="{x:Type ListBoxItem}">
-					<EventSetter
+	<Grid>
+		<Border CornerRadius="20,20,0,0">
+			<Border.Background>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<LinearGradientBrush.RelativeTransform>
+						<TransformGroup>
+							<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+							<SkewTransform CenterY="0.5" CenterX="0.5"/>
+							<RotateTransform Angle="-322.39" CenterY="0.5" CenterX="0.5"/>
+							<TranslateTransform/>
+						</TransformGroup>
+					</LinearGradientBrush.RelativeTransform>
+					<GradientStop Color="#FFCFF99C" Offset="1"/>
+					<GradientStop Color="#FF01645B"/>
+					<GradientStop Color="#FF1AB97F" Offset="0.353"/>
+				</LinearGradientBrush>
+			</Border.Background>
+			<Grid>
+				<Border Height="29" VerticalAlignment="Top" Background="#44FFFFFF" Panel.ZIndex="-1" CornerRadius="20,20,0,0"/>
+
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
+					<materialDesign:PackIcon Kind="WindowMinimize" Width="30" Height="30" Margin="0,3,10,0" Background="#00000000" Foreground="Black"/>
+
+					<materialDesign:PackIcon Kind="Close"   Width="30" Height="30" Background="#00000000" />
+				</StackPanel>
+				
+				<Rectangle HorizontalAlignment="Left" Height="46" Margin="46,29,0,0" VerticalAlignment="Top" Width="175">
+					<Rectangle.Fill>
+						<ImageBrush ImageSource="/Cotador;component/Imagens/logoHeader_3.png"/>
+					</Rectangle.Fill>
+				</Rectangle>
+				<ListBox x:Name="Coberturas" SelectionChanged="ListBox_SelectionChanged" Margin="25,425,10,17" Background="White" BorderBrush="Black">
+					<ListBox.ItemContainerStyle>
+						<Style TargetType="{x:Type ListBoxItem}">
+							<EventSetter
 				Event="UIElement.PreviewMouseLeftButtonDown" 
 				Handler="ListBoxItem_PreviewMouseLeftButtonDown" />
-				</Style>
-			</ListBox.ItemContainerStyle>
+						</Style>
+					</ListBox.ItemContainerStyle>
 
-			<System:String>N° 1 – Cobertura Básica Restrita C (bens e/ou mercadorias usadas, em devolução ou redespachadas;</System:String>
-			<CheckBox  Content="fulano" Background="#FFFFEB3B" Width="798"/>
+				</ListBox>
+				<RadioButton x:Name="Coberturas_basicas" Click="RadioButton_Click" Content="Basicas" HorizontalAlignment="Left" Margin="19,400,0,0" VerticalAlignment="Top" Height="18" IsChecked="True" FontFamily="Dubai"/>
+				<RadioButton x:Name="Coberturas_adicionais" Click="RadioButton_Click" Content="Adicionais" HorizontalAlignment="Left" Margin="19,380,0,0" VerticalAlignment="Top" Height="20" FontFamily="Dubai"/>
+				<RadioButton x:Name="Coberturas_especificas" Click="RadioButton_Click" Content="Especificas" HorizontalAlignment="Left" Margin="19,360,0,0" VerticalAlignment="Top" Height="20" FontFamily="Dubai"/>
+				<Button x:Name="Gerar" Click="Button_Click" Content="Gerar" HorizontalAlignment="Left" Margin="620,256,0,0" VerticalAlignment="Top" Width="240" Height="116" Background="#FF44BB38" BorderBrush="#FF44BB38" FontSize="30" FontFamily="Dubai" FontWeight="Normal"/>
+				<Label Content="Segurado" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="67,82,0,0" FontFamily="Dubai" FontSize="13"/>
+				<TextBox x:Name="Segurado" HorizontalAlignment="Left" Height="22" Margin="154,82,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
+				<Label Content="CNPJ" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="67,144,0,0" FontFamily="Dubai" FontSize="13"/>
+				<TextBox x:Name="CNPJ" HorizontalAlignment="Left" Height="22" Margin="154,144,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
+				<Label Content="Corretor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="67,172,0,0" FontFamily="Dubai" FontSize="13"/>
 
+				<Label Content="LMG(R$)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="67,202,0,0" FontFamily="Dubai" FontSize="13"/>
+				<Label Content="Taxa" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="67,230,0,0" FontFamily="Dubai" FontSize="13"/>
+				<CheckBox Checked="Ajustavel_Checked" Unchecked="Ajustavel_Checked" x:Name="Ajustavel" Content="Ajustavel" HorizontalAlignment="Left" Margin="352,110,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<CheckBox Checked="Averbavel_Checked" Unchecked="Averbavel_Checked" x:Name="Averbavel" Content="Averbavel" HorizontalAlignment="Left" Margin="352,58,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<Label Content="Importancia Segurado" HorizontalAlignment="Left" Margin="15,260,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<Label x:Name="LAB_Quantidade_De_Parcelas" Content="Quantidade de Parcelas " HorizontalAlignment="Left" Margin="308,132,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<CheckBox Checked="Com_Sublimite_Checked" Unchecked="Com_Sublimite_Checked" x:Name="Com_Sublimite" Content="Com Sublimite" HorizontalAlignment="Left" Margin="605,116,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<Label x:Name="LAB_SubLimite" Content="SubLimite" HorizontalAlignment="Left" Margin="645,138,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<TextBox x:Name="Corretor" HorizontalAlignment="Left" Height="24" Margin="154,172,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
+				<TextBox x:Name="LMG" HorizontalAlignment="Left" Height="22" Margin="154,206,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
+				<TextBox x:Name="Taxa" HorizontalAlignment="Left" Height="24" Margin="154,230,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
+				<TextBox x:Name="Importancia_Segurada" HorizontalAlignment="Left" Height="24" Margin="154,260,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
+				<TextBox x:Name="Ajustavel_Quantidade_Parcela" HorizontalAlignment="Left" Height="22" Margin="455,134,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
+				<TextBox x:Name="Sub_Limite" HorizontalAlignment="Left" Height="22" Margin="728,140,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
+				<Label Content="Sinistros" HorizontalAlignment="Left" Margin="73,288,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<TextBox x:Name="Sinistros" HorizontalAlignment="Left" Height="24" Margin="154,288,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
+				<Label Content="Mercadoria" HorizontalAlignment="Left" Margin="73,316,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<TextBox x:Name="Mercadoria" HorizontalAlignment="Left" Height="24" Margin="154,316,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
+				<Label x:Name="LAB_Premio_Minimo" Content="Premio Minimo" HorizontalAlignment="Left" Margin="351,82,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<TextBox x:Name="Premio_Minimo" HorizontalAlignment="Left" Height="22" Margin="456,82,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
+				<!--<Button Click="Test" Content="CARALHO" HorizontalAlignment="Left" Margin="578,336,0,0" VerticalAlignment="Top" Width="101"/>-->
+				<CheckBox x:Name="Chk_DDR" Unchecked="DDR" Checked="DDR" Content="DDR" HorizontalAlignment="Left" Margin="604,90,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<CheckBox x:Name="_80" Content="80%" HorizontalAlignment="Left" Margin="425,182,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<CheckBox x:Name="_90" Content="90%" HorizontalAlignment="Left" Margin="475,182,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<CheckBox x:Name="_100" Content="100%" HorizontalAlignment="Left" Margin="525,182,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<Label x:Name="LAB_Ajustavel_Premio_MInimo" Content="Premio Minimo" HorizontalAlignment="Left" Margin="331,164,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<GroupBox  HorizontalAlignment="Left" Height="186" Margin="331,211,0,0" VerticalAlignment="Top" Width="267">
+					<GroupBox.Header>
+						<Label Foreground="Black" Content="POS" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Margin="109,0"/>
+					</GroupBox.Header>
+					<Grid>
+						<CheckBox Checked="CHK_Fixa_Checked" Unchecked="CHK_Fixa_Checked" x:Name="CHK_Fixa" Content="Fixa" HorizontalAlignment="Left" Margin="15,2,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+						<Label x:Name="LAB_Percentual" Content="Percentual" HorizontalAlignment="Left" Margin="33,34,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+						<Label x:Name="LAB_Valor" Content="Valor" HorizontalAlignment="Left" Margin="53,63,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+						<CheckBox x:Name="Escalonda" Checked="Escalonda_Checked" Unchecked="Escalonda_Checked" Content="Escalonada" HorizontalAlignment="Left" Margin="19,106,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+						<TextBox x:Name="Fixa_Percentual" HorizontalAlignment="Left" Height="23" Margin="119,35,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
+						<TextBox x:Name="Fixa_Valor" HorizontalAlignment="Left" Height="23" Margin="119,64,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
+						<TextBox x:Name="POS1" HorizontalAlignment="Left" Height="23" Margin="127,101,0,0" VerticalAlignment="Top" Width="34" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
+						<TextBox x:Name="POS2" HorizontalAlignment="Left" Height="23" Margin="166,101,0,0" VerticalAlignment="Top" Width="34" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
+						<TextBox x:Name="POS3" HorizontalAlignment="Left" Height="23" Margin="205,101,0,0" VerticalAlignment="Top" Width="34" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
+					</Grid>
+				</GroupBox>
+				<Label Content="NCotaçao" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="67,116,0,0" FontFamily="Dubai" FontSize="13"/>
+				<TextBox x:Name="Ncotacao" HorizontalAlignment="Left" Height="22" Margin="154,116,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
 
-			<System:String>N° 13 – Cobertura Básica Restrita para transporte de óleo (petróleo) a granel (embarques aquaviários e terrestres);</System:String>
-			<System:String>caralho</System:String>
-			<System:String>caralho</System:String>
-			<System:String>caralho</System:String>
-			<System:String>caralho</System:String>
-		</ListBox>
-		<RadioButton x:Name="Coberturas_basicas" Click="RadioButton_Click" Content="Basicas" HorizontalAlignment="Left" Margin="19,363,0,0" VerticalAlignment="Top" Height="15" IsChecked="True"/>
-		<RadioButton x:Name="Coberturas_adicionais" Click="RadioButton_Click" Content="Adicionais" HorizontalAlignment="Left" Margin="19,344,0,0" VerticalAlignment="Top" Height="15"/>
-		<RadioButton x:Name="Coberturas_especificas" Click="RadioButton_Click" Content="Especificas" HorizontalAlignment="Left" Margin="19,325,0,0" VerticalAlignment="Top" Height="15"/>
-		<Button x:Name="Gerar" Click="Button_Click" Content="Gerar" HorizontalAlignment="Left" Margin="624,235,0,0" VerticalAlignment="Top" Width="240" Height="116" Background="#FF44BB38" BorderBrush="#FF44BB38"/>
-		<Label Content="Segurado" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,61,0,0" FontWeight="Bold"/>
-		<TextBox x:Name="Segurado" HorizontalAlignment="Left" Height="23" Margin="158,61,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
-		<Label Content="CNPJ" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,123,0,0" FontWeight="Bold"/>
-		<TextBox x:Name="CNPJ" HorizontalAlignment="Left" Height="23" Margin="158,123,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
-		<Label Content="Corretor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,152,0,0" FontWeight="Bold"/>
-
-		<Label Content="LMG(R$)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,181,0,0" FontWeight="Bold"/>
-		<Label Content="Taxa" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,210,0,0" FontWeight="Bold"/>
-		<CheckBox Checked="Ajustavel_Checked" Unchecked="Ajustavel_Checked" x:Name="Ajustavel" Content="Ajustavel" HorizontalAlignment="Left" Margin="356,89,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-		<CheckBox Checked="Averbavel_Checked" Unchecked="Averbavel_Checked" x:Name="Averbavel" Content="Averbavel" HorizontalAlignment="Left" Margin="356,37,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-		<Label Content="Importancia Segurado" HorizontalAlignment="Left" Margin="19,239,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-		<Label x:Name="LAB_Quantidade_De_Parcelas" Content="Quantidade de Parcelas " HorizontalAlignment="Left" Margin="312,112,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-		<CheckBox Checked="Com_Sublimite_Checked" Unchecked="Com_Sublimite_Checked" x:Name="Com_Sublimite" Content="Com Sublimite" HorizontalAlignment="Left" Margin="609,95,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-		<Label x:Name="LAB_SubLimite" Content="SubLimite" HorizontalAlignment="Left" Margin="649,118,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-		<TextBox x:Name="Corretor" HorizontalAlignment="Left" Height="23" Margin="158,152,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
-		<TextBox x:Name="LMG" HorizontalAlignment="Left" Height="23" Margin="158,185,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
-		<TextBox x:Name="Taxa" HorizontalAlignment="Left" Height="23" Margin="158,210,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
-		<TextBox x:Name="Importancia_Segurada" HorizontalAlignment="Left" Height="23" Margin="158,240,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
-		<TextBox x:Name="Ajustavel_Quantidade_Parcela" HorizontalAlignment="Left" Height="23" Margin="459,113,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
-		<TextBox x:Name="Sub_Limite" HorizontalAlignment="Left" Height="23" Margin="732,119,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
-		<Label Content="Sinistros" HorizontalAlignment="Left" Margin="77,268,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-		<TextBox x:Name="Sinistros" HorizontalAlignment="Left" Height="23" Margin="158,268,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
-		<Label Content="Mercadoria" HorizontalAlignment="Left" Margin="77,296,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-		<TextBox x:Name="Mercadoria" HorizontalAlignment="Left" Height="23" Margin="158,296,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
-		<Label x:Name="LAB_Premio_Minimo" Content="Premio Minimo" HorizontalAlignment="Left" Margin="355,61,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-		<TextBox x:Name="Premio_Minimo" HorizontalAlignment="Left" Height="23" Margin="460,61,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
-		<!--<Button Click="Test" Content="CARALHO" HorizontalAlignment="Left" Margin="578,336,0,0" VerticalAlignment="Top" Width="101"/>-->
-		<CheckBox x:Name="Chk_DDR" Unchecked="DDR" Checked="DDR" Content="DDR" HorizontalAlignment="Left" Margin="608,70,0,0" VerticalAlignment="Top"/>
-		<CheckBox x:Name="_80" Content="80%" HorizontalAlignment="Left" Margin="429,162,0,0" VerticalAlignment="Top"/>
-		<CheckBox x:Name="_90" Content="90%" HorizontalAlignment="Left" Margin="479,162,0,0" VerticalAlignment="Top"/>
-		<CheckBox x:Name="_100" Content="100%" HorizontalAlignment="Left" Margin="529,162,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="LAB_Ajustavel_Premio_MInimo" Content="Premio Minimo" HorizontalAlignment="Left" Margin="335,144,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-		<GroupBox  HorizontalAlignment="Left" Height="187" Margin="335,187,0,0" VerticalAlignment="Top" Width="267">
-			<GroupBox.Header>
-				<Label Foreground="Black" Content="POS" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Margin="109,0"/>
-			</GroupBox.Header>
-			<Grid>
-				<CheckBox Checked="CHK_Fixa_Checked" Unchecked="CHK_Fixa_Checked" x:Name="CHK_Fixa" Content="Fixa" HorizontalAlignment="Left" Margin="15,2,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-				<Label x:Name="LAB_Percentual" Content="Percentual" HorizontalAlignment="Left" Margin="33,34,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-				<Label x:Name="LAB_Valor" Content="Valor" HorizontalAlignment="Left" Margin="53,63,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-				<CheckBox x:Name="Escalonda" Checked="Escalonda_Checked" Unchecked="Escalonda_Checked" Content="Escalonada" HorizontalAlignment="Left" Margin="19,106,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-				<TextBox x:Name="Fixa_Percentual" HorizontalAlignment="Left" Height="23" Margin="119,35,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
-				<TextBox x:Name="Fixa_Valor" HorizontalAlignment="Left" Height="23" Margin="119,64,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
-				<TextBox x:Name="POS1" HorizontalAlignment="Left" Height="23" Margin="127,101,0,0" VerticalAlignment="Top" Width="34" TextOptions.TextHintingMode="Animated"/>
-				<TextBox x:Name="POS2" HorizontalAlignment="Left" Height="23" Margin="166,101,0,0" VerticalAlignment="Top" Width="34" TextOptions.TextHintingMode="Animated"/>
-				<TextBox x:Name="POS3" HorizontalAlignment="Left" Height="23" Margin="205,101,0,0" VerticalAlignment="Top" Width="34" TextOptions.TextHintingMode="Animated"/>
 			</Grid>
-		</GroupBox>
-		<Label Content="NCotaçao" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,95,0,0" FontWeight="Bold"/>
-		<TextBox x:Name="Ncotacao" HorizontalAlignment="Left" Height="23" Margin="158,95,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
+		</Border>
 
 	</Grid>
 
