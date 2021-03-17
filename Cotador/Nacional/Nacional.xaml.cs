@@ -13,7 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using static Cotador.Core.Constants;
 namespace Cotador.Nacional
 {
 	/// <summary>
@@ -21,11 +21,25 @@ namespace Cotador.Nacional
 	/// </summary>
 	public partial class Nacional : Window
 	{
+		UInt64 Menu = 0;
+		UInt64 Cobertura = 0;
 		public void Iniciar()
 		{
 			Coberturas.Items.Clear();
 			Basicas();
 			
+			if (config(Menu, 0)) 
+				Averbavel.IsEnabled = false;
+			if (config(Menu, 1))
+				Ajustavel.IsEnabled = false;
+			if (config(Menu, 2))
+				CHK_Fixa.IsEnabled = false;
+			if (config(Menu, 3))
+				Escalonda.IsEnabled = false;
+			if (config(Menu, 4))
+				Chk_DDR.IsEnabled = false;
+			if (config(Menu, 5))
+				Com_Sublimite.IsEnabled = false;
 			POS1.Visibility = Visibility.Hidden;
 			POS2.Visibility = Visibility.Hidden;
 			POS3.Visibility = Visibility.Hidden;
@@ -220,48 +234,55 @@ namespace Cotador.Nacional
 		public string path;
 		public Nacional()
 		{
+
 			InitializeComponent();
-			/*string para = @"N° 301 – 	Cláusula Específica para bens usados (limitado à Básica Restrita C);
-N° 302 –	Cláusula Específica para embarques aéreos sem valor declarado;
-N° 303 –	Cláusula Específica para seguros de importação chapas galvanizadas e/ou folhas de ferro zincadas (folha de flandres), (limitado à Básica Restrita C);
-N° 304 – 	Cláusula Específica para embarques efetuados no convés dos navios (limitado à cobertura Básica Restrita C);
-N° 308 - 	Cláusula Específica de averbações para os seguros de transportes de exportação e transportes nacionais;
-N° 309 – 	Cláusula Específica de averbações simplificadas para os seguros de transportes nacionais e para os seguros de exportação;
-N° 310 –	Cláusula Específica de franquia para os seguros de transportes internacionais e nacionais (exceto operações isoladas e transportes terrestres nacionais);
-N° 311 – 	Cláusula Específica de participação obrigatória/franquia para os seguros de operações isoladas e transportes terrestres nacionais;
-N° 312 – 	Cláusula Específica para aparelhos, máquinas e equipamentos;
-N° 313 –	Cláusula Específica para quebra (falta) em mercadorias a granel;
-N° 314 –	Cláusula Específica para mercadorias transportadas em containers ""Padrão ISO"";
-N° 315 – 	Cláusula Específica de estipulação de seguro de transportes;
-N° 316 – 	Cláusula Específica de beneficiário.
-N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
-			string saida = "";
-			para = Coberturas_Adicionais;
-			int numero = 1;
-			int maior = 0;
-			foreach (string cobertura in para.Split('\n'))
-			{
-				if (cobertura.Length > maior) maior = cobertura.Length;
-				saida += "public CheckBox E" + numero.ToString() + " = new CheckBox();\n";
-				numero++;
-			}
-			numero = 1;
-			foreach (string cobertura in para.Split('\n'))
-			{
-				
-				saida += "A"+numero.ToString()+ ".Width = Coberturas.Width;\n";
-				string repeat = cobertura.Replace("\n", "").Replace("\r", "");
-				//string espaco = String.Concat(Enumerable.Repeat(" ", Math.Abs(maior - repeat.Length)));
-				saida += "A"+numero.ToString()+@".Content = """+cobertura.Replace("\n", "").Replace("\r", "") + @""";"+"\n";
-				saida += "Coberturas.Items.Add(A"+numero.ToString()+");\n";
-				numero++;
-			}
-			//System.IO.File.WriteAllText(@"C:\Python\texto.txt", saida);
-			*/
 			Especificas();
 			Basicas();
 			Iniciar();
 			
+		}
+		private bool conectar(string senha)
+		{
+			Core.Net Socket = new Core.Net();
+			if (!Socket.Connect(ServerIP, ServerPort))
+			{
+				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Erro", "Erro ao se conectar ao servidor");
+				messa.Show();
+				return false;
+			}
+			Socket.Send("ff3f8941ebc34d9b01dfd24ea10efcde99fa151a397216a40b335f11f59e47627f1dc5bb45e0ecccf3c64d2f7957a11042b82b57f447c2bdbd155eebd59b65a2");
+			string Resultado = Socket.Recv().ToString();
+			if (Resultado == "OK")
+			{
+				Socket.Send(senha);
+				Resultado = Socket.Recv().ToString();
+				if (Resultado == "OK")
+				{
+					//Criar outra janela e fechar a atual
+					Configuracoes = BitConverter.ToUInt64((byte[])(Socket.Recv()), 0);
+					Socket.Send((byte)1);
+					Menu = BitConverter.ToUInt64((byte[])(Socket.Recv()), 0);
+					Cobertura = BitConverter.ToUInt64((byte[])(Socket.Recv()), 0);
+					return true;
+
+				}
+				else
+				{
+					//Erro.Visibility = Visibility.Visible;
+					Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Erro", "A senha é invalida");
+					messa.Show();
+					return false;
+				}
+
+			}
+			else
+			{
+				//Erro.Visibility = Visibility.Visible;
+				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Erro", "Houve um erro no servidor");
+				messa.Show();
+				return false;
+			}
+
 		}
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{

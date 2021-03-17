@@ -66,7 +66,10 @@ namespace Cotador.Tela_Senha
 				if (resultado == "OK")
 				{
 					//Criar outra janela e fechar a atual
+					Configuracoes = BitConverter.ToUInt64((byte[])(Socket.Recv()),0);
+					Socket.Send((byte)0);
 					return true;
+					
 				}
 				else
 				{

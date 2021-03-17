@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using static Cotador.Core.Constants;
 namespace Cotador.Inicio
 {
     /// <summary>
@@ -33,14 +33,31 @@ namespace Cotador.Inicio
         }
         private void Nacional_Click(object sender, RoutedEventArgs e)
         {
-            Nacional.Nacional nacional = new Nacional.Nacional();
-            nacional.Show();
+            if (Core.Constants.Nacional()){
+                Nacional.Nacional nacional = new Nacional.Nacional();
+                nacional.Show();
+			}
+			else
+			{
+                Caixa_de_Mensagem.mensagem men = new Caixa_de_Mensagem.mensagem("Erro", "Nacional não permitido");
+                men.Show();
+            }
+            
         }
 
 		private void Trasporte_Click(object sender, RoutedEventArgs e)
 		{
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            if (Core.Constants.Nacional())
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+            }
+            else
+            {
+                Caixa_de_Mensagem.mensagem men = new Caixa_de_Mensagem.mensagem("Erro", "Transportador não permitido");
+                men.Show();
+            }
+            
 		}
 
 		private void Internacional_Click(object sender, RoutedEventArgs e)
@@ -55,9 +72,5 @@ namespace Cotador.Inicio
             men.Show();
         }
 
-		private void Button_Click(object sender, RoutedEventArgs e)
-		{
-
-		}
 	}
 }
