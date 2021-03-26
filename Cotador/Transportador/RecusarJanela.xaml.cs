@@ -11,8 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
-namespace Cotador.Trasnportador
+using static Cotador.Core.Constants;
+namespace Cotador.Transportador
 {
 	/// <summary>
 	/// Interaction logic for RecusarJanela.xaml
@@ -44,7 +44,7 @@ namespace Cotador.Trasnportador
 		void EnviarRecusa(object sender, RoutedEventArgs e)
 		{
 			Core.Net Socket = new Core.Net();
-			if (!Socket.Connect("192.168.0.10", 9090))
+			if (!Socket.Connect(ServerIP, ServerPort))
 			{
 				System.Windows.MessageBox.Show("Erro ao se conectar ao servidor");
 				return;
@@ -61,17 +61,17 @@ namespace Cotador.Trasnportador
 			}
 			if (I == 1)
 			{
-				transportador(Socket);
+				Transportador(Socket);
 			}else if (I == 2)
 			{
 				Nacional(Socket);
 			}
 			else if (I == 3)
 			{
-				Nacional(Socket);
+				Internacional(Socket);
 			}
 		}
-		void transportador(Core.Net Socket)
+		void Transportador(Core.Net Socket)
 		{
 			Socket.Send((byte)00); // Diz que o tipo da cotaçao é transportador
 			if (Socket.Recv().ToString() == "Fail")
@@ -147,6 +147,39 @@ namespace Cotador.Trasnportador
 			Socket.Send(nacional.Premio_Anual.Text);
 			Socket.Send(Motivo.Text);
 		}
-	
+		
+		void Internacional(Core.Net Socket)
+		{
+			UInt16 Bits = 0;
+			Socket.Send((byte)02); // Diz que o tipo da cotaçao é Internacional
+			if (Socket.Recv().ToString() == "Fail")
+			{
+				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Modo cotação Internacional nao disponivel");
+			}
+			if (Inter.Averbavel.IsChecked == true)
+				Bits += 1 << 2;
+			Bits += 1 << 10;
+			Socket.Send(BitConverter.GetBytes(Bits));
+			Socket.Send(Inter.Segurado.Text);
+			Socket.Send(Inter.Ncotacao.Text);
+			Socket.Send("");
+			Socket.Send(Inter.Corretor.Text);
+			Socket.Send(Inter.Assessoria.Text);
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send(Inter.Premio_Anual.Text);
+			Socket.Send(Inter.Expectativa.Text);
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send(Inter.Expectativa.Text);
+			Socket.Send(Motivo.Text);
+		}
 	}
 }

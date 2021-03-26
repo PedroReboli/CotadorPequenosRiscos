@@ -385,11 +385,6 @@ namespace Cotador
 			}
 		}
 
-		private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
-		{
-			Trasnportador.Servidor.Procurar pro = new Trasnportador.Servidor.Procurar();
-			pro.Show();
-		}
 
 		private void Abrir_Procurar_Modelo(object sender, MouseButtonEventArgs e)
 		{
@@ -398,7 +393,7 @@ namespace Cotador
 
 		private void AbrirRecusar(object sender, RoutedEventArgs e)
 		{
-			Trasnportador.RecusarJanela x = new Trasnportador.RecusarJanela(this);
+			Transportador.RecusarJanela x = new Transportador.RecusarJanela(this);
 			x.Show();
 		}
 	}

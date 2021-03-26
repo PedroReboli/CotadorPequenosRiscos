@@ -18,7 +18,7 @@ using System.Windows.Forms;
 using static Cotador.Core.Constants;
 using MessageBox = System.Windows.MessageBox;
 using Application = System.Windows.Application;
-namespace Cotador.Trasnportador.Servidor
+namespace Cotador.Transportador.Servidor
 {
 	/// <summary>
 	/// Interaction logic for Procurar.xaml

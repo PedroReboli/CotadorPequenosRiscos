@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:Cotador.Internacional"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Cotador.Internacional.janela_Internacional"
         mc:Ignorable="d"
+		AllowDrop="True" 
+		Drop="Window_Drop"
         Title="janela_Internacional" Height="736.187" Width="1145.22">
 	<Window.Background>
 		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -59,7 +61,7 @@
 		<Label x:Name="LAB_Ajustavel_Premio_MInimo" Content="Premio Minimo" HorizontalAlignment="Left" Margin="38,558,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 		<Label x:Name="LAB_SubLimite" Content="SubLimite" HorizontalAlignment="Left" Margin="97,224,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 		<TextBox x:Name="Sub_Limite" HorizontalAlignment="Left" Height="23" Margin="184,225,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
-		<CheckBox x:Name="Chk_DDR" Content="DDR" HorizontalAlignment="Left" Margin="74,674,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+		<CheckBox x:Name="Chk_DDR" Unchecked="DDR" Checked="DDR" Content="DDR" HorizontalAlignment="Left" Margin="74,674,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 		<Label x:Name="LAB_Franquia" Content="Franquia" HorizontalAlignment="Left" Margin="114,640,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 		<TextBox x:Name="Franquia" HorizontalAlignment="Left" Height="23" Margin="180,640,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated"/>
 		<CheckBox x:Name="CHK_Assessoria" Content="Assessoria" HorizontalAlignment="Left" Margin="95,133,0,0" VerticalAlignment="Top" FontWeight="Bold"/>

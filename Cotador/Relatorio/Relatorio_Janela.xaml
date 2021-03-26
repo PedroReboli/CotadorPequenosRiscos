@@ -27,10 +27,10 @@
 		<StackPanel Margin="30,10,0,0">
 			<StackPanel Orientation="Horizontal">
 				<Label Content="Data Inicio" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0,0,20,0" FontFamily="Open Sans" FontSize="20" Background="{x:Null}" Foreground="#C9FFFFFF" FontWeight="Light"/>
-				<DatePicker x:Name="Inicio" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Foreground="Black" BorderBrush="#C9FFFFFF" Background="{x:Null}"  />
+				<DatePicker x:Name="Inicio" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Foreground="#C8FFFFFF" BorderBrush="#C9FFFFFF" Background="#00000000"  />
 			</StackPanel>
 			<StackPanel Orientation="Horizontal">
-				<Label Content="Data Fim" Margin="0,0,32,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Open Sans" FontSize="20" Foreground="#C9FFFFFF" FontWeight="Light" />
+				<Label Content="Data Fim" Margin="0,0,35,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Open Sans" FontSize="20" Foreground="#C9FFFFFF" FontWeight="Light" />
 				<DatePicker x:Name="Fim" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="120" Foreground="#C9FFFFFF" BorderBrush="#C9FFFFFF"/>
 			</StackPanel>
 			<StackPanel >
@@ -48,7 +48,7 @@
 							<SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#C9C8FFE6"/>
 						</CheckBox.Resources>
 					</CheckBox>
-					<CheckBox x:Name="Corretor" Content= "Corretor" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="5,0,0,0" FontFamily="Open Sans" FontSize="16" Foreground="#C9FFFFFF" IsChecked="True" FontWeight="Light" >
+					<CheckBox x:Name="Corretor" Content= "Corretor" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="5,0,0,0" FontFamily="Open Sans" FontSize="16" Foreground="#C9FFFFFF" IsChecked="True" FontWeight="Light" Visibility="Hidden" >
 						<CheckBox.Resources>
 							<SolidColorBrush x:Key="MaterialDesignCheckBoxOff" Color="#C9FFFFFF"/>
 							<SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#C9C8FFE6"/>
@@ -57,11 +57,11 @@
 				</StackPanel>
 
 			</StackPanel>
-			<StackPanel Orientation="Horizontal" Margin="0,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+			<StackPanel Orientation="Horizontal" Margin="0,20,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
 
 
-				<Button Click="GerarExcel" Content="Gerar Excel" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="142" Margin="20,0,0,0" Background="#B788D19F" BorderBrush="{x:Null}" Foreground="White"/>
-				<Button Click="Copiar" Content="Copiar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="142" Margin="20,0,0,0" Background="#B788D19F" BorderBrush="{x:Null}" Foreground="White"/>
+				<!--<Button Click="GerarExcel" Content="Gerar Excel" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="142" Margin="20,0,0,0" Background="#B788D19F" BorderBrush="{x:Null}" Foreground="White"/>-->
+				<Button Click="Copiar" Content="Copiar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="220" Margin="0,0,0,0" Background="#B788D19F" BorderBrush="{x:Null}" Foreground="White"/>
 			</StackPanel>
 
 		</StackPanel>

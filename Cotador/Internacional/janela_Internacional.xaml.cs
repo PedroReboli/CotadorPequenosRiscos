@@ -190,6 +190,8 @@ namespace Cotador.Internacional
 			Coberturas.Items.Add(E10);
 			E11.Width = Coberturas.Width;
 			E11.Content = "N° 317 – Cláusula Específica de dispensa do direito de regresso;";
+			E11.Checked += DDR;
+			E11.Unchecked += DDR;
 			Coberturas.Items.Add(E11);
 		}
 		public janela_Internacional()
@@ -214,6 +216,8 @@ namespace Cotador.Internacional
 			LAB_SubLimite.Visibility = Visibility.Hidden;
 			Sub_Limite.Visibility = Visibility.Hidden;
 			complementar_preliminar.Visibility = Visibility.Hidden;
+			LAB_Franquia.Visibility = Visibility.Hidden;
+			Franquia.Visibility = Visibility.Hidden;
 		}
 		private void Averbavel_Checked(object sender, RoutedEventArgs e)
 		{
@@ -365,13 +369,41 @@ namespace Cotador.Internacional
 			}
 
 		}
+		long total = DateTime.Now.Ticks;
+		private void DDR(object sender, RoutedEventArgs e)
+		{
+			if (DateTime.Now.Ticks - total < 10) return;
+			if (((CheckBox)sender).Content.ToString() == "DDR")
+			{
+				if (Chk_DDR.IsChecked == true)
+				{
+					E11.IsChecked = true;
+				}
+				else
+				{
+					E11.IsChecked = false;
+				}
+			}
+			else
+			{
+				if (E11.IsChecked == true)
+				{
+					Chk_DDR.IsChecked = true;
+				}
+				else
+				{
+					Chk_DDR.IsChecked = false;
+				}
+			}
+
+		}
 		private void Limpar_Click(object sender, RoutedEventArgs e)
 		{
 			LoopVisualTree(this);
 		}
 		private void AbrirRecusar(object sender, RoutedEventArgs e)
 		{
-			Trasnportador.RecusarJanela x = new Trasnportador.RecusarJanela(this);
+			Transportador.RecusarJanela x = new Transportador.RecusarJanela(this);
 			x.Show();
 		}
 		private void Button_Click(object sender, RoutedEventArgs e)
@@ -449,5 +481,25 @@ namespace Cotador.Internacional
 		public CheckBox E9 = new CheckBox();
 		public CheckBox E10 = new CheckBox();
 		public CheckBox E11 = new CheckBox();
+
+
+
+		private void Window_Drop(object sender, DragEventArgs e)
+		{
+			if (e.Data.GetDataPresent("FileName"))
+			{
+				string[] fileName = (string[])e.Data.GetData(DataFormats.FileDrop);
+				try
+				{
+					LoopVisualTree(this);
+					Excel.Abrir(this, fileName[0]);
+				}
+				catch (Exception f)
+				{
+					MessageBox.Show($"Houve um erro na hora de importar o arquivo Excel\n{f}");
+				}
+			}
+			
+		}
 	}
 }

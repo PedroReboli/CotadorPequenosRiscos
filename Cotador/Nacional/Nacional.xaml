@@ -39,15 +39,6 @@
 				</Style>
 			</ListBox.ItemContainerStyle>
 
-			<System:String>N° 1 – Cobertura Básica Restrita C (bens e/ou mercadorias usadas, em devolução ou redespachadas;</System:String>
-			<CheckBox  Content="fulano" Background="#FFFFEB3B" Width="798"/>
-
-
-			<System:String>N° 13 – Cobertura Básica Restrita para transporte de óleo (petróleo) a granel (embarques aquaviários e terrestres);</System:String>
-			<System:String>caralho</System:String>
-			<System:String>caralho</System:String>
-			<System:String>caralho</System:String>
-			<System:String>caralho</System:String>
 		</ListBox>
 		<RadioButton x:Name="Coberturas_basicas" Click="RadioButton_Click" Content="Basicas" HorizontalAlignment="Left" Margin="19,451,0,0" VerticalAlignment="Top" Height="15" IsChecked="True"/>
 		<RadioButton x:Name="Coberturas_adicionais" Click="RadioButton_Click" Content="Adicionais" HorizontalAlignment="Left" Margin="19,432,0,0" VerticalAlignment="Top" Height="19"/>

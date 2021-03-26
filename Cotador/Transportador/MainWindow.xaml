@@ -111,9 +111,6 @@
 		<Label Content="Tabela RCTR-C" HorizontalAlignment="Left" Margin="23,411,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 		<Button Click="taxa_Click" Content="Button" HorizontalAlignment="Left" Height="38" Margin="268,150,0,0" VerticalAlignment="Top" Width="52"/>
 		<Button Click="Button_Click" Content="Copiar" HorizontalAlignment="Left" Margin="268,224,0,0" VerticalAlignment="Top" Width="52" Background="#FF0097FF" BorderBrush="#FF0097FF"/>
-		<Grid Margin="281,477,0,0" Cursor="Hand" MouseDown="Grid_MouseDown" Background="Transparent" Height="46" VerticalAlignment="Top" HorizontalAlignment="Left" Width="39">
-			<materialDesign:PackIcon Kind="CloudSearchOutline" HorizontalAlignment="Left" VerticalAlignment="Top" Height="41" Width="39"/>
-		</Grid>
 		<Label Content="Assessoria" HorizontalAlignment="Left" Margin="49,171,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="24" Width="69" FontWeight="Bold" Foreground="Black"/>
 		<TextBox TabIndex="5" x:Name="Assessoria" HorizontalAlignment="Left" Height="24" Margin="127,170,0,0" VerticalAlignment="Top" Width="120" Background="{x:Null}" CaretBrush="Black" TextOptions.TextFormattingMode="Display"  />
 		<Label Content="Premio Anual" HorizontalAlignment="Left" Margin="29,342,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="24" FontWeight="Bold" Foreground="Black"/>

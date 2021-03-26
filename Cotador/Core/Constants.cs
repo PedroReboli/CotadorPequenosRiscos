@@ -15,5 +15,6 @@ namespace Cotador.Core
 		public const string ServerIP = "servidordetestes.bounceme.net";
 		public const int ServerPort = 9090;
 #endif
+		public static string NomeSubscritor = "";
 	}
 }

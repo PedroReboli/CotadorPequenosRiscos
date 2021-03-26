@@ -585,7 +585,7 @@ N° 317 – 	Cláusula Específica de dispensa do direito de regresso.";
 		}
 		private void AbrirRecusar(object sender, RoutedEventArgs e)
 		{
-			Trasnportador.RecusarJanela x = new Trasnportador.RecusarJanela(this);
+			Transportador.RecusarJanela x = new Transportador.RecusarJanela(this);
 			x.Show();
 		}
 	}

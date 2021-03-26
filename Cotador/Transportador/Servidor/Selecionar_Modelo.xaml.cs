@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Cotador.Trasnportador.Servidor
+namespace Cotador.Transportador.Servidor
 {
 	/// <summary>
 	/// Interaction logic for Selecionar_Modelo.xaml

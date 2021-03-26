@@ -70,10 +70,10 @@ namespace Cotador
 			{
 				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Modo cotação nao disponivel");
 			}
-			Socket.Send((byte)01); // Diz que o tipo da cotaçao é transportador
+			Socket.Send((byte)01); // Diz que o tipo da cotaçao é nacional
 			if (Socket.Recv().ToString() == "Fail")
 			{
-				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Modo cotação trasportador nao disponivel");
+				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Modo cotação nacional nao disponivel");
 			}
 			Nacional.Gerar_Nacional.Main = Main;
 			string Coberturas = Nacional.Gerar_Nacional.Coberturas();
@@ -119,6 +119,7 @@ namespace Cotador
 			Socket.Send(Main.Expectativa.Text);
 			Socket.Send(Main.Assessoria.Text);
 			Socket.Send(Main.Premio_Anual.Text);
+			Socket.Send(Core.Constants.NomeSubscritor);
 			byte[] Nacio = (byte[])Socket.Recv();
 			Salvar("Salvar Nacional", Nacio, Main.Segurado.Text, "Nacional");
 		}
@@ -193,8 +194,8 @@ namespace Cotador
 				Socket.Send(Main.Expectativa_Fechamento.Text);
 				Socket.Send(Main.Premio_Anual.Text);
 				Socket.Send(Main.Assessoria.Text);
+				Socket.Send(Core.Constants.NomeSubscritor);
 
-				
 				if (Socket.Recv().ToString() == "Fail")
 				{
 					Caixa_de_Mensagem.Mensagem.Mostar("Erro", "O numero de cotação esta sendo usado por outro corretor");
@@ -237,6 +238,7 @@ namespace Cotador
 				Socket.Send(Main.Expectativa_Fechamento.Text);
 				Socket.Send(Main.Premio_Anual.Text);
 				Socket.Send(Main.Assessoria.Text);
+				Socket.Send(Core.Constants.NomeSubscritor);
 				/*Socket.Send();
 				Socket.Send();
 				Socket.Send();*/
@@ -274,7 +276,7 @@ namespace Cotador
 			Socket.Send((byte)02); // Diz que o tipo da cotaçao é Internacional
 			if (Socket.Recv().ToString() == "Fail")
 			{
-				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Modo cotação trasportador nao disponivel");
+				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Modo cotação internacional nao disponivel");
 			}
 			UInt16 Bits = 0;
 			if (Main.CHK_Assessoria.IsChecked == true)
@@ -297,7 +299,7 @@ namespace Cotador
 				Bits += 1 << 8;
 			if (Main.Exclusivamente.IsChecked == true)
 				Bits += 1 << 9;
-
+			
 			Socket.Send(BitConverter.GetBytes(Bits));
 			Socket.Send(Main.Segurado.Text);
 			Socket.Send(Main.Ncotacao.Text);
@@ -317,6 +319,9 @@ namespace Cotador
 			Socket.Send(Main.Ajustavel_Quantidade_Parcela.Text);
 			Socket.Send(Main.Franquia.Text);
 			Socket.Send(Internacional.Gerar_Tabela.Gerar(Main));
+			Socket.Send(Main.Expectativa.Text);
+			Socket.Send("");
+			Socket.Send(Core.Constants.NomeSubscritor);
 			Salvar("Salvar Internacional", (Byte[])Socket.Recv(), Main.Corretor.Text, "Internacional");
 		}
 		private static void Salvar(string Titulo, byte[] Arquivo, string Corretor, string modo)
