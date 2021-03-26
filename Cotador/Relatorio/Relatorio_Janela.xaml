@@ -27,11 +27,11 @@
 		<StackPanel Margin="30,10,0,0">
 			<StackPanel Orientation="Horizontal">
 				<Label Content="Data Inicio" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0,0,20,0" FontFamily="Open Sans" FontSize="20" Background="{x:Null}" Foreground="#C9FFFFFF" FontWeight="Light"/>
-				<DatePicker x:Name="Inicio" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Foreground="#C8FFFFFF" BorderBrush="#C9FFFFFF" Background="#00000000"  />
+				<DatePicker x:Name="Inicio" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Foreground="Black" BorderBrush="#C9FFFFFF" Background="#00000000"  />
 			</StackPanel>
 			<StackPanel Orientation="Horizontal">
 				<Label Content="Data Fim" Margin="0,0,35,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Open Sans" FontSize="20" Foreground="#C9FFFFFF" FontWeight="Light" />
-				<DatePicker x:Name="Fim" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="120" Foreground="#C9FFFFFF" BorderBrush="#C9FFFFFF"/>
+				<DatePicker x:Name="Fim" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="120" Foreground="Black" BorderBrush="#C9FFFFFF"/>
 			</StackPanel>
 			<StackPanel >
 				<Label Content="Status" HorizontalAlignment="Left"  VerticalAlignment="Center" FontFamily="Open Sans" FontSize="20" Foreground="#C9FFFFFF" FontWeight="Light"/>
