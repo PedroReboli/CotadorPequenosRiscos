@@ -18,7 +18,7 @@ namespace Cotador.Core
 		static public void test()
 		{
 			Net Sock = new Net();
-			if (!Sock.Connect("192.168.0.88", 9090))
+			if (!Sock.Connect("192.168.0.10", 9090))
 			{
 				MessageBox.Show("Erro ao conectar");
 			}
