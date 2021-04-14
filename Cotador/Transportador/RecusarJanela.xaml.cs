@@ -110,8 +110,9 @@ namespace Cotador.Transportador
 			Socket.Send(Main.Expectativa_Fechamento.Text);
 			Socket.Send(Main.Premio_Anual.Text);
 			Socket.Send(Main.Assessoria.Text);
-			Socket.Send(Motivo.Text);
 			Socket.Send(Core.Constants.NomeSubscritor);
+			Socket.Send(Motivo.Text);
+			
 		}
 
 		void Nacional(Core.Net Socket)
@@ -128,27 +129,27 @@ namespace Cotador.Transportador
 			Socket.Send(BitConverter.GetBytes(Bits));
 			Socket.Send(nacional.Segurado.Text);
 			Socket.Send(nacional.Ncotacao.Text);
-			Socket.Send(nacional.CNPJ.Text);
+			Socket.Send("");
 			Socket.Send(nacional.Corretor.Text);
-			Socket.Send(nacional.LMG.Text);
-			Socket.Send(nacional.Taxa.Text);
-			Socket.Send(nacional.Importancia_Segurada.Text);
-			Socket.Send(nacional.Sinistros.Text);
-			Socket.Send(nacional.Premio_Minimo.Text);
-			Socket.Send(nacional.Ajustavel_Quantidade_Parcela.Text);
-			Socket.Send(nacional.Fixa_Percentual.Text);
-			Socket.Send(nacional.Fixa_Valor.Text);
-			Socket.Send(nacional.POS1.Text);
-			Socket.Send(nacional.POS2.Text);
-			Socket.Send(nacional.POS3.Text);
-			Socket.Send(nacional.Sub_Limite.Text);
-			Socket.Send("Nada");
-			Socket.Send(nacional.Mercadoria.Text);
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
 			Socket.Send(nacional.Expectativa.Text);
 			Socket.Send(nacional.Assessoria.Text);
 			Socket.Send(nacional.Premio_Anual.Text);
-			Socket.Send(Motivo.Text);
 			Socket.Send(Core.Constants.NomeSubscritor);
+			Socket.Send(Motivo.Text);
 		}
 		
 		void Internacional(Core.Net Socket)
@@ -165,22 +166,22 @@ namespace Cotador.Transportador
 			Socket.Send(BitConverter.GetBytes(Bits));
 			Socket.Send(Inter.Segurado.Text);
 			Socket.Send(Inter.Ncotacao.Text);
-			Socket.Send("");
+			Socket.Send(Inter.CNPJ.Text);
 			Socket.Send(Inter.Corretor.Text);
 			Socket.Send(Inter.Assessoria.Text);
-			Socket.Send("");
-			Socket.Send("");
-			Socket.Send("");
-			Socket.Send("");
-			Socket.Send("");
-			Socket.Send("");
-			Socket.Send("");
+			Socket.Send(Inter.LMG.Text);
+			Socket.Send(Inter.complementar_preliminar.Text);
+			Socket.Send(Inter.Sub_Limite.Text);
+			Socket.Send(Inter.Taxa.Text);
+			Socket.Send(Inter.Importancia_Segurada.Text);
+			Socket.Send(Inter.Sinistros.Text);
+			Socket.Send(Inter.Mercadoria.Text);
 			Socket.Send(Inter.Premio_Anual.Text);
 			Socket.Send(Inter.Expectativa.Text);
-			Socket.Send("");
-			Socket.Send("");
-			Socket.Send("");
-			Socket.Send("");
+			Socket.Send(Inter.Premio_Minimo.Text);
+			Socket.Send(Inter.Ajustavel_Quantidade_Parcela.Text);
+			Socket.Send(Inter.Franquia.Text);
+			Socket.Send("tabela");
 			Socket.Send(Inter.Expectativa.Text);
 			Socket.Send(Motivo.Text);
 			Socket.Send(Core.Constants.NomeSubscritor);
