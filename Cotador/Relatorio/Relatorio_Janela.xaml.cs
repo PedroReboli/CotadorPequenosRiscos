@@ -16,7 +16,8 @@ namespace Cotador.Relatorio
 		public Relatorio_Janela()
 		{
 			InitializeComponent();
-			
+			Inicio.SelectedDate = DateTime.Now;
+			Fim.SelectedDate = DateTime.Now.AddDays(1);
 		}
 		private void GerarExcel(object sender, RoutedEventArgs e)
 		{
@@ -28,6 +29,10 @@ namespace Cotador.Relatorio
 		{
 			Core.Net Socket = Setup();
 			Socket.Send((byte)1);
+			if (((byte[])Socket.Recv())[0] == (byte)1){
+				Caixa_de_Mensagem.Mensagem.Mostar("Error","Não foram econtrada cotações com esse filtro");
+				return;
+			}
 			string Data = (string)Socket.Recv();
 			Clipboard.SetText(Data, TextDataFormat.UnicodeText);
 		}
@@ -60,6 +65,8 @@ namespace Cotador.Relatorio
 				Bits += 1 << 1;
 			if (Corretor.IsChecked == true)
 				Bits += 1 << 2;
+			if (Assessoria.IsChecked == true)
+				Bits += 1 << 3;
 			Socket.Send(Inicio.SelectedDate.Value.Day.ToString());
 			Socket.Send(Inicio.SelectedDate.Value.Month.ToString());
 			Socket.Send(Inicio.SelectedDate.Value.Year.ToString());
@@ -67,6 +74,10 @@ namespace Cotador.Relatorio
 			Socket.Send(Fim.SelectedDate.Value.Month.ToString());
 			Socket.Send(Fim.SelectedDate.Value.Year.ToString());
 			Socket.Send(Bits);
+			Socket.Send(Corretor_Texto.Text);
+			Socket.Send(Assessoria_Texto.Text);
+			Socket.Send(Subscritor_Texto.Text);
+			Socket.Send(NCotacao_Texto.Text);
 			return Socket;
 		}
 

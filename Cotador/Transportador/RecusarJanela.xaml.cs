@@ -70,6 +70,7 @@ namespace Cotador.Transportador
 			{
 				Internacional(Socket);
 			}
+			
 		}
 		void Transportador(Core.Net Socket)
 		{
@@ -110,6 +111,7 @@ namespace Cotador.Transportador
 			Socket.Send(Main.Premio_Anual.Text);
 			Socket.Send(Main.Assessoria.Text);
 			Socket.Send(Motivo.Text);
+			Socket.Send(Core.Constants.NomeSubscritor);
 		}
 
 		void Nacional(Core.Net Socket)
@@ -146,6 +148,7 @@ namespace Cotador.Transportador
 			Socket.Send(nacional.Assessoria.Text);
 			Socket.Send(nacional.Premio_Anual.Text);
 			Socket.Send(Motivo.Text);
+			Socket.Send(Core.Constants.NomeSubscritor);
 		}
 		
 		void Internacional(Core.Net Socket)
@@ -180,6 +183,7 @@ namespace Cotador.Transportador
 			Socket.Send("");
 			Socket.Send(Inter.Expectativa.Text);
 			Socket.Send(Motivo.Text);
+			Socket.Send(Core.Constants.NomeSubscritor);
 		}
 	}
 }

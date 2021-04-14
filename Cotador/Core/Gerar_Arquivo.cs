@@ -322,7 +322,7 @@ namespace Cotador
 			Socket.Send(Main.Expectativa.Text);
 			Socket.Send("");
 			Socket.Send(Core.Constants.NomeSubscritor);
-			Salvar("Salvar Internacional", (Byte[])Socket.Recv(), Main.Corretor.Text, "Internacional");
+			Salvar("Salvar Internacional", (Byte[])Socket.Recv(), Main.Segurado.Text, "Internacional");
 		}
 		private static void Salvar(string Titulo, byte[] Arquivo, string Corretor, string modo)
 		{

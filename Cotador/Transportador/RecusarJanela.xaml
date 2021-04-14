@@ -23,7 +23,29 @@
 	</Window.Background>
 
 	<Grid>
-		<TextBox x:Name="Motivo" HorizontalAlignment="Left" Height="198" Margin="93,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="355" Background="#BFDFF9EC" CaretBrush="Black"/>
+		<ComboBox x:Name="Motivo" HorizontalAlignment="Left" Height="33" Margin="93,68,0,0" VerticalAlignment="Top" Width="355" Background="#BFDFF9EC">
+			<ComboBoxItem>
+				<Label Content="ANTT" />
+			</ComboBoxItem>
+			<ComboBoxItem>
+				<Label Content="SINISTRALIDADE" />
+			</ComboBoxItem>
+			<ComboBoxItem>
+				<Label Content="CONDIÇÕES INADEQUADAS" />
+			</ComboBoxItem>
+			<ComboBoxItem>
+				<Label Content="PRAZO EXÍQUO" />
+			</ComboBoxItem>
+			<ComboBoxItem>
+				<Label Content="POLITICA DE ACEITAÇÃO/FOCO" />
+			</ComboBoxItem>
+			<ComboBoxItem>
+				<Label Content="RESTRIÇÕES FINANCEIRAS" />
+			</ComboBoxItem>
+			<ComboBoxItem>
+				<Label Content="RECUSADA E/OU APRESENTADA PARA OUTRO CORRETOR" />
+			</ComboBoxItem>
+		</ComboBox>
 		<Label Content="Motivo da recusa" HorizontalAlignment="Left" Margin="185,31,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
 		<Button Content="Recusar" Click="EnviarRecusa" HorizontalAlignment="Left" Margin="223,285,0,0" VerticalAlignment="Top" Width="76"/>
 	</Grid>
