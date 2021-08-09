@@ -23,18 +23,23 @@ namespace Cotador.Inicio
         {
             //Core.NetworkTest.test();
             InitializeComponent();
-
+            this.Transportador.IsEnabled = Core.Constants.Transportador();
+            this.Nacional.IsEnabled = Core.Constants.Nacional();
+            this.Internacional.IsEnabled = Core.Constants.Internacional();
+            this.Avulsas.IsEnabled = Core.Constants.Avulsas();
+                
         }
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
 
             Application.Current.Shutdown();
+            
         }
         private void Nacional_Click(object sender, RoutedEventArgs e)
         {
             if (Core.Constants.Nacional()){
-                Nacional.Nacional nacional = new Nacional.Nacional();
+                Nacional.Nacional nacional = new Nacional.Nacional(ConfigNacional);
                 nacional.Show();
 			}
 			else

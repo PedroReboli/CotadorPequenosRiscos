@@ -43,7 +43,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -136,6 +136,7 @@
       <DependentUpon>Tela_Inicial.xaml</DependentUpon>
     </Compile>
     <Compile Include="Nacional\Arquivos.cs" />
+    <Compile Include="Nacional\Coberturas.cs" />
     <Compile Include="Nacional\Excel.cs" />
     <Compile Include="Nacional\Nacional.xaml.cs">
       <DependentUpon>Nacional.xaml</DependentUpon>

@@ -28,6 +28,7 @@ namespace Cotador.Nacional
 			}
 
 		}
+		/*
 		static public string[] Ajustavel
 		{
 			get
@@ -108,5 +109,6 @@ namespace Cotador.Nacional
 				return Ler(Main.path + @"Modelos\Nacional\Textos\DDR\DDR.txt");
 			}
 		}
+		*/
 	}
 }

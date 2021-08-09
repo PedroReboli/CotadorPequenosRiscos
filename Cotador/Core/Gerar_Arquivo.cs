@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Word = Microsoft.Office.Interop.Word;
 using System.Windows.Controls;
 using System.Windows;
 using System.Diagnostics;
@@ -16,10 +15,7 @@ namespace Cotador
 {
 	class Gerar_Arquivo
 	{
-		static public bool visivel = true;
-		static public Word.Application oWord;
-		static public Word.Document oDoc;
-		static public Word.Document objdoc;
+		
 		//static MainWindow Main = new MainWindow();
 		//static Avaria avaria = new Avaria();
 		//static roubo roubo = new roubo();
@@ -41,7 +37,7 @@ namespace Cotador
 			switch (NomeFuncao)
 			{
 				case "Cotador.Nacional.Nacional":
-					Gerar_Nacional();
+					Gerar_Nacional((Nacional.Nacional)isso);
 					break;
 				case "Cotador.MainWindow":
 					Gerar_Transporte((MainWindow)isso);
@@ -51,23 +47,79 @@ namespace Cotador
 
 
 		}
-		static void Gerar_Nacional()
+		static void Gerar_Nacional(Nacional.Nacional Main)
 		{
-			
-			oWord = new Word.Application();
-			oWord.Visible = true;
-			Word.Document nacional;
-			Nacional.Nacional Main = new Nacional.Nacional();
-			foreach (var janela in Application.Current.Windows)
+
+			Core.Net Socket = new Core.Net();
+			if (!Socket.Connect(ServerIP, ServerPort))
 			{
-				if (janela.GetType() == Main.GetType())
-				{
-					Main = (Nacional.Nacional)janela;
-					break;
-				}
+				System.Windows.MessageBox.Show("Erro ao se conectar ao servidor");
+
+				return;
 			}
-			//objdoc = oWord.Documents.Open(Main.path + "Modelos\\Nacional\\" + "Nacional.doc");
-			//Nacional.Gerar_Nacional.Gerar();
+			Socket.Send("48b1067bce36f493c3cf68128070422cbcd8f657dd5f4e337ce44fb407d328235fe49efa7e8702ace9d23b70d1b3e78d8b89292f7aba5914822b6aa132f978a3");
+			if (Socket.Recv().ToString() == "Fail")
+			{
+				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Houve um erro ao mandar comando para o servidor");
+			}
+			string senha = Properties.Settings.Default.Senha;
+			Socket.Send(senha);
+			if (Socket.Recv().ToString() == "Fail")
+			{
+				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "A Senha é invalida");
+			}
+			Socket.Send((byte)00); // Diz que o modo é cotaçao
+			if (Socket.Recv().ToString() == "Fail")
+			{
+				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Modo cotação nao disponivel");
+			}
+			Socket.Send((byte)01); // Diz que o tipo da cotaçao é nacional
+			if (Socket.Recv().ToString() == "Fail")
+			{
+				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Modo cotação nacional nao disponivel");
+			}
+			string Coberturas = Nacional.Coberturas.Gerar_Coberturas(Main);
+			UInt16 Bits = 0; // magica usando bits
+			if (Main.Averbavel.IsChecked == true)
+				Bits += 1 << 0;
+			if (Main.Ajustavel.IsChecked == true)
+				Bits += 1 << 1;
+			if (Main._80.IsChecked == true)
+				Bits += 1 << 2;
+			if (Main._90.IsChecked == true)
+				Bits += 1 << 3;
+			if (Main._100.IsChecked == true)
+				Bits += 1 << 4;
+			if (Main.Chk_DDR.IsChecked == true)
+				Bits += 1 << 7;
+			if (Main.Com_Sublimite.IsChecked == true)
+				Bits += 1 << 8;
+
+			Socket.Send(BitConverter.GetBytes(Bits));
+			Socket.Send(Main.Segurado.Text);
+			Socket.Send(Main.Ncotacao.Text);
+			Socket.Send(Main.CNPJ.Text);
+			Socket.Send(Main.Corretor.Text);
+			Socket.Send(Main.LMG.Text);
+			Socket.Send(Main.Taxa.Text);
+			Socket.Send(Main.Importancia_Segurada.Text);
+			Socket.Send(Main.Sinistros.Text);
+			Socket.Send(Main.Premio_Minimo.Text);
+			Socket.Send(Main.Ajustavel_Quantidade_Parcela.Text);
+			Socket.Send(Main.Fixa_Percentual.Text);
+			Socket.Send(Main.Fixa_Valor.Text);
+			Socket.Send(Main.POS1.Text);
+			Socket.Send(Main.POS2.Text);
+			Socket.Send(Main.POS3.Text);
+			Socket.Send(Main.Sub_Limite.Text);
+			Socket.Send(Coberturas);
+			Socket.Send(Main.Mercadoria.Text);
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			Socket.Send("");
+			byte[] Nacio = (byte[])Socket.Recv();
+			Salvar("Salvar Nacional", Nacio, Main.Segurado.Text, "Nacional");
 
 		}
 		static void Gerar_Transporte(MainWindow isso)
@@ -95,7 +147,7 @@ namespace Cotador
 				
 				return;
 			}
-			Socket.Send("9b0c338545fbfc5f97cb573b13830a90df6eaf63ec50fb144431a3a50d1833df8fc8952d6f19057f1c255491bd73f3ba6a969084174a4e5426679c8a9cbe6403");
+			Socket.Send("48b1067bce36f493c3cf68128070422cbcd8f657dd5f4e337ce44fb407d328235fe49efa7e8702ace9d23b70d1b3e78d8b89292f7aba5914822b6aa132f978a3");
 			if (Socket.Recv().ToString() == "Fail")
 			{
 				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Houve um erro ao mandar comando para o servidor");
@@ -103,7 +155,17 @@ namespace Cotador
 			Socket.Send(senha);
 			if (Socket.Recv().ToString() == "Fail")
 			{
-				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Houve um erro ao mandar senha para o servidor");
+				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "A Senha é invalida");
+			}
+			Socket.Send((byte)00); // Diz que o modo é cotaçao
+			if (Socket.Recv().ToString() == "Fail")
+			{
+				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Modo cotação nao disponivel");
+			}
+			Socket.Send((byte)00); // Diz que o tipo da cotaçao é nacional
+			if (Socket.Recv().ToString() == "Fail")
+			{
+				Caixa_de_Mensagem.Mensagem.Mostar("Erro", "Modo cotação nacional nao disponivel");
 			}
 			byte[] Avaria;
 			byte[] Roubo;
@@ -144,8 +206,8 @@ namespace Cotador
 				Socket.Send(Main.RCTRC.Text);
 				Socket.Send(Main.LMG.Text);
 				Socket.Send((byte)bits);
-
 				Socket.Send(Main.RCFDC.Text);
+
 				if (Socket.Recv().ToString() == "Fail")
 				{
 					Caixa_de_Mensagem.Mensagem.Mostar("Erro", "O numero de cotação esta sendo usado por outro corretor");
@@ -156,7 +218,7 @@ namespace Cotador
 
 				Salvar("Salvar RCTR-C", Avaria, Main.Segurado.Text,"RCTR-C");
 				Salvar("Salvar RCF-DC", Roubo , Main.Segurado.Text, "RCF-DC");
-				Caixa_de_Mensagem.Mensagem.Mostar("Arquivo gerado", "Arquivo foi gerado com sucesso");
+				//Caixa_de_Mensagem.Mensagem.Mostar("Arquivo gerado", "Arquivo foi gerado com sucesso");
 			}
 			else
 			{
@@ -185,9 +247,9 @@ namespace Cotador
 				Socket.Send(Main.LMG.Text);
 				Socket.Send((byte)bits);
 				Socket.Send(Main.RCFDC.Text);
-				/*Socket.Send();
-				Socket.Send();
-				Socket.Send();*/
+				Socket.Send("");
+				Socket.Send("");
+				Socket.Send("");
 				if (Socket.Recv().ToString() == "Fail")
 				{
 					Caixa_de_Mensagem.Mensagem.Mostar("Erro", "O numero de cotação esta sendo usado por outro corretor");
@@ -196,7 +258,7 @@ namespace Cotador
 
 				Avaria = (byte[])Socket.Recv();
 				Salvar("Salvar RCTR-C", Avaria, Main.Segurado.Text, "RCTR-C");
-				Caixa_de_Mensagem.Mensagem.Mostar("Arquivo gerado", "Arquivo foi gerado com sucesso");
+				//Caixa_de_Mensagem.Mensagem.Mostar("Arquivo gerado", "Arquivo foi gerado com sucesso");
 			}
 
 		}

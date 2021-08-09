@@ -36,23 +36,23 @@
 					<materialDesign:PackIcon MouseDown="Fechar" Kind="WindowClose"   Width="30" Height="30" Background="#00000000" Cursor="Hand" />
 				</StackPanel>
 				<Label Content="Segurado" HorizontalAlignment="Left" Margin="49,97,0,0" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold" Foreground="Black" Width="69" Height="24"/>
-				<TextBox TabIndex="2" x:Name="Segurado" HorizontalAlignment="Left" Height="24" Margin="127,97,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"  />
+				<TextBox TabIndex="2" x:Name="Segurado" HorizontalAlignment="Left" Height="25" Margin="127,97,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextOptions.TextFormattingMode="Display" FontSize="14"  />
 				<Label Content="CNPJ" HorizontalAlignment="Left" Margin="76,126,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="24" Width="37" FontWeight="Bold" Foreground="Black"/>
-				<TextBox TabIndex="3" x:Name="CNPJ" HorizontalAlignment="Left" Height="24" Margin="127,126,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"  />
+				<TextBox TabIndex="3" x:Name="CNPJ" HorizontalAlignment="Left" Height="25" Margin="127,126,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextOptions.TextFormattingMode="Display" FontSize="14"  />
 				<Label Content="Corretor" HorizontalAlignment="Left" Margin="59,120,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="24" Width="59" FontWeight="Bold" Foreground="Black" Visibility="Hidden"/>
 				<TextBox TabIndex="5" x:Name="Corretor" HorizontalAlignment="Left" Height="24" Margin="127,120,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display" Visibility="Hidden"  />
 
 				<Label Content="Sinistros" HorizontalAlignment="Left" Margin="61,155,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="24" Width="57" FontWeight="Bold" Foreground="Black"/>
-				<TextBox TabIndex="4" x:Name="Sinistros" HorizontalAlignment="Left" Height="24" Margin="127,155,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"  />
+				<TextBox TabIndex="4" x:Name="Sinistros" HorizontalAlignment="Left" Height="25" Margin="127,155,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextOptions.TextFormattingMode="Display" FontSize="14"  />
 
 				<Label Content="LMG(R$)" HorizontalAlignment="Left" Margin="56,183,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="24" Width="57" FontWeight="Bold" Foreground="Black"/>
-				<TextBox TabIndex="8" x:Name="LMG" HorizontalAlignment="Left" Height="24" Margin="127,183,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
+				<TextBox TabIndex="8" x:Name="LMG" HorizontalAlignment="Left" Height="25" Margin="127,183,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextOptions.TextFormattingMode="Display" FontSize="14"   />
 				<CheckBox x:Name="Main_Desconto" HorizontalAlignment="Left" Margin="39,212,0,0" VerticalAlignment="Top" OpacityMask="White" Background="#FF1ACAF1" BorderBrush="White" Foreground="Black" Height="20" Width="79" Content="Desconto" FontWeight="Bold" Checked="Main_Desconto_Checked" Unchecked="Main_Desconto_Unchecked"/>
 				<CheckBox x:Name="Main_Taxa" HorizontalAlignment="Left" Margin="39,241,0,0" VerticalAlignment="Top" OpacityMask="White" Background="#FF1ACAF1" BorderBrush="White" Foreground="Black" Height="20" Width="79" Content="Taxa" FontWeight="Bold" Checked="Main_Taxa_Checked" Unchecked="Main_Taxa_Unchecked"/>
-				<TextBox x:Name="Desconto" HorizontalAlignment="Left" Height="24" Margin="127,212,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
-				<TextBox x:Name="Taxa_Unica" HorizontalAlignment="Left" Height="24" Margin="127,241,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
+				<TextBox x:Name="Desconto" HorizontalAlignment="Left" Height="25" Margin="127,212,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextOptions.TextFormattingMode="Display" FontSize="14"   />
+				<TextBox x:Name="Taxa_Unica" HorizontalAlignment="Left" Height="25" Margin="127,241,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextOptions.TextFormattingMode="Display" FontSize="14"   />
 				<Label Content="Premio Minimo" HorizontalAlignment="Left" Margin="18,270,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="24" Width="100" FontWeight="Bold" Foreground="Black"/>
-				<TextBox x:Name="Premio_Minimo" HorizontalAlignment="Left" Height="24" Margin="127,270,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
+				<TextBox x:Name="Premio_Minimo" HorizontalAlignment="Left" Height="25" Margin="127,270,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextOptions.TextFormattingMode="Display" FontSize="14"   />
 				<Button Content="Limpar" HorizontalAlignment="Left" Margin="31,472,0,0" VerticalAlignment="Top" Width="87" Background="#FF4A8EA8" Click="Limpar_Click" BorderBrush="{x:Null}" Height="52" FontSize="16"/>
 
 
@@ -69,38 +69,38 @@
 						<CheckBox x:Name="Chk_Avaraia" x:FieldModifier="public" Content="Avarias" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Unchecked="Avaria_Unchecked" Checked="Avaria_Checked" FontWeight="Bold" />
 
 						<Label x:Name="LAB_Avaraia_LMG" Content="Lmg" HorizontalAlignment="Left" Margin="101,30,0,0" VerticalAlignment="Top" Opacity="1" IsEnabled="False" FontWeight="Bold" />
-						<TextBox x:Name="Avaria_LMG" HorizontalAlignment="Left" Height="25" Margin="146,30,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextDecorations="{x:Null}" FontWeight="Light" TextOptions.TextFormattingMode="Display" TextWrapping="WrapWithOverflow"/>
+						<TextBox x:Name="Avaria_LMG" HorizontalAlignment="Left" Height="25" Margin="146,30,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextDecorations="{x:Null}" TextOptions.TextFormattingMode="Display" TextWrapping="WrapWithOverflow" FontSize="14"/>
 						<Label x:Name="LAB_Franquia" Content="Franquia" HorizontalAlignment="Left" Margin="74,60,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-						<TextBox x:Name="Avaria_Fraquia" HorizontalAlignment="Left" Height="25" Margin="146,60,0,0" Text="" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"/>
+						<TextBox x:Name="Avaria_Fraquia" HorizontalAlignment="Left" Height="25" Margin="146,60,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextOptions.TextFormattingMode="Display" FontSize="14"/>
 						<Label x:Name="LAB_FranquiaRS" Content="Franquia(R$)" HorizontalAlignment="Left" Margin="45,89,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-						<TextBox x:Name="Avaria_franquia_RS" HorizontalAlignment="Left" Height="25" Margin="146,89,0,0" Text="" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"/>
+						<TextBox x:Name="Avaria_franquia_RS" HorizontalAlignment="Left" Height="25" Margin="146,89,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextOptions.TextFormattingMode="Display" FontSize="14"/>
 						<Label x:Name="LAB_Taxa" Content="Taxa" HorizontalAlignment="Left" Margin="100,118,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-						<TextBox x:Name="Avaria_Taxa" HorizontalAlignment="Left" Height="25" Margin="146,118,0,0" Text="" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"/>
+						<TextBox x:Name="Avaria_Taxa" HorizontalAlignment="Left" Height="25" Margin="146,118,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextOptions.TextFormattingMode="Display" FontSize="14"/>
 
 						<CheckBox x:Name="Chk_limpeza" Content="Limpeza de pista" HorizontalAlignment="Left" Margin="30,156,0,0" VerticalAlignment="Top" Checked="Limpeza_Checked" Unchecked="Limpeza_Unchecked" FontWeight="Bold" />
 						<Label x:Name="LAB_LDP_LMG" Content="Lmg" HorizontalAlignment="Left" Margin="101,192,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-						<TextBox x:Name="Limpeza_LMG" HorizontalAlignment="Left" Height="25" Margin="146,192,0,0" Text="" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"/>
+						<TextBox x:Name="Limpeza_LMG" HorizontalAlignment="Left" Height="25" Margin="146,192,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextOptions.TextFormattingMode="Display" FontSize="14"/>
 						<Label x:Name="LAB_LDP_Franquia" Content="Franquia" HorizontalAlignment="Left" Margin="74,221,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-						<TextBox x:Name="Limpeza_Franquia" HorizontalAlignment="Left" Height="25" Margin="146,221,0,0" Text="" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"/>
+						<TextBox x:Name="Limpeza_Franquia" HorizontalAlignment="Left" Height="25" Margin="146,221,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextOptions.TextFormattingMode="Display" FontSize="14"/>
 						<Label x:Name="LAB_LDP_FranquiaRS" Content="Franqua(R$)" HorizontalAlignment="Left" Margin="49,250,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-						<TextBox x:Name="Limpeza_FranquiaRS" HorizontalAlignment="Left" Height="25" Margin="146,250,0,0" Text="" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"/>
+						<TextBox x:Name="Limpeza_FranquiaRS" HorizontalAlignment="Left" Height="25" Margin="146,250,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextOptions.TextFormattingMode="Display" FontSize="14"/>
 						<Label x:Name="LAB_LDP_Taxa" Content="Taxa" HorizontalAlignment="Left" Margin="100,279,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-						<TextBox x:Name="Limpeza_Taxa" HorizontalAlignment="Left" Height="25" Margin="146,279,0,0" Text="" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"/>
+						<TextBox x:Name="Limpeza_Taxa" HorizontalAlignment="Left" Height="25" Margin="146,279,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextOptions.TextFormattingMode="Display" FontSize="14"/>
 
 
 
 						<CheckBox x:Name="Chk_Roubo" Content="Roubo" HorizontalAlignment="Left" Margin="30,315,0,0" VerticalAlignment="Top" Checked="Roubo_Checked" Unchecked="Roubo_Unchecked" FontWeight="Bold"/>
 						<Label x:Name="LAB_Taxa_Roubo" Content="Taxa roubo" HorizontalAlignment="Left" Margin="57,365,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-						<TextBox x:Name="Taxa_Roubo" HorizontalAlignment="Left" Height="25" Margin="146,365,0,0" Text="" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"/>
+						<TextBox x:Name="Taxa_Roubo" HorizontalAlignment="Left" Height="25" Margin="146,365,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextOptions.TextFormattingMode="Display" FontSize="14"/>
 						<Label x:Name="LAB_LMG_POS" Content="POS(R$)" HorizontalAlignment="Left" Margin="75,395,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
 						<TextBox x:Name="POS_1" HorizontalAlignment="Left" Height="25" Margin="146,395,0,0" Text="" VerticalAlignment="Top" Width="23" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display" Visibility="Hidden" />
 						<TextBox x:Name="POS_2" HorizontalAlignment="Left" Height="25" Margin="194,395,0,0" Text="" VerticalAlignment="Top" Width="23" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display" Visibility="Hidden"/>
 						<TextBox x:Name="POS_3" HorizontalAlignment="Left" Height="25" Margin="242,395,0,0" Text="" VerticalAlignment="Top" Width="23" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display" Visibility="Hidden"/>
 						<CheckBox x:Name="Chk_Container" Content="Container" HorizontalAlignment="Left" Margin="30,395,0,0" VerticalAlignment="Top"  FontWeight="Bold" Checked="Chk_Container_Checked" Unchecked="Chk_Container_Unchecked"/>
 						<Label x:Name="LAB_Container_LMG"  Height="23" Margin="96,415,172,0" VerticalAlignment="Top" FontWeight="Bold" >LMG</Label>
-						<TextBox x:Name="Lmg_Container" HorizontalAlignment="Left" Height="25" Margin="146,415,0,0" Text="" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Fixed" TextWrapping="Wrap"/>
+						<TextBox x:Name="Lmg_Container" HorizontalAlignment="Left" Height="25" Margin="146,415,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Fixed" TextWrapping="Wrap" FontSize="14"/>
 						<Label x:Name="LAB_N_RCF_DC" Content="N° RCF-DC" HorizontalAlignment="Left" Margin="57,336,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-						<TextBox x:Name="RCFDC" HorizontalAlignment="Left" Height="24" Margin="146,336,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
+						<TextBox x:Name="RCFDC" HorizontalAlignment="Left" Height="25" Margin="146,336,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextOptions.TextFormattingMode="Display" FontSize="14"   />
 					</Grid>
 				</GroupBox>
 				<Button x:Name="Gerar" IsEnabled="True" Content="Gerar" HorizontalAlignment="Left" Margin="130,444,0,0" VerticalAlignment="Top" Width="141" Height="80" Background="#FF44BB38" Click="Gerar_Click" BorderBrush="{x:Null}" FontSize="20"/>
@@ -120,7 +120,7 @@
         </Grid>-->
 				<CheckBox x:Name="Web" Content="Converter Para Web" HorizontalAlignment="Left" Margin="127,305,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="Web_Checked" Unchecked="Web_Unchecked" Visibility="Hidden" />
 				<Label x:Name="LAB_N_RCTR_C" Content="N° RCTR-C" HorizontalAlignment="Left" Margin="45,299,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-				<TextBox x:Name="RCTRC" HorizontalAlignment="Left" Height="24" Margin="127,299,0,0" VerticalAlignment="Top" Width="120" Background="White" CaretBrush="Black" TextOptions.TextFormattingMode="Display"   />
+				<TextBox x:Name="RCTRC" HorizontalAlignment="Left" Height="25" Margin="127,299,0,0" VerticalAlignment="Top" Width="120" Background="Transparent" CaretBrush="Black" TextOptions.TextFormattingMode="Display" FontSize="14"   />
 				<!--<Button Click="taxa_Click" Content="Button" HorizontalAlignment="Left" Height="38" Margin="268,150,0,0" VerticalAlignment="Top" Width="52"/>
 		<Button Click="Button_Click" Content="Copiar" HorizontalAlignment="Left" Margin="268,224,0,0" VerticalAlignment="Top" Width="52" Background="#FF0097FF" BorderBrush="#FF0097FF"/>
 		-->

@@ -15,7 +15,7 @@ namespace Cotador.Nacional
 		static ExcelPackage excel ;
 		static ExcelWorkbook workbook ;
 		static ExcelWorksheet worksheet ;
-		static public void Abrir(string path)
+		/*static public void Abrir(string path)
 		{
 			Nacional Main = new Nacional();
 			foreach (var janela in Application.Current.Windows)
@@ -76,7 +76,7 @@ namespace Cotador.Nacional
 			{
 				return 0;
 			}
-		}
+		}*/
 		
 	}
 }

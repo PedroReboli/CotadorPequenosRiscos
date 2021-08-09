@@ -45,7 +45,7 @@ namespace Cotador
 		{
 			base.OnClosed(e);
 
-			Application.Current.Shutdown();
+			this.Close();
 		}
 		private void RelacaoArquivos_Drop(Object sender , DragEventArgs e)
 		{

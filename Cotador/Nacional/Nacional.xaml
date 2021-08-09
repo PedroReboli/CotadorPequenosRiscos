@@ -8,10 +8,13 @@
 		xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" x:Class="Cotador.Nacional.Nacional"
 		mc:Ignorable="d"
 		AllowsTransparency="True"
-		AllowDrop="False" Title="Nacional"  Height="813.341" Width="865.843" WindowStyle="None" Background="{x:Null}" >
+		AllowDrop="False" Title="Nacional"  Height="813.341" Width="673.843" WindowStyle="None" Background="{x:Null}" >
 
 	<Grid>
-		<Border CornerRadius="20,20,0,0">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Border CornerRadius="20,20,0,0" Margin="0,0,0,0.333">
 			<Border.Background>
 				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
 					<LinearGradientBrush.RelativeTransform>
@@ -28,12 +31,13 @@
 				</LinearGradientBrush>
 			</Border.Background>
 			<Grid>
-				<Border Height="29" VerticalAlignment="Top" Panel.ZIndex="-1" CornerRadius="20,20,0,0" Background="#2BFFFFFF"/>
+
+				<Border MouseDown="Border_MouseDown"  Height="29" VerticalAlignment="Top" Panel.ZIndex="-1" CornerRadius="20,20,0,0" Background="#2BFFFFFF"/>
 
 				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
-					<materialDesign:PackIcon Kind="WindowMinimize" Width="30" Height="30" Margin="0,3,10,0" Background="#00000000" Foreground="Black"/>
+					<materialDesign:PackIcon MouseDown="Minimizar" Kind="WindowMinimize" Width="30" Height="30" Margin="0,3,10,0" Background="#00000000" Foreground="Black"/>
 
-					<materialDesign:PackIcon Kind="Close"   Width="30" Height="30" Background="#00000000" />
+					<materialDesign:PackIcon MouseDown="Fechar" Kind="Close"   Width="30" Height="30" Background="#00000000" />
 				</StackPanel>
 
 				<Rectangle HorizontalAlignment="Left" Height="46" Margin="46,29,0,0" VerticalAlignment="Top" Width="175">
@@ -51,43 +55,67 @@
 					</ListBox.ItemContainerStyle>
 
 				</ListBox>
+				<StackPanel Orientation="Vertical" Margin="67,82,0,0" >
+					<StackPanel Orientation="Horizontal">
+						<Label Content="Segurado" HorizontalAlignment="Left" VerticalAlignment="Top"  FontFamily="Dubai" FontSize="13"/>
+						<TextBox x:Name="Segurado" HorizontalAlignment="Right" Margin="30,0,0,0" Grid.Column="1" Height="28"  Width="120" TextOptions.TextHintingMode="Animated" FontSize="14"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Label Content="NCotaçao" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+						<TextBox x:Name="Ncotacao" HorizontalAlignment="Right" Height="28" Margin="28,0,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontSize="14"/>
+
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Label Content="CNPJ" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+						<TextBox x:Name="CNPJ" HorizontalAlignment="Left" Height="28" Margin="52,0,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontSize="14"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Label Content="Corretor" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+						<TextBox x:Name="Corretor" HorizontalAlignment="Left" Height="28" Margin="36,0,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontSize="14"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Label Content="LMG(R$)" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+						<TextBox x:Name="LMG" HorizontalAlignment="Left" Height="28" Margin="32,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontSize="14"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Label Content="Taxa" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+						<TextBox x:Name="Taxa" HorizontalAlignment="Left" Height="28" Margin="57,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontSize="14"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Label Content="Importancia Segurado" HorizontalAlignment="Left" Margin="-35,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+						<TextBox x:Name="Importancia_Segurada" HorizontalAlignment="Left" Height="28" Margin="35,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontSize="14"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Label Content="Sinistros" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+						<TextBox x:Name="Sinistros" HorizontalAlignment="Left" Height="28" Margin="34,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontSize="14"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<Label Content="Mercadoria" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+						<TextBox x:Name="Mercadoria" HorizontalAlignment="Left" Height="28" Margin="21,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontSize="14"/>
+					</StackPanel>
+
+				</StackPanel>
 				<RadioButton x:Name="Coberturas_basicas" Click="RadioButton_Click" Content="Basicas" HorizontalAlignment="Left" Margin="19,400,0,0" VerticalAlignment="Top" Height="18" IsChecked="True" FontFamily="Dubai"/>
 				<RadioButton x:Name="Coberturas_adicionais" Click="RadioButton_Click" Content="Adicionais" HorizontalAlignment="Left" Margin="19,380,0,0" VerticalAlignment="Top" Height="20" FontFamily="Dubai"/>
 				<RadioButton x:Name="Coberturas_especificas" Click="RadioButton_Click" Content="Especificas" HorizontalAlignment="Left" Margin="19,360,0,0" VerticalAlignment="Top" Height="20" FontFamily="Dubai"/>
-				<Button x:Name="Gerar" Click="Button_Click" Content="Gerar" HorizontalAlignment="Left" Margin="620,256,0,0" VerticalAlignment="Top" Width="240" Height="116" Background="#FF44BB38" BorderBrush="#FF44BB38" FontSize="30" FontFamily="Dubai" FontWeight="Normal"/>
-				<Label Content="Segurado" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="67,82,0,0" FontFamily="Dubai" FontSize="13"/>
-				<TextBox x:Name="Segurado" HorizontalAlignment="Left" Height="22" Margin="154,82,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
-				<Label Content="CNPJ" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="67,144,0,0" FontFamily="Dubai" FontSize="13"/>
-				<TextBox x:Name="CNPJ" HorizontalAlignment="Left" Height="22" Margin="154,144,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
-				<Label Content="Corretor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="67,172,0,0" FontFamily="Dubai" FontSize="13"/>
+				<Button x:Name="Gerar" Click="Button_Click" Content="Gerar" HorizontalAlignment="Left" Margin="383,316,0,0" VerticalAlignment="Top" Width="199" Height="84" Background="#FF44BB38" BorderBrush="#FF44BB38" FontSize="30" FontFamily="Dubai" FontWeight="Normal"/>
 
-				<Label Content="LMG(R$)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="67,202,0,0" FontFamily="Dubai" FontSize="13"/>
-				<Label Content="Taxa" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="67,230,0,0" FontFamily="Dubai" FontSize="13"/>
-				<CheckBox Checked="Ajustavel_Checked" Unchecked="Ajustavel_Checked" x:Name="Ajustavel" Content="Ajustavel" HorizontalAlignment="Left" Margin="352,110,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
-				<CheckBox Checked="Averbavel_Checked" Unchecked="Averbavel_Checked" x:Name="Averbavel" Content="Averbavel" HorizontalAlignment="Left" Margin="352,58,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
-				<Label Content="Importancia Segurado" HorizontalAlignment="Left" Margin="15,260,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
-				<Label x:Name="LAB_Quantidade_De_Parcelas" Content="Quantidade de Parcelas " HorizontalAlignment="Left" Margin="308,132,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
-				<CheckBox Checked="Com_Sublimite_Checked" Unchecked="Com_Sublimite_Checked" x:Name="Com_Sublimite" Content="Com Sublimite" HorizontalAlignment="Left" Margin="605,116,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
-				<Label x:Name="LAB_SubLimite" Content="SubLimite" HorizontalAlignment="Left" Margin="645,138,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
-				<TextBox x:Name="Corretor" HorizontalAlignment="Left" Height="24" Margin="154,172,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
-				<TextBox x:Name="LMG" HorizontalAlignment="Left" Height="22" Margin="154,206,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
-				<TextBox x:Name="Taxa" HorizontalAlignment="Left" Height="24" Margin="154,230,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
-				<TextBox x:Name="Importancia_Segurada" HorizontalAlignment="Left" Height="24" Margin="154,260,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
-				<TextBox x:Name="Ajustavel_Quantidade_Parcela" HorizontalAlignment="Left" Height="22" Margin="455,134,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
-				<TextBox x:Name="Sub_Limite" HorizontalAlignment="Left" Height="22" Margin="728,140,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
-				<Label Content="Sinistros" HorizontalAlignment="Left" Margin="73,288,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
-				<TextBox x:Name="Sinistros" HorizontalAlignment="Left" Height="24" Margin="154,288,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
-				<Label Content="Mercadoria" HorizontalAlignment="Left" Margin="73,316,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
-				<TextBox x:Name="Mercadoria" HorizontalAlignment="Left" Height="24" Margin="154,316,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
-				<Label x:Name="LAB_Premio_Minimo" Content="Premio Minimo" HorizontalAlignment="Left" Margin="351,82,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
-				<TextBox x:Name="Premio_Minimo" HorizontalAlignment="Left" Height="22" Margin="456,82,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
+				<CheckBox Checked="Ajustavel_Checked" Unchecked="Ajustavel_Checked" x:Name="Ajustavel" Content="Ajustavel" HorizontalAlignment="Left" Margin="371,110,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13" IsEnabled="False"/>
+				<CheckBox Checked="Averbavel_Checked" Unchecked="Averbavel_Checked" x:Name="Averbavel" Content="Averbavel" HorizontalAlignment="Left" Margin="371,58,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13" IsEnabled="False"/>
+				<Label x:Name="LAB_Quantidade_De_Parcelas" Content="Quantidade de Parcelas " HorizontalAlignment="Left" Margin="327,132,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<CheckBox Checked="Com_Sublimite_Checked" Unchecked="Com_Sublimite_Checked" x:Name="Com_Sublimite" Content="Com Sublimite" HorizontalAlignment="Left" Margin="371,241,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<Label x:Name="LAB_SubLimite" Content="SubLimite" HorizontalAlignment="Left" Margin="383,268,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<TextBox x:Name="Ajustavel_Quantidade_Parcela" HorizontalAlignment="Left" Height="28" Margin="475,132,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontSize="14"/>
+				<TextBox x:Name="Sub_Limite" HorizontalAlignment="Left" Height="28" Margin="475,268,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontSize="14"/>
+				<Label x:Name="LAB_Premio_Minimo" Content="Premio Minimo" HorizontalAlignment="Left" Margin="370,82,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<TextBox x:Name="Premio_Minimo" HorizontalAlignment="Left" Height="28" Margin="475,82,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontSize="14"/>
 				<!--<Button Click="Test" Content="CARALHO" HorizontalAlignment="Left" Margin="578,336,0,0" VerticalAlignment="Top" Width="101"/>-->
-				<CheckBox x:Name="Chk_DDR" Unchecked="DDR" Checked="DDR" Content="DDR" HorizontalAlignment="Left" Margin="604,90,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
-				<CheckBox x:Name="_80" Content="80%" HorizontalAlignment="Left" Margin="425,182,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
-				<CheckBox x:Name="_90" Content="90%" HorizontalAlignment="Left" Margin="475,182,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
-				<CheckBox x:Name="_100" Content="100%" HorizontalAlignment="Left" Margin="525,182,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
-				<Label x:Name="LAB_Ajustavel_Premio_MInimo" Content="Premio Minimo" HorizontalAlignment="Left" Margin="331,164,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
-				<GroupBox  HorizontalAlignment="Left" Height="186" Margin="331,211,0,0" VerticalAlignment="Top" Width="267">
+				<CheckBox x:Name="Chk_DDR" Unchecked="DDR" Checked="DDR" Content="DDR" HorizontalAlignment="Left" Margin="370,215,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<CheckBox x:Name="_80" Content="80%" HorizontalAlignment="Left" Margin="444,182,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<CheckBox x:Name="_90" Content="90%" HorizontalAlignment="Left" Margin="494,182,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<CheckBox x:Name="_100" Content="100%" HorizontalAlignment="Left" Margin="544,182,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<Label x:Name="LAB_Ajustavel_Premio_MInimo" Content="Premio Minimo" HorizontalAlignment="Left" Margin="350,164,0,0" VerticalAlignment="Top" FontFamily="Dubai" FontSize="13"/>
+				<GroupBox Visibility="Hidden" HorizontalAlignment="Left" Height="186" Margin="331,211,0,0" VerticalAlignment="Top" Width="267">
 					<GroupBox.Header>
 						<Label Foreground="Black" Content="POS" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Margin="109,0"/>
 					</GroupBox.Header>
@@ -103,8 +131,6 @@
 						<TextBox x:Name="POS3" HorizontalAlignment="Left" Height="23" Margin="205,101,0,0" VerticalAlignment="Top" Width="34" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
 					</Grid>
 				</GroupBox>
-				<Label Content="NCotaçao" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="67,116,0,0" FontFamily="Dubai" FontSize="13"/>
-				<TextBox x:Name="Ncotacao" HorizontalAlignment="Left" Height="22" Margin="154,116,0,0" VerticalAlignment="Top" Width="120" TextOptions.TextHintingMode="Animated" FontFamily="Dubai"/>
 
 			</Grid>
 		</Border>

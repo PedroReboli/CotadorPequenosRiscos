@@ -16,11 +16,11 @@ namespace Cotador.Core
 		public const int ServerPort = 9090;
 #endif
 		public static UInt64 Configuracoes = 0;
-
+		public static UInt64 ConfigNacional = 0;
+		public static UInt64 ConfigInternacional = 0;
 		public static bool config(UInt64 Valor,int N)
 		{	
-			// Verifica se o bit do Valor na posiçao N é 1
-			return (Valor & (UInt64)(1 << N)) != 0; //Esse processo esta one line para melhorar perfomance
+			return (Valor & (UInt64)(1 << N)) != 0; 
 		}
 		public static bool Transportador()
 		{
@@ -32,11 +32,11 @@ namespace Cotador.Core
 		}
 		public static bool Internacional()
 		{
-			return config(Configuracoes, 3);
+			return config(Configuracoes, 2);
 		}
 		public static bool Avulsas()
 		{
-			return config(Configuracoes, 2);
+			return config(Configuracoes, 3);
 		}
 		
 	}

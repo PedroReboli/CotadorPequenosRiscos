@@ -26,7 +26,7 @@ namespace Cotador.Tela_Senha
 			{
 				if (conectar(senha))
 				{
-					MainWindow w = new MainWindow();
+					Inicio.Tela_Inicial w = new Inicio.Tela_Inicial();
 					w.Show();
 					this.Close();
 				}
@@ -42,7 +42,7 @@ namespace Cotador.Tela_Senha
 			{
 				Properties.Settings.Default.Senha = TXT_Senha.Text;
 				Properties.Settings.Default.Save();
-				MainWindow w = new MainWindow();
+				Inicio.Tela_Inicial w = new Inicio.Tela_Inicial();
 				w.Show();
 				this.Close();
 			}
@@ -57,7 +57,7 @@ namespace Cotador.Tela_Senha
 				messa.Show();
 				return false;
 			}
-			Socket.Send("ff3f8941ebc34d9b01dfd24ea10efcde99fa151a397216a40b335f11f59e47627f1dc5bb45e0ecccf3c64d2f7957a11042b82b57f447c2bdbd155eebd59b65a2");
+			Socket.Send("28cf0c53674223efb014fa74952e66827fe00f931da1aa03bcc46f6593241c98db95fec94bd656f4398638f057dc3852f2af49a999051798a40173ed3e8e8000");
 			string resultado = Socket.Recv().ToString();
 			if (resultado == "OK")
 			{
@@ -65,11 +65,12 @@ namespace Cotador.Tela_Senha
 				resultado = Socket.Recv().ToString();
 				if (resultado == "OK")
 				{
-					//Criar outra janela e fechar a atual
-					Configuracoes = BitConverter.ToUInt64((byte[])(Socket.Recv()),0);
-					Socket.Send((byte)0);
+					//Recebe Configuraçoes
+					Configuracoes = BitConverter.ToUInt64((byte[])(Socket.Recv()), 0);
+					ConfigNacional = BitConverter.ToUInt64((byte[])(Socket.Recv()), 0);
+					ConfigInternacional = BitConverter.ToUInt64((byte[])(Socket.Recv()), 0);
 					return true;
-					
+
 				}
 				else
 				{

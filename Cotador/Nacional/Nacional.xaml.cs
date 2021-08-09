@@ -21,25 +21,17 @@ namespace Cotador.Nacional
 	/// </summary>
 	public partial class Nacional : Window
 	{
-		UInt64 Menu = 0;
+		UInt64 _menu = 0;
 		UInt64 Cobertura = 0;
 		public void Iniciar()
 		{
 			Coberturas.Items.Clear();
 			Basicas();
-			
-			if (config(Menu, 0)) 
-				Averbavel.IsEnabled = false;
-			if (config(Menu, 1))
-				Ajustavel.IsEnabled = false;
-			if (config(Menu, 2))
-				CHK_Fixa.IsEnabled = false;
-			if (config(Menu, 3))
-				Escalonda.IsEnabled = false;
-			if (config(Menu, 4))
-				Chk_DDR.IsEnabled = false;
-			if (config(Menu, 5))
-				Com_Sublimite.IsEnabled = false;
+			if (config(_menu, 0)) 
+				Averbavel.IsEnabled = true;
+			if (config(_menu, 1))
+				Ajustavel.IsEnabled = true;
+
 			POS1.Visibility = Visibility.Hidden;
 			POS2.Visibility = Visibility.Hidden;
 			POS3.Visibility = Visibility.Hidden;
@@ -232,71 +224,30 @@ namespace Cotador.Nacional
 			Coberturas.Items.Add(E14);
 		}
 		public string path;
-		public Nacional()
+		public Nacional(UInt64 Menu)
 		{
-
+			_menu = ConfigNacional;
 			InitializeComponent();
 			Especificas();
 			Basicas();
 			Iniciar();
 			
 		}
-		private bool conectar(string senha)
-		{
-			Core.Net Socket = new Core.Net();
-			if (!Socket.Connect(ServerIP, ServerPort))
-			{
-				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Erro", "Erro ao se conectar ao servidor");
-				messa.Show();
-				return false;
-			}
-			Socket.Send("ff3f8941ebc34d9b01dfd24ea10efcde99fa151a397216a40b335f11f59e47627f1dc5bb45e0ecccf3c64d2f7957a11042b82b57f447c2bdbd155eebd59b65a2");
-			string Resultado = Socket.Recv().ToString();
-			if (Resultado == "OK")
-			{
-				Socket.Send(senha);
-				Resultado = Socket.Recv().ToString();
-				if (Resultado == "OK")
-				{
-					//Criar outra janela e fechar a atual
-					Configuracoes = BitConverter.ToUInt64((byte[])(Socket.Recv()), 0);
-					Socket.Send((byte)1);
-					Menu = BitConverter.ToUInt64((byte[])(Socket.Recv()), 0);
-					Cobertura = BitConverter.ToUInt64((byte[])(Socket.Recv()), 0);
-					return true;
 
-				}
-				else
-				{
-					//Erro.Visibility = Visibility.Visible;
-					Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Erro", "A senha é invalida");
-					messa.Show();
-					return false;
-				}
-
-			}
-			else
-			{
-				//Erro.Visibility = Visibility.Visible;
-				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Erro", "Houve um erro no servidor");
-				messa.Show();
-				return false;
-			}
-
-		}
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
 			try
 			{
 				Gerar_Arquivo.gerar(this);
-				Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Arquivo gerado", "Arquivo foi gerado com sucesso");
-				messa.Show();
+				//Caixa_de_Mensagem.mensagem messa = new Caixa_de_Mensagem.mensagem("Arquivo gerado", "Arquivo foi gerado com sucesso");
+				//messa.Show();
 			}
-			catch(Exception f)
+			catch(Exception ex)
 			{
-				System.IO.File.WriteAllText(Directory.GetCurrentDirectory() + @"\Debug.txt", f.Message);
+				MessageBox.Show($"erro {ex.Message}");
+				//System.IO.File.WriteAllText(Directory.GetCurrentDirectory() + @"\Debug.txt", f.Message);
 
-				MessageBox.Show($"Houve um erro em gerar o arquivo\nUm relatorio de erros foi salvo em\n{Directory.GetCurrentDirectory() + @"\Debug.txt"}");
+				//MessageBox.Show($"Houve um erro em gerar o arquivo\nUm relatorio de erros foi salvo em\n{Directory.GetCurrentDirectory() + @"\Debug.txt"}");
 				//messa.Show();
 			}
 			
@@ -409,20 +360,6 @@ namespace Cotador.Nacional
 			//MessageBox.Show(Gerar_Nacional.Coberturas());
 		}
 
-		private void check_Click(object sender, RoutedEventArgs e)
-		{
-			OpenFileDialog openFileDialog1 = new OpenFileDialog();
-			openFileDialog1.Filter = "check.txt|check.txt";
-			openFileDialog1.Title = "Procurar pelo arquivo check.txt";
-			var x = openFileDialog1.ShowDialog();
-			if (x == true)
-			{
-				this.Gerar.IsEnabled = true;
-				path = openFileDialog1.FileName.Replace("Check.txt", "");
-				Properties.Settings.Default.path = path;
-				Properties.Settings.Default.Save();
-			}
-		}
 		long total = DateTime.Now.Ticks;
 		private void DDR(object sender, RoutedEventArgs e)
 		{
@@ -454,64 +391,83 @@ namespace Cotador.Nacional
 
 		private void Averbavel_Checked(object sender, RoutedEventArgs e)
 		{
-			if (Averbavel.IsChecked == true)
-			{
-				Ajustavel.IsChecked = false;
-				LAB_Premio_Minimo.Visibility = Visibility.Visible;
-				Premio_Minimo.Visibility = Visibility.Visible;
+			
+				if (Averbavel.IsChecked == true)
+				{
+					if (config(_menu, 0))
+					{
+						Ajustavel.IsChecked = false;
+						LAB_Premio_Minimo.Visibility = Visibility.Visible;
+						Premio_Minimo.Visibility = Visibility.Visible;
 
-				LAB_Ajustavel_Premio_MInimo.Visibility = Visibility.Hidden;
-				LAB_Quantidade_De_Parcelas.Visibility = Visibility.Hidden;
-				Ajustavel_Quantidade_Parcela.Visibility = Visibility.Hidden;
-				_80.Visibility = Visibility.Hidden;
-				_90.Visibility = Visibility.Hidden;
-				_100.Visibility = Visibility.Hidden;
+						LAB_Ajustavel_Premio_MInimo.Visibility = Visibility.Hidden;
+						LAB_Quantidade_De_Parcelas.Visibility = Visibility.Hidden;
+						Ajustavel_Quantidade_Parcela.Visibility = Visibility.Hidden;
+						_80.Visibility = Visibility.Hidden;
+						_90.Visibility = Visibility.Hidden;
+						_100.Visibility = Visibility.Hidden;
+					}
 
-			}
-			else
-			{
-				Ajustavel.IsChecked = true;
-				LAB_Premio_Minimo.Visibility = Visibility.Hidden;
-				Premio_Minimo.Visibility = Visibility.Hidden;
-
-				LAB_Ajustavel_Premio_MInimo.Visibility = Visibility.Visible;
-				LAB_Quantidade_De_Parcelas.Visibility = Visibility.Visible;
-				Ajustavel_Quantidade_Parcela.Visibility = Visibility.Visible;
-				_80.Visibility = Visibility.Visible;
-				_90.Visibility = Visibility.Visible;
-				_100.Visibility = Visibility.Visible;
-			}
+				}
+				else
+				{
+					
+						
+						LAB_Premio_Minimo.Visibility = Visibility.Hidden;
+						Premio_Minimo.Visibility = Visibility.Hidden;
+					if (config(_menu, 1))
+					{
+						Ajustavel.IsChecked = true;
+						LAB_Ajustavel_Premio_MInimo.Visibility = Visibility.Visible;
+						LAB_Quantidade_De_Parcelas.Visibility = Visibility.Visible;
+						Ajustavel_Quantidade_Parcela.Visibility = Visibility.Visible;
+						_80.Visibility = Visibility.Visible;
+						_90.Visibility = Visibility.Visible;
+						_100.Visibility = Visibility.Visible;
+					}
+					
+				}
+			
+			
 		}
 
 		private void Ajustavel_Checked(object sender, RoutedEventArgs e)
 		{
-			if (Ajustavel.IsChecked == false)
-			{
-				Averbavel.IsChecked = true;
-				LAB_Premio_Minimo.Visibility = Visibility.Visible;
-				Premio_Minimo.Visibility = Visibility.Visible;
+			
+				if (Ajustavel.IsChecked == false)
+				{
+					if (config(_menu, 1))
+					{
+						Averbavel.IsChecked = true;
+						LAB_Premio_Minimo.Visibility = Visibility.Visible;
+						Premio_Minimo.Visibility = Visibility.Visible;
+				
+						LAB_Quantidade_De_Parcelas.Visibility = Visibility.Hidden;
+						Ajustavel_Quantidade_Parcela.Visibility = Visibility.Hidden;
+						LAB_Ajustavel_Premio_MInimo.Visibility = Visibility.Hidden;
+						_80.Visibility = Visibility.Hidden;
+						_90.Visibility = Visibility.Hidden;
+						_100.Visibility = Visibility.Hidden;
+					}
+				}
+				else
+				{
 
-				LAB_Quantidade_De_Parcelas.Visibility = Visibility.Hidden;
-				Ajustavel_Quantidade_Parcela.Visibility = Visibility.Hidden;
-				LAB_Ajustavel_Premio_MInimo.Visibility = Visibility.Hidden;
-				_80.Visibility = Visibility.Hidden;
-				_90.Visibility = Visibility.Hidden;
-				_100.Visibility = Visibility.Hidden;
-
-			}
-			else
-			{
-				Averbavel.IsChecked = false;
-				LAB_Premio_Minimo.Visibility = Visibility.Hidden;
-				Premio_Minimo.Visibility = Visibility.Hidden;
-
-				LAB_Ajustavel_Premio_MInimo.Visibility = Visibility.Visible;
-				LAB_Quantidade_De_Parcelas.Visibility = Visibility.Visible;
-				Ajustavel_Quantidade_Parcela.Visibility = Visibility.Visible;
-				_80.Visibility = Visibility.Visible;
-				_90.Visibility = Visibility.Visible;
-				_100.Visibility = Visibility.Visible;
-			}
+					if (config(_menu, 1))
+					{
+						LAB_Premio_Minimo.Visibility = Visibility.Hidden;
+						Premio_Minimo.Visibility = Visibility.Hidden;
+					
+						Averbavel.IsChecked = false;
+						LAB_Ajustavel_Premio_MInimo.Visibility = Visibility.Visible;
+						LAB_Quantidade_De_Parcelas.Visibility = Visibility.Visible;
+						Ajustavel_Quantidade_Parcela.Visibility = Visibility.Visible;
+						_80.Visibility = Visibility.Visible;
+						_90.Visibility = Visibility.Visible;
+						_100.Visibility = Visibility.Visible;
+					}
+				}
+			
 		}
 
 		private void CHK_Fixa_Checked(object sender, RoutedEventArgs e)
@@ -606,13 +562,27 @@ namespace Cotador.Nacional
 				try
 				{
 					LoopVisualTree(this);
-					Excel.Abrir(fileName[0]);
+					//Excel.Abrir(fileName[0]);
 				}
 				catch(Exception f)
 				{
 					MessageBox.Show($"Houve um erro na hora de importar o arquivo Excel\n{f}");
 				}
 			}
+		}
+
+		private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+			DragMove();
+		}
+		private void Minimizar(object sender, MouseButtonEventArgs e)
+		{
+			this.WindowState = WindowState.Minimized;
+		}
+
+		private void Fechar(object sender, MouseButtonEventArgs e)
+		{
+			this.Close();
 		}
 	}
 }
